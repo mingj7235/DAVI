@@ -88,14 +88,14 @@
 											<c:set var="replyNumber" value="1" />
 											<c:set var="replyLevel" value="1" />
 											<!-- 반복문으로 댓글 뿌리기 -->
-											<c:forEach var="replyArr" items="">
+											<%-- <c:forEach var="replyArr" items=""> --%>
 												<article class="replyArti">
 													<div class="row">
 														<div  class="col-10">	
 															<div>															
 																<textarea name="readReply" class="replycontent" readonly>
-	첫번째 댓글
-	내용내용
+첫번째 댓글
+내용내용
 																</textarea>
 															</div>																						
 														</div>											
@@ -122,7 +122,7 @@
 														</div>										
 													</article>
 												</article>
-											</c:forEach>
+											<%-- </c:forEach> --%>
 											<!-- 여기까지 1번째댓글 -->	
 											<article class="replyArti">
 												<div class="row">

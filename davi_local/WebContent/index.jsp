@@ -372,6 +372,9 @@
 						<c:import url="/app/footer/footer_index.jsp" />
 					</div>
 			</div>
+					<div>
+						<c:import url="/app/footer/footer_test.jsp"/>
+					</div>
 
 		<!-- Scripts -->
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>

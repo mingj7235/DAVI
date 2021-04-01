@@ -6,11 +6,14 @@
 
 function summernoteStart() {
 	$('#summernote').summernote({		  
-		  height: '400',                 // 에디터 높이				  
-		  minHeight: 200,             // 최소 높이
-		  maxHeight: 500,             // 최대 높이				  
+		  //height: 400,                 // 에디터 높이				  
+		  minHeight: 400,             // 최소 높이
+		  //maxHeight: 500,             // 최대 높이				  
 		  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
 		  lang: "ko-KR",					// 한글 설정
+		  //disableResize: true,            // Does not work
+		  //disableResizeEditor: true,      // Does not work either
+		  //resize: false ,                  // Does not work either
 		  placeholder: '최대 2048자까지 쓸 수 있습니다',	//placeholder 설정				  
 		  toolbar: [
 			    //[groupName, [list of button]],
@@ -28,15 +31,18 @@ function summernoteStart() {
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
         
 	 });
+	$('.note-statusbar').hide()
 }
 
 function summernoteView() {
 	$('#summernote').summernote({		
-		  height: '100%',                 // 에디터 높이	  
-		  minHeight: 200,             // 최소 높이
-		  maxHeight: 500,             // 최대 높이
+		  //height: '100%',                 // 에디터 높이	  
+		  minHeight: 300,             // 최소 높이
+		  //maxHeight: 500,             // 최대 높이
+		  //disableResizeEditor: true,      // Does not work either
 		  lang: "ko-KR",					// 한글 설정		  				  
 		  toolbar: [ ]       
 	 });	
+	$('.note-statusbar').hide()
 }
 

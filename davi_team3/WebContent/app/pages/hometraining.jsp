@@ -226,7 +226,7 @@
 			/*bar*/
 			#pagination-wrap{
 			  min-width:20px;
-			  margin-top: 165px;
+			  margin-top: 170px;
 			  margin-left: auto; 
 			  margin-right: auto;
 			  height:15px;
@@ -263,7 +263,7 @@
 			/*Header*/
 			h1, h2{text-shadow:none; text-align:center;}
 			h1{ color: #666; text-transform:uppercase;  font-size:36px;}
-			h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18mpx; margin-bottom:30px;} 
+			h2{ color: #7f8c8d; font-family: Neucha, Arial, sans serif; font-size:18px; margin-bottom:30px;} 
 			
 			/*ANIMATION*/
 			#slider-wrap ul, #pagination-wrap ul li{
@@ -343,21 +343,32 @@
 										<img class="thumbnail_images" src="https://i.ytimg.com/vi/2Uv1B3kjCOI/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCjHUx-YwnUHULAZzAw77daLoVvzg">
 										             </a>
 										             </li>
+										             
 										             <li>
 										<img class="thumbnail_images" src="https://i.ytimg.com/vi/M-tD4VhczYA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDSHofPUtcjxJLnWqYTe8dXYiZATg">
 										             </li>
+										             
 										             <li>
-										               <!--  <div>
+										                <div>
 										                    <h3>Slide #3</h3>
 										                    <span>Sub-title #3</span>
-										                </div> -->
+										                </div>
 										<img class="thumbnail_images" src="https://i.ytimg.com/vi/M0qtCqwVskU/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCMDnQFfLq2L9NErhWcaBqOPDjudA">
 										             </li>
+										             
 										             <li>
+										                <div>
+										                    <h3>Slide #4</h3>
+										                    <span>Sub-title #4</span>
+										                </div>
 										<img class="thumbnail_images" src="https://i.ytimg.com/vi/UYHfk45Yi2c/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCha0vWRbibrVG6R70YFcJOv7hC6Q">
 										             </li>
 										             
 										             <li>
+										                <div>
+										                    <h3>Slide #5</h3>
+										                    <span>Sub-title #5</span>
+										                </div>
 										<img class="thumbnail_images" src="https://i.ytimg.com/vi/t70t-sklypk/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAdeJlLhQ_T-yBCNrbldHBjg3lTAA">
 										             </li>
 										             
@@ -374,8 +385,10 @@
 										            </ul>
 										          </div>
 										          <!--controls-->  
+										                 
 										      </div>
-										   </div> <!--  -->
+										  
+										   </div>
 										</div>
 									</div>
 									<div class="main_div_frame">
@@ -441,10 +454,11 @@
 								</section>
 							<!-- top button -->
 							
-							
 							<div style="position: fixed; bottom: 20px; right:20px; border: 0.1px solid #ffe7ff;">
 								<a id="to_top" href="#home" style="font-size:1em; padding: 10px;">위로가기</a>
 							</div>
+							
+							
 							
 						</div>
 					</div>
@@ -565,11 +579,6 @@
 			  $('#pagination-wrap ul li').removeClass('active');
 			  $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
 			}
-			
-			/* 홈 버 */
-			
-
-			
 				
 		</script>
 	</body>

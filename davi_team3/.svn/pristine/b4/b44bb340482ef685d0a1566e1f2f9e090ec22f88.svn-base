@@ -15,7 +15,7 @@ ul, li {
   margin: 0;
   padding: 0;
   list-style: none;
-  float:left;
+  float:right;
 }
 
 #main-menu > li {
@@ -78,27 +78,28 @@ ul, li {
          </div>
          
          <div class="col-8" style="display: flex; justify-content:flex-end;">            
-            <ul class="myMenu">
+            <ul class="myMenu" style="margin-right:7%;">
                               
                
                <!-- 세션의 아이디로그인 정보를 이용하여 if문의 조건 검색 -->
                <c:set var="check" value="2" />
                <c:if test="${check eq 1}">               
                   <li><a href="#">로그인</a>&nbsp;</li>
+                  
                   <li><a href="#" >회원가입</a></li>
                </c:if>
                <c:if test="${check eq 2}">
-                  <li style="margin-top:5%;">(#)님 환영합니다.&nbsp;</li>                        
-              <ul id="main-menu" style="width:22%; ">
+              <ul id="main-menu" style="width:22%; margin-top:3%;">
                 <li><a href=" "><img src="${pageContext.request.contextPath}/images/myPage.png" style="width:100%;"></a>
                <ul id="sub-menu">
-                    <li><a href="#" aria-label="subemnu">정보 수정</a></li>
-                    <li><a href="#" aria-label="subemnu">비밀번호 변경</a></li>
-                 <li><a href="#" aria-label="subemnu">나의 식단관리 </a></li>
+                    <li><a href="#" style="text-decoration:none;" aria-label="subemnu">&nbsp;&nbsp;&nbsp;&nbsp;정보 수정&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                    <li><a href="#" style="text-decoration:none;" aria-label="subemnu">비밀번호 변경</a></li>
+                 <li><a href="#"  style="text-decoration:none;" aria-label="subemnu">나의 식단관리 </a></li>
                </ul>
              </li>
              </ul>
-               <li style="margin-top:5%;"><a href="#">로그아웃</a>&nbsp;</li>
+               	  <li style="margin-top:5%;"><a href="#">로그아웃</a>&nbsp;</li>
+                  <li style="margin-top:5%;">(#)님 환영합니다.&nbsp;</li>                        
                </c:if>
              </ul>      
          </div>
