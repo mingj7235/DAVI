@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
 	footer {
 		display: block;
@@ -104,9 +105,35 @@
 	
 	ul {
 		list-style: none;
+		padding-left: 0;
 	}
 	
+	li {
+		padding-left: 0;
+	}
 	
+	ul li {
+		padding-left: 0;
+	}
+	
+	ul.contact-icons li {
+	    min-height: 2.4em;
+	    padding-left: 3.5em;
+	    margin-bottom: 1.5em;
+	}
+	
+	ul.contact-icons li:before {
+	    border-radius: 100%;
+	    border: solid 1px;
+	    font-size: 1em;
+	    height: 2.4em;
+	    left: 0;
+	    line-height: 2.4em;
+	    position: absolute;
+	    text-align: center;
+	    top: -0.25em;
+	    width: 2.4em;
+	}
 
 </style>
 </head>
