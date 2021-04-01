@@ -78,7 +78,32 @@
 	
 	#footer .info .team {
 		width: 50%;
-		padding-left: 3.2em
+		padding-left: 2.7em
+	}
+	
+	#footer .contact {
+	    padding: 4.5em 3.25em 2.5em 3.25em;
+	    -moz-flex-shrink: 0;
+	    -webkit-flex-shrink: 0;
+	    -ms-flex-shrink: 0;
+	    flex-shrink: 0;
+	    border-left: solid 1px rgba(144, 144, 144, 0.25);
+	    width: 33.33333%;
+	}
+	
+	ul.contact-icons li {
+	    min-height: 2.4em;
+	    margin-bottom: 1.5em;
+	}
+	
+	.icon {
+	    text-decoration: none;
+	    border-bottom: none;
+	    position: relative;
+	}
+	
+	ul {
+		list-style: none;
 	}
 	
 	
