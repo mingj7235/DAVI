@@ -83,7 +83,7 @@
 	}
 	
 	#footer .contact {
-	    padding: 4.5em 3.25em 2.5em 3.25em;
+	    padding: 0 0 2.5em 3.25em;
 	    -moz-flex-shrink: 0;
 	    -webkit-flex-shrink: 0;
 	    -ms-flex-shrink: 0;
@@ -133,6 +133,11 @@
 	    text-align: center;
 	    top: -0.25em;
 	    width: 2.4em;
+	}
+	
+	.copyright {
+		text-align: center;
+		margin-bottom: 10px;
 	}
 
 </style>
