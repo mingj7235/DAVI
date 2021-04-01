@@ -9,7 +9,7 @@
 	footer {
 		display: block;
 		margin: 0;
-		padding: 0;
+		padding: 0 4em 0.1em 4em;
 		border: 0;
 		font-size: 100%;
 		font: inherit;
@@ -18,18 +18,70 @@
 	#footer > .inner {
 		display: flex;
 		margin: 0 auto;
+		max-width: 110em;
+		padding : 4% 10% 4% 6%;
+		
 	}
 	
 	#footer .info {
 		display : flex;
 		flex : 1;
 		flex-wrap: wrap;
+		margin: 0 10px;
+		padding : 0 10px;	
 	}
 	
 	section {
 		display: block;
 	}
-
+	
+	#footer .info .team .image img {
+		border-radius: 100%;
+	}
+	
+	.image img {
+		display: block;
+		width : 80px;
+		height: 80px;
+	}
+	
+	#footer .info .team .image {
+		border-radius: 100%;
+		margin-bottom: 2em;
+		margin-right: 1.5em;
+	}
+	
+	.info_box {
+		display: flex;
+		justify-content: center;
+		
+	}
+	
+	#footer .info .team article {
+		display: flex;
+		align-items: center;
+	}
+	
+	#footer .info .about {
+		width : 50%;
+	}
+	
+	p {
+		margin : 0 0 2em 0;
+	}
+	
+	@media screen and (max-width: 1280px) {
+		#footer .info .team {
+    		padding-left: 2.25em;
+		}
+	}
+	
+	#footer .info .team {
+		width: 50%;
+		padding-left: 3.2em
+	}
+	
+	
 
 </style>
 </head>
@@ -38,34 +90,36 @@
 		<div class="inner">
 			<section class="info">
 				<h3>About Us</h3>
-				<div class="about">
-					<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur malesuada.</p><p>Sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis.</p>
-					<ul class="actions">
-						<li><a href="#" class="button">Learn More</a></li>
-					</ul>
-				</div>
-				<div class="team">
-					<article>
-						<span class="image"><img src="images/pic06.jpg" alt=""></span>
-						<p>
-							<strong class="name">John Doe</strong>
-							<span class="title">Lorem semper magna etiam</span>
-						</p>
-					</article>
-					<article>
-						<span class="image"><img src="images/pic07.jpg" alt=""></span>
-						<p>
-							<strong class="name">Jane Anderson</strong>
-							<span class="title">Etiam feugiat adipiscing veroeros</span>
-						</p>
-					</article>
-					<article>
-						<span class="image"><img src="images/pic08.jpg" alt=""></span>
-						<p>
-							<strong class="name">Mike Smith</strong>
-							<span class="title">Consequat nulla dolor blandit</span>
-						</p>
-					</article>
+					<div class="info_box">
+						<div class="about">
+							<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur malesuada.</p><p>Sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis.</p>
+							<ul class="actions">
+								<li><a href="#" class="button">Learn More</a></li>
+							</ul>
+						</div>
+						<div class="team">
+							<article>
+								<span class="image"><img src="images/pic06.jpg" alt=""></span>
+								<p>
+									<strong class="name">John Doe</strong>
+									<span class="title">Lorem semper magna etiam</span>
+								</p>
+							</article>
+							<article>
+								<span class="image"><img src="images/pic07.jpg" alt=""></span>
+								<p>
+									<strong class="name">Jane Anderson</strong>
+									<span class="title">Etiam feugiat adipiscing veroeros</span>
+								</p>
+							</article>
+							<article>
+								<span class="image"><img src="images/pic08.jpg" alt=""></span>
+								<p>
+									<strong class="name">Mike Smith</strong>
+									<span class="title">Consequat nulla dolor blandit</span>
+								</p>
+							</article>
+						</div>
 				</div>
 			</section>
 			<section class="contact">
