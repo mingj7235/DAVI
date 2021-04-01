@@ -120,6 +120,7 @@
 	    min-height: 2.4em;
 	    padding-left: 3.5em;
 	    margin-bottom: 1.5em;
+	    color : #0072C3;
 	}
 	
 	ul.contact-icons li:before {

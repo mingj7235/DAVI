@@ -76,17 +76,31 @@
 											</div>
 											<div class="row" style="margin-top:5px;">
 												<div class="col-4">
-													<i class="far fa-gem fa-lg" style="cursor: pointer; color : #ffaec9" onclick="changeDiamond()"></i>
+													<i class="far fa-gem fa-lg" style="cursor: pointer; color : #0072c3;padding-top: 10px" onclick="changeDiamond()"></i>
 													<i class="" style="display: none;"></i>													
 												</div>											
 												<div class="col-8" style="margin: 10px 0px; text-align: right;">													
-												<a href="javascript:enable()" style="margin-right: 10px;">수정하기</a>								
-												<a href="#">글 삭제</a>													
-												<a href="javascript:freeBoardViewForm.submit()">수정완료</a>
+												<a href="javascript:enable()" style="margin-right: 10px;" class="button small">수정하기</a>								
+												<a href="#" class="button small">글 삭제</a>													
+												<a href="javascript:freeBoardViewForm.submit()" class="button small">수정완료</a>
 												</div>									
 											</div>
 											<c:set var="replyNumber" value="1" />
 											<c:set var="replyLevel" value="1" />
+										</form>
+											<article class="replyArti" style="margin-bottom: 10px; ">
+												<h5 style="margin-top:20px">새댓글 작성</h5>	
+												<div class="row" style="margin-top:5px">
+													<div class="col-10">
+														<textarea name="writeReply" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
+													</div>
+													<div class="col-2" style="margin-top:30px;">
+														<c:if test="${true}">
+															<a href="javascript:replyOk(${bulletinNum}, ${replyLevel})" class="button small">입력하기</a>
+														</c:if>											
+													</div>											
+												</div>										
+											</article>
 											<!-- 반복문으로 댓글 뿌리기 -->
 											<%-- <c:forEach var="replyArr" items=""> --%>
 												<article class="replyArti">
@@ -100,10 +114,10 @@
 															</div>																						
 														</div>											
 														<div class="col-2" style="margin-top:15px;">														
-															<a href="#" >수정하기</a><br>
-															<a href="#" >삭제하기</a><br>
+															<a href="#" class="button small">수정하기</a><br>
+															<a href="#" class="button small">삭제하기</a><br>
 															
-															<a href="javascript:replyAnswer(${replyNumber}, ${replyLevel})" >답변하기</a><br>
+															<a href="javascript:replyAnswer(${replyNumber}, ${replyLevel})" class="button small">답변하기</a><br>
 														</div>												
 													</div>
 													<article id="replyAnswer${replyNumber}" class="replyArti" style="display: none;">
@@ -116,7 +130,7 @@
 															</div>
 															<div class="col-2" style="margin-top:30px;">
 																<c:if test="${true}">
-																	<a href="#" >입력하기</a>
+																	<a href="#" class="button small">입력하기</a>
 																</c:if>											
 															</div>											
 														</div>										
@@ -133,9 +147,6 @@
 내용용
 내용용
 내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용
-내용용
-내용용
-내용용
 내용용
 내용용
 내용용
@@ -165,22 +176,7 @@
 														</div>											
 													</div>										
 												</article>
-											</article>													
-											<article class="replyArti">
-												<h5 style="margin-top:20px">댓글 작성</h5>	
-												<div class="row" style="margin-top:5px">
-													<div class="col-10">
-														<textarea name="writeReply" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
-													</div>
-													<div class="col-2" style="margin-top:30px;">
-														<c:if test="${true}">
-															<a href="javascript:replyOk(${bulletinNum})" >입력하기</a>
-														</c:if>											
-													</div>											
-												</div>										
 											</article>
-																														
-										</form>
 									</div>					
 								</section>
 						</div>

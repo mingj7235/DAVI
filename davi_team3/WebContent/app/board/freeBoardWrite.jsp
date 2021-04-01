@@ -49,8 +49,8 @@
 												<textarea id="summernote" name="bulletinContent"></textarea>
 											</div>
 											<div style="margin: 10px 0px; text-align: right;">
-											<a href="javascript:freeBoardWriteForm.submit()"  style="margin-right: 15px;">글 올리기</a>
-											<a href="javascript:textReset()">내용 초기화</a>											
+											<a href="javascript:freeBoardWriteForm.submit()"  style="margin-right: 15px;" class="button small">글 올리기</a>
+											<a href="javascript:textReset()" class="button small">내용 초기화</a>											
 											<!-- <input type="submit" value="글 올리기" style="margin-right: 10px;">
 											<input type="button" value="내용 초기화" onclick="textReset();"> -->
 											</div>									

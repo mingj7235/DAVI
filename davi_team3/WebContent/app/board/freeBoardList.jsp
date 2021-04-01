@@ -14,17 +14,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 		<style>
-		@media screen and (max-width: 620px) {
-			.th1{
-				width:20%;
-			}
-			.th2{
-				width:60%;
-			}
-			.th3{
-				width:20%;
-			}			
-		}
+			
+
+
 		</style>		
 	</head>
 	
@@ -61,6 +53,22 @@
 									cursor: default;
 								}
 								
+								@media screen and (max-width: 620px) {
+									.th1{
+										width:20%;
+									}
+									.th2{
+										width:60%;
+									}
+									.th3{
+										width:20%;
+									}
+									
+									table{
+										width: 100%;
+									}			
+								}	
+								
 								</style>
 
 							<!-- Content -->
@@ -69,12 +77,12 @@
 								<section>
 									<h2 align="center">자유 게시판</h2>										
 									<div class="table-wrapper">
-										<table>
+										<table id="boardList">
 											<thead>
 												<tr>
 													<th class="th1" width="15%">분류</th>
 													<th class="th2" width="70%">제목</th>
-													<th class="th3" width="15%">닉네임</th>
+													<th class="th3 secret" width="15%">닉네임</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -93,7 +101,7 @@
 											<tfoot>
 												<tr>
 													<td colspan="2"></td>
-													<td><a href="#">새글쓰기</a></td>
+													<td><a href="#" style="cursor: pointer;" class="button small">새글쓰기</a></td>
 												</tr>
 											</tfoot>											
 										</table>
@@ -116,17 +124,13 @@
 														<option value="">분류3</option>
 													</select>															
 													<input type="text" name="" placeholder="" style="margin-right:5px;width:60%" />
-													<input type="submit" value="검색" class="primary" />
+													<input type="submit" value="검색" class="primary" />													
 												</div>											
 											</form>
 										</div>
 									</div>
 					
 								</section>
-								
-								
-								
-
 						</div>
 					</div>
 
@@ -156,6 +160,20 @@
 				    location.href = $(this).children('#title').children('a').attr('href');
 				    return false;
 				});
+				const x = window.matchMedia("(max-width: 620px)");
+				if(x.matches){
+					console.log("컬럼삭제");
+					deleteColumn();
+				}
+				
+				
+				function deleteColumn() {
+					  const table = document.getElementById('boardList');
+					  
+					  for(let i = 0; i < table.rows.length; i++)  {
+					    table.rows[i].deleteCell(-1);
+					  }
+				}
 			</script>
 
 	</body>
