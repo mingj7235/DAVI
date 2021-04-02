@@ -15,19 +15,37 @@
 	rel="stylesheet">
 <title>header</title>
 <style>
-.headerul ul{
+ul{
+	border-top:0 !important;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	float: right;
 }
-.headerul li{
+#menufont li{
 	margin: 0;
 	padding: 0 8px 0 0;
 	list-style: none;
 	float: right;
+	font-weight:bold;
+	font-size:1.2rem;
 }
 
+#myMenu li{
+	margin: 0;
+	padding: 0 8px 0 0;
+	list-style: none;
+	float: right;
+	font-weight:bold;
+	font-size:1.2rem;
+}
+
+
+@media screen and (max-width: 1450px) {
+		li{
+			font-size:1rem;
+		}		
+}
 
 #main-menu>li {
 	float: left;
@@ -89,59 +107,49 @@
 </head>
 <body>
 	<!-- Header -->
-	<header id="header" style="display: block;">
-		<div class="row">
-			<div class="col-4">
-				<a href="${pageContext.request.contextPath}/index.jsp" class="logo" style="padding-bottom: 0px;">
-					<img src="${pageContext.request.contextPath}/images/logo_blue.png" 
-					width="52" height="42" />
-				</a>
+	<header id="header" style="display: block; border-bottom: solid 2px rgba(210, 215, 217, 0.75);">
+		<div class="row" style="display:flex; justify-content:space-between;">
+			
+			<div style="display:flex; width:60%;">
+				<div style="display:flex; margin-right:2%; margin-left:4%;">
+					<a href="${pageContext.request.contextPath}/index.jsp" class="logo" style="padding-bottom: 0px; font-weight:bold; font-size:3rem; color:#0072c3;">
+						DAVI
+					</a>
+				</div>
+				
+				<div style="padding-left:1.5em; display:flex; align-items:center;">
+					<ul id="menufont">
+						<li><a href="#">홈트레이닝</a></li>
+						<li><a href="#">자유게시판</a></li>	
+								<li id="menuHover"><a href="#">치팅모임</a>
+									<ul id="sub-menu" style="display: flex;flex-direction: column;">
+										<li><a href="#" >서울/경기</a></li>
+										<li><a href="#" >강원도</a></li>
+										<li><a href="#" >충청도</a></li>
+										<li><a href="#" >경상도</a></li>
+									</ul>
+								</li>
+						<li><a href="#">식단인증샷</a></li>
+						<li><a href="#" style="color:#0072c3;">개인식단관리</a></li>
+						<li><a href="#">메인</a></li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-8 headerul" style="display: flex; justify-content: flex-end;">
-				<ul class="myMenu" style="margin-right: 3%;">
+			
+			<div style="display: flex; justify-content: flex-end; align-items:center; width:30%;">
+				<ul class="myMenu" style="margin-right: 3%; display:flex;">
 					<!-- 세션의 아이디로그인 정보를 이용하여 if문의 조건 검색 -->
 					<c:if test="${empty sessionScope.memberId}">						
-						<ul id="main-menu" style="width: 22%; margin-top: 3%;">
-							<li><a href=" "><img src="${pageContext.request.contextPath}/images/myPage.png" style="width:100%;"></a>
-								<ul id="sub-menu">
-									<li><a href="#" style="text-decoration: none;" aria-label="subemnu">&nbsp;&nbsp;&nbsp;&nbsp;정보
-											수정&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-									<li><a href="#" style="text-decoration: none;" aria-label="subemnu">비밀번호 변경</a></li>
-									<li><a href="#" style="text-decoration: none;" aria-label="subemnu">나의 식단관리 </a></li>
-								</ul>
-							</li>
-						</ul>						
-						<li style="margin-top: 5%;"><a href="#">로그아웃</a>&nbsp;</li>
-						<li style="margin-top: 5%;">(#)님 환영합니다.&nbsp;</li>
+						<li>(#)님 환영합니다.&nbsp;</li>
+						<li><a href="#">로그아웃</a>&nbsp;</li>
 					</c:if>
 					<c:if test="${not empty sessionScope.memberId}">					
-						<li style="margin-top: 5%;"><a href="#">회원가입</a></li>
-						<li style="margin-top: 5%;"><a href="#">로그인</a>&nbsp;</li>						
+						<li><a href="#">회원가입</a></li>
+						<li><a href="#">로그인</a>&nbsp;</li>						
 					</c:if>
 				</ul>
 			</div>
 		</div>		
-		<div class="row">
-			<div class="col-12 headerul" >
-				<div style="padding-left:1.5em;">
-				<ul id="menufont" style="border-top: dashed 1px #0072c3;">
-					<li><a href="#">홈트레이닝</a></li>
-					<li><a href="#">자유게시판</a></li>	
-							<li id="menuHover"><a href="#">치팅모임</a>
-								<ul id="sub-menu" style="display: flex;flex-direction: column;">
-									<li><a href="#" >서울/경기</a></li>
-									<li><a href="#" >강원도</a></li>
-									<li><a href="#" >충청도</a></li>
-									<li><a href="#" >경상도</a></li>
-								</ul>
-							</li>
-					<li><a href="#">식단인증샷</a></li>
-					<li><a href="#">개인식단관리</a></li>
-					<li><a href="#">메인</a></li>
-				</ul>
-				</div>
-			</div>
-		</div>	
 	</header>
 
 </body>

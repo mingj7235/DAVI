@@ -30,7 +30,7 @@
 								
 								<section>
 									<h2 align="center">글쓰기</h2>
-									<div style="width:60%; margin: 0 auto; font-size: 1em;">
+									<div style="width:50%; margin: 0 auto; font-size: 1em;">
 										<form method="post" action="#" name="freeBoardWriteForm">
 											<div>
 												<label for="subject">주제</label>

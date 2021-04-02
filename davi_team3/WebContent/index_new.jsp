@@ -86,7 +86,7 @@
 
 							<!-- Header -->
 								<!-- 실험용 헤더 -->
-								<c:import url="/app/header/header_new.jsp" />
+								<c:import url="/app/header/header.jsp" />
 
 							<!-- Banner -->
 								<section style="padding:13% 0;">
@@ -359,12 +359,19 @@
 									</div>
 								</section>
 							
+							<div>
+								<c:import url="/app/footer/footer_test.jsp"/>
+							</div>
+							
 						</div>
 					</div>
 					<div id="sidebar" class="off">
 						<c:import url="/app/footer/footer_index.jsp" />
 					</div>
+					
+					
 			</div>
+			
 
 		<!-- Scripts -->
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>

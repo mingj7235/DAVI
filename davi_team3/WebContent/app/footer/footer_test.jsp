@@ -15,6 +15,7 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		border-top: solid 2px rgba(210, 215, 217, 0.75);
 	}
 	#footer > .inner {
 		display: flex;
@@ -161,21 +162,21 @@
 						</div>
 						<div class="team">
 							<article>
-								<span class="image"><img src="images/pic06.jpg" alt=""></span>
+								<span class="image"><img src="${pageContext.request.contextPath}/images/pic06.jpg" alt=""></span>
 								<p>
 									<strong class="name">John Doe</strong>
 									<span class="title">Lorem semper magna etiam</span>
 								</p>
 							</article>
 							<article>
-								<span class="image"><img src="images/pic07.jpg" alt=""></span>
+								<span class="image"><img src="${pageContext.request.contextPath}/images/pic07.jpg" alt=""></span>
 								<p>
 									<strong class="name">Jane Anderson</strong>
 									<span class="title">Etiam feugiat adipiscing veroeros</span>
 								</p>
 							</article>
 							<article>
-								<span class="image"><img src="images/pic08.jpg" alt=""></span>
+								<span class="image"><img src="${pageContext.request.contextPath}/images/pic08.jpg" alt=""></span>
 								<p>
 									<strong class="name">Mike Smith</strong>
 									<span class="title">Consequat nulla dolor blandit</span>

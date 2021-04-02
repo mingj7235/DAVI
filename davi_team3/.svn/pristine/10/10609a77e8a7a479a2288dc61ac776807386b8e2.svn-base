@@ -22,15 +22,30 @@ ul{
 	list-style: none;
 	float: right;
 }
-li{
+#menufont li{
 	margin: 0;
 	padding: 0 8px 0 0;
 	list-style: none;
 	float: right;
 	font-weight:bold;
-	font-size:1.5rem;
+	font-size:1.2rem;
 }
 
+#myMenu li{
+	margin: 0;
+	padding: 0 8px 0 0;
+	list-style: none;
+	float: right;
+	font-weight:bold;
+	font-size:1.2rem;
+}
+
+
+@media screen and (max-width: 1450px) {
+		li{
+			font-size:1rem;
+		}		
+}
 
 #main-menu>li {
 	float: left;

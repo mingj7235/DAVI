@@ -1,6 +1,5 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap");
 
 /*
@@ -120,7 +119,7 @@ input, select, textarea {
 	body, input, select, textarea {
 		color: #7f888f;
 		/* font-family: "Open Sans", sans-serif; */
-		font-family: 'Noto Sans KR', sans-serif;
+		font-family: 'Sunflower', sans-serif;
 		font-size: 13pt;
 		font-weight: 400;
 		line-height: 1.65;
@@ -156,13 +155,13 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		/* border-bottom: dotted 1px; */
-		color: #003bfb;
+		color: #ffaec9;
 		text-decoration: none;
 	}
 
 		a:hover {
-			border-bottom-color: #003bfb;
-			color: #003bfb !important;
+			border-bottom-color: #ffaec9;
+			color: #ffaec9 !important;
 		}
 
 			a:hover strong {
@@ -185,7 +184,7 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		color: #3d4449;
 		/* font-family: "Roboto Slab", serif; */
-		font-family: 'Noto Sans KR', sans-serif;
+		font-family: 'Sunflower', sans-serif;
 		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
@@ -1793,7 +1792,7 @@ input, select, textarea {
 
 	header p {
 		/* font-family: "Roboto Slab", serif; */
-		font-family: 'Noto Sans KR', sans-serif;
+		font-family: 'Sunflower', sans-serif;
 		font-size: 1em;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -1802,7 +1801,7 @@ input, select, textarea {
 	}
 
 	header.major > :last-child {
-		border-bottom: solid 3px #003bfb;
+		border-bottom: solid 3px #ffaec9;
 		display: inline-block;
 		margin: 0 0 2em 0;
 		padding: 0 0.75em 0.5em 0;
@@ -1869,8 +1868,8 @@ input, select, textarea {
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #003bfb;
-			box-shadow: 0 0 0 1px #003bfb;
+			border-color: #ffaec9;
+			box-shadow: 0 0 0 1px #ffaec9;
 		}
 
 	select {
@@ -1970,16 +1969,16 @@ input, select, textarea {
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #003bfb;
-			border-color: #003bfb;
+			background: #ffaec9;
+			border-color: #ffaec9;
 			color: #ffffff;
 			content: '\f00c';
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #003bfb;
-			box-shadow: 0 0 0 1px #003bfb;
+			border-color: #ffaec9;
+			box-shadow: 0 0 0 1px #ffaec9;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2316,7 +2315,7 @@ input, select, textarea {
 			}
 
 			ul.contact li:before {
-				color: #003bfb;
+				color: #ffaec9;
 				display: inline-block;
 				font-size: 1.5em;
 				height: 1.125em;
@@ -2375,7 +2374,7 @@ input, select, textarea {
 			}
 
 				ul.pagination li > .page.active {
-					background-color: #003bfb;
+					background-color: #ffaec9;
 					color: #ffffff !important;
 				}
 
@@ -2493,12 +2492,12 @@ input, select, textarea {
 		background-color: transparent;
 		border-radius: 0.375em;
 		border: 0;
-		box-shadow: inset 0 0 0 2px #003bfb;
-		color: black !important;
+		box-shadow: inset 0 0 0 2px #ffaec9;
+		color: #ffaec9 !important;
 		cursor: pointer;
 		display: inline-block;
 		/* font-family: "Roboto Slab", serif; */
-		font-family: 'Noto Sans KR', sans-serif;
+		font-family: 'Sunflower', sans-serif;
 		font-size: 0.8em;
 		font-weight: 700;
 		height: 3.5em;
@@ -2516,7 +2515,7 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: rgba(0, 114, 195, 0.05);
+			background-color: rgba(245, 106, 106, 0.05);
 		}
 
 		input[type="submit"]:active,
@@ -2524,7 +2523,7 @@ input, select, textarea {
 		input[type="button"]:active,
 		button:active,
 		.button:active {
-			background-color: rgba(0, 114, 195, 0.15);
+			background-color: rgba(245, 106, 106, 0.15);
 		}
 
 		input[type="submit"].icon:before,
@@ -2566,7 +2565,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #003bfb;
+			background-color: #ffaec9;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
@@ -2683,7 +2682,7 @@ input, select, textarea {
 			}
 
 				.features article .icon:before {
-					color: #003bfb;
+					color: #ffaec9;
 					font-size: 2.75rem;
 					position: relative;
 					top: 0.05em;
@@ -3338,7 +3337,7 @@ input, select, textarea {
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		border-bottom: solid 5px #003bfb;
+		border-bottom: solid 5px rgba(255, 174, 201, 0.3);
 		padding: 3em 0 0 0;
 		position: relative;
 	}
@@ -3355,7 +3354,7 @@ input, select, textarea {
 			border-bottom: 0;
 			color: inherit;
 			/* font-family: "Roboto Slab", serif; */
-			font-family: 'Noto Sans KR', sans-serif;
+			font-family: 'Sunflower', sans-serif;
 			font-size: 1.125em;
 		}
 
@@ -3516,7 +3515,7 @@ input, select, textarea {
 		user-select: none;
 		color: #3d4449;
 		/* font-family: "Roboto Slab", serif; */
-		font-family: 'Noto Sans KR', sans-serif;
+		font-family: 'Sunflower', sans-serif;
 		font-weight: bold;
 		letter-spacing: 0.075em;
 		list-style: none;
@@ -3535,7 +3534,7 @@ input, select, textarea {
 		}
 
 			#menu ul a:hover, #menu ul span:hover {
-				color: #003bfb;
+				color: #ffaec9;
 			}
 
 			#menu ul a.opener, #menu ul span.opener {
@@ -3573,7 +3572,7 @@ input, select, textarea {
 				}
 
 				#menu ul a.opener:hover:before, #menu ul span.opener:hover:before {
-					color: #003bfb;
+					color: #ffaec9;
 				}
 
 				#menu ul a.opener.active + ul, #menu ul span.opener.active + ul {
@@ -3615,5 +3614,5 @@ input, select, textarea {
 			padding-top: 0;
 		}
 input{
-	font-family: 'Noto Sans KR', sans-serif;
+	font-family: 'Sunflower', sans-serif;
 }

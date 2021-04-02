@@ -63,7 +63,7 @@
 				
 				<!-- body -->
 				<div style="display: flex; justify-content: center;">
-					<article style="width:60%; margin-bottom: 60px;"> 
+					<article style="width:50%; margin-bottom: 60px;"> 
 						<!-- 일반게시판 글쓰기 아웃라인 -->
 						<form action="#">
 							<div style="height: 10%; margin-top: 30px; border: 1px solid #F0E2D9;">

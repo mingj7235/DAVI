@@ -56,7 +56,7 @@
 								
 								<section>
 									<h2 align="center">상세보기</h2>										
-									<div style="width:60%; margin: 0 auto; font-size: 1em;">
+									<div style="width:50%; margin: 0 auto; font-size: 1em;">
 										<form method="post" action="#" name="freeBoardViewForm">
 											<div>
 												<label for="bulletinHead">주제</label>

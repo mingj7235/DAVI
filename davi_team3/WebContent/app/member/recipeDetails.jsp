@@ -114,9 +114,9 @@ h1, h2, h3, h4 {
 					</div>
 				</div>
 				
-
-				
-				
+				<div>
+					<c:import url="/app/footer/footer_test.jsp"/>
+				</div>
 					
 			</div>
 		</div>

@@ -114,7 +114,7 @@ h1, h2, h3, h4 {
 						<h2 align="center">베스트 게시판</h2>
 					</div>
 				</div>
-				<section style="padding-top: 60px; width: 70%; margin: auto;"">
+				<section style="padding-top: 60px; width: 60%; margin: auto;"">
 
 					<div id="best_posts" class="posts">
 						<article>
