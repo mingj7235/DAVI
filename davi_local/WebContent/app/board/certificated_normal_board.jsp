@@ -118,7 +118,7 @@
 							
 							<!-- 게시판 제목 -->
 							<div style="height: 30px; padding-top: 5px; margin:5px;">
-								<p3>글 제목</p3>
+								<h4>글 제목 </h4>
 							</div>
 							
 							<!-- 사진 -->
@@ -195,8 +195,7 @@
 							</div>
 							
 						</div><!-- end 일반게시판 게시물 div박스-->
-						<div style="height: 20px; border-top : 1px solid rgba(164, 167, 170, 0.3);
-)">
+						<div style="height: 20px; border-top : 1px solid rgba(164, 167, 170, 0.3);)">
 						
 						
 						</div>
