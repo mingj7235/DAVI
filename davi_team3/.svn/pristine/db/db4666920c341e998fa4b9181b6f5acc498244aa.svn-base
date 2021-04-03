@@ -151,10 +151,11 @@
 								<div id="" style="width: 20%;">글쓴이 </div>
 								<div id="mainPreview" style="width: 70%;">본문내용</div>
 								<textarea class="certificated_textarea" id="mainDetail" style="display: none;">본문내용</textarea>
-								<div id="iconplus" style="width: 10%; text-align: right; margin: 0 5px;">
-									<i id="" class="far fa-plus-square icon_color" onclick="mainDetail()" style="cursor: pointer;"></i>
+								<div id="" style="width: 10%; text-align: right; margin: 0 5px;">
+									<i id="iconplus" class="far fa-plus-square icon_color" onclick="mainDetail()" style="cursor: pointer;"></i>
+									<input id="iconmore"type="button" value="게시" style="box-shadow: none; width: 10%; margin: 0 5px; color: rgba(0, 59, 251, 0.3) !important; display: none;">
+									
 								</div>
-								<input id="iconmore"type="button" value="게시" style="box-shadow: none; width: 10%; margin: 0 5px; color: rgba(0, 59, 251, 0.3) !important; display: none;">
 							</div>
 							
 							<!-- 댓글 -->
@@ -238,12 +239,12 @@
 							$("#iconmore").show();
 						}
 					}, function () {
-						if($("#iconmore").css("display") == "none") {
-							$("#iconplus").hide();
-							$("#iconmore").show();
-						} else {
+						if($("#iconplus").css("display") == "none") {
 							$("#iconplus").show();
 							$("#iconmore").hide();
+						} else {
+							$("#iconplus").hide();
+							$("#iconmore").show();
 						}
 
 						
