@@ -231,27 +231,32 @@
 
  				$(document).ready(function () {
 					$('#iconplus').hover(function () {
-						if($("#iconplus").css("display") == "none") {
+						if($("#iconplus").css("display") =="none") {
 							$("#iconplus").show();
-							$("#iconmore").hide();
 						} else {
 							$("#iconplus").hide();
-							$("#iconmore").show();
+							
 						}
 					}, function () {
-						if($("#iconplus").css("display") == "none") {
-							$("#iconplus").show();
-							$("#iconmore").hide();
-						} else {
-							$("#iconplus").hide();
-							$("#iconmore").show();
-						}
-
+						$('#iconplus').style.display ='';
+						$('#iconmore').style.display = 'none';
 						
 					});
 					
 				}) 
 				
+/* 				$(document).ready(function () {
+					if($("#iconplus").css("display") =="none") {
+						$("#iconplus").show();
+					} else {
+						$("#iconplus").hide();
+						
+					}
+				}); */
+				
+
+
+
 				
 				
 				
