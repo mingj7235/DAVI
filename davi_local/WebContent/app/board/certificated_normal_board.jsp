@@ -154,7 +154,10 @@
 								<div id="iconplus" style="width: 10%; text-align: right; margin: 0 5px;">
 									<i id="" class="far fa-plus-square icon_color" onclick="mainDetail()" style="cursor: pointer;"></i>
 								</div>
-								<input id="iconmore"type="button" value="게시" style="box-shadow: none; width: 10%; margin: 0 5px; color: rgba(0, 59, 251, 0.3) !important; display: none;">
+
+								<div id="iconmore" style="width: 10%; text-align: right; margin: 0 5px; display: none;">
+									<input id=""type="button" value="더보기" style="box-shadow: none; padding : 0 5px;;color: rgba(0, 59, 251, 0.3) !important;">
+								</div>
 							</div>
 							
 							<!-- 댓글 -->
@@ -170,6 +173,10 @@
 										<div id="" style="width: 10%; text-align: right; margin: 0 5px;">
 											<i id="iconminus" class="far fa-minus-square icon_color" onclick="mainDetail()" style="cursor: pointer;"></i>
 										</div>
+										<div id="iconminusmore" style="width: 10%; text-align: right; margin: 0 5px; display: none;">
+											<input id=""type="button" value="삭제" style="box-shadow: none; padding : 0 5px;;color: rgba(0, 59, 251, 0.3) !important;">
+										</div>
+										
 										<!-- <input type="button" value="게시" style="box-shadow: none; width: 10%; margin: 0 5px; color: rgba(0, 59, 251, 0.3) !important;"> -->
 									</div>
 
@@ -227,28 +234,18 @@
 				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_write.jsp', '게시물 작성', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 					
 				}
-
+				
+				//+버튼 (더보기 hover이벤트)
  				$(document).ready(function () {
 					$('#iconplus').hover(function () {
-						if($("#iconplus").css("display") == "none") {
-							$("#iconplus").show();
-							$("#iconmore").hide();
-						} else {
+						/* if($("#iconmore").css("display") == "none") { */
 							$("#iconplus").hide();
 							$("#iconmore").show();
-						}
+						/* 	} */
 					}, function () {
-						if($("#iconmore").css("display") == "none") {
-							$("#iconplus").hide();
-							$("#iconmore").show();
-						} else {
 							$("#iconplus").show();
 							$("#iconmore").hide();
-						}
-
-						
 					});
-					
 				}) 
 				
 				
