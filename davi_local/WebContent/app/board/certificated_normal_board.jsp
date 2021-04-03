@@ -170,8 +170,8 @@
 									<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 										<div style="width: 20%;">댓글쓴이</div>
 										<div style="width: 70%;">댓글</div>
-										<div id="" style="width: 10%; text-align: right; margin: 0 5px;">
-											<i id="iconminus" class="far fa-minus-square icon_color" onclick="mainDetail()" style="cursor: pointer;"></i>
+										<div id="iconminus" style="width: 10%; text-align: right; margin: 0 5px;">
+											<i id="" class="far fa-minus-square icon_color" onclick="mainDetail()" style="cursor: pointer;"></i>
 										</div>
 										<div id="iconminusmore" style="width: 10%; text-align: right; margin: 0 5px; display: none;">
 											<input id=""type="button" value="삭제" style="box-shadow: none; padding : 0 5px;;color: rgba(0, 59, 251, 0.3) !important;">
@@ -245,8 +245,19 @@
 					}, function () {
 							$("#iconplus").show();
 							$("#iconmore").hide();
-					});
-				}) 
+					})
+				}); 
+				
+				//-버튼 (삭제 hover이벤트)
+ 				$(document).ready(function () {
+					$('#iconminus').hover(function () {
+							$("#iconminus").hide();
+							$("#iconminusmore").show();
+					}, function () {
+							$("#iconminus").show();
+							$("#iconminusmore").hide();
+					})
+				}); 
 				
 				
 				
