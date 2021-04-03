@@ -38,6 +38,10 @@
 			margin-left: 45px;
 		}
 		
+		#summernote{
+			box-shadow: inherit;
+		}
+		
 	</style>
 	<body class="is-preload">
 
@@ -56,28 +60,36 @@
 								
 								<section>
 									<h2 align="center">상세보기</h2>										
-									<div style="width:50%; margin: 0 auto; font-size: 1em;">
+									<div style="width:50%; margin: 0 auto; font-size: 1em;margin-bottom: 2em;">
 										<form method="post" action="#" name="freeBoardViewForm">
-											<div>
-												<label for="bulletinHead">주제</label>
-												<select name="bulletinHead" id="bulletinHead" style="width: 20%;" disabled>
+											<div style="margin-bottom: 2em;">
+												<!-- <label for="bulletinHead">주제</label>
+												<select name="bulletinHead" id="bulletinHead" style="width: 30%;" disabled>
 													<option value="0">잡담</option>
 													<option value="1">고민상담</option>
 													<option value="2">팁/노하우</option>
-												</select>										
+												</select> -->
+												<input type="text" name="bulletinHead" id="bulletinHead" value="고민상담" style="width: 30%;" readonly>										
 											</div>
-											<div style="margin: 10px 0px; width: 80%;">
-												<label for="subject">제목</label>												
-												<input type="text" id="subject" name="bulletinTitle" readonly>	
+											<div style="margin-bottom: 1em; width: 80%;">
+												<!-- <label for="subject">제목</label>	 -->											
+												<input type="text" id="subject" name="bulletinTitle" placeholder="제목" value="제목1" readonly>	
+											</div>
+											<div style="margin-bottom: 5px; width: 80%;">
+												<span style="margin-right: 2em; font-size: 0.7em">글쓴이: DAVI</span>													
+												<span style="margin-right: 2em; font-size: 0.7em">2021-4-2</span>													
+																									
 											</div>
 											<div>
 												<!-- 써머노트  폼 불러오기 -->
-												<textarea id="summernote" name="bulletinContent"></textarea>
+												<textarea id="summernote" name="bulletinContent" style="box-shadow: inherit;"></textarea>
 											</div>
 											<div class="row" style="margin-top:5px;">
 												<div class="col-4">
 													<i class="far fa-gem fa-lg" style="cursor: pointer; color : #0072c3;padding-top: 10px" onclick="changeDiamond()"></i>
-													<i class="" style="display: none;"></i>													
+													<i class="" style="display: none;"></i>	
+													<!-- 좋아요 갯수 표시 -->
+													&nbsp;3											
 												</div>											
 												<div class="col-8" style="margin: 10px 0px; text-align: right;">													
 												<a href="javascript:enable()" style="margin-right: 10px;" class="button small">수정하기</a>								
@@ -179,6 +191,9 @@
 											</article>
 									</div>					
 								</section>
+								<div>
+									<c:import url="/app/footer/footer_test.jsp" />
+								</div>
 						</div>
 					</div>
 

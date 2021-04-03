@@ -356,13 +356,14 @@
 	background-color: #fff;
 	border-color: #dae0e5;
 	padding: 5px 10px;
-	font-size: 14px;
+	font-size: 0.8em;
 	line-height: 1.4;
 	border-radius: 3px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none
+	user-select: none;
+	box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0) !important;
 }
 
 .note-btn:focus, .note-btn.focus {
@@ -1694,3 +1695,7 @@ a.note-dropdown-item, a.note-dropdown-item:hover {
 	margin-bottom: 5px;
 	display: inline-block
 }
+
+.note-editable p{
+		margin: 0 0 0.5em 0 !important;	
+	}

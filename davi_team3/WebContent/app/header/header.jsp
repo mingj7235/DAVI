@@ -15,7 +15,7 @@
 	rel="stylesheet">
 <title>header</title>
 <style>
-ul{
+.headerul ul{
 	border-top:0 !important;
 	margin: 0;
 	padding: 0;
@@ -46,8 +46,13 @@ ul{
 			font-size:1rem;
 		}		
 }
+@media screen and (max-width: 736px) {
+		.secret{
+			display: none;
+		}		
+}
 
-#main-menu>li {
+/* #main-menu>li {
 	float: left;
 	position: relative;
 }
@@ -59,9 +64,9 @@ ul{
 	text-decoration: none;
 	letter-spacing: 0.05em;
 	display: block;
-	/* padding: 14px 36px; */
+	padding: 14px 36px;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
+} */
 
 #sub-menu {
 	position: absolute;
@@ -80,15 +85,15 @@ ul{
 
 
 #sub-menu>li>a {
-	color: black;
+	color: #7f888f;
 	text-decoration: none;
 }
 
 
-#main-menu>li:hover #sub-menu {
+/* #main-menu>li:hover #sub-menu {
 	opacity: 1;
 	visibility: visible;
-}
+} */
 
 #sub-menu>li>a:hover {
 	text-decoration: underline;
@@ -108,17 +113,18 @@ ul{
 <body>
 	<!-- Header -->
 	<header id="header" style="display: block; border-bottom: solid 2px rgba(210, 215, 217, 0.75);">
-		<div class="row" style="display:flex; justify-content:space-between;">
+		<div class="row headerul" style="display:flex; justify-content:space-between;">
 			
 			<div style="display:flex; width:60%;">
 				<div style="display:flex; margin-right:2%; margin-left:4%;">
-					<a href="${pageContext.request.contextPath}/index.jsp" class="logo" style="padding-bottom: 0px; font-weight:bold; font-size:3rem; color:#0072c3;">
+					<a href="${pageContext.request.contextPath}/index.jsp" class="logo" style="padding-bottom: 
+					0px; font-weight:bold; font-size:3rem; color: rgba(0, 59, 251, 1)">
 						DAVI
 					</a>
 				</div>
 				
-				<div style="padding-left:1.5em; display:flex; align-items:center;">
-					<ul id="menufont">
+				<div  style="padding-left:1.5em; display:flex; align-items:center;">
+					<ul id="menufont" class="secret">
 						<li><a href="#">홈트레이닝</a></li>
 						<li><a href="#">자유게시판</a></li>	
 								<li id="menuHover"><a href="#">치팅모임</a>

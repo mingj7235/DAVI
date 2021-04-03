@@ -15,10 +15,24 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />		
 		<style>
 			.headresize{
-			width: 9%			
+				width: 9%;
+				display:flex;
+				justify-content:center;
+				align-items:center;			
 			}			
 			.resize{
-			width: 15%
+				width: 15%;
+				display:flex;
+				justify-content:center;
+					
+			}
+			
+			.resize a{
+				display:flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				padding-top:2%;
 			}
 			
 			.imgsize{
@@ -28,6 +42,14 @@
 			
 			.columChartP{
 			margin: 0 0 1em 0;
+			}
+			
+			.content p{
+				margin-bottom:1em !important;
+			}
+			
+			.gtr-200{
+				margin-bottom:3%;
 			}
 		</style>
 	</head>
@@ -45,12 +67,11 @@
 					
 
 							<!-- Content -->
-								<section>
+								<section >
 								
-								<h2 align="center">개인 보고서</h2>
-										
-								
-									<div class="features" >
+								<h2 align="center" style="margin-bottom:5%; font-size:2.5rem;">MrPPak님의 보고서</h2>
+								<div style="width: 80%; margin: auto;">
+									<div class="features" style="border: 1px solid rgba(0, 59, 251, 0.3); padding: 5% 2%;width: calc(100%);margin: 0 0 3em 0" >
 										
 										<article class="article">
 											<span class="icon solid fa-paper-plane"></span>
@@ -73,49 +94,56 @@
 										
 									</div>							
 							      <!-- 라인 차트 생성할 영역 -->
-							          <div id="chart_div" ></div>
-							          <div class="row">
-							          	<div class="col-8"> 
-								          	<div id="chart_div2" ></div>						     
-							          	</div>
-							          	<div class="col-4"> 
-							          		<p class="columChartP" style="padding:1em 0 0 0">18.5미만 : 저체중</p>
-							          		<p class="columChartP">18.5이상~23미만: 정상</p>
-							          		<p class="columChartP">23이상~25미만 과체중</p>
-							          		<p class="columChartP">23이상~30미만 경도비반</p>
-							          		<p class="columChartP">30이상 고도비만</p>
-							          	</div>
-							          </div>						     
-							          							     
+								      <div style="border: 1px solid rgba(0, 59, 251, 0.3); padding: 5% 2%;">
+									      <div class="row" style="margin-bottom:3%;">
+									      	<div class="col-12">
+									          <div id="chart_div"></div>
+									      	</div>
+									      </div>
+								          <div class="row">
+								          	<div class="col-9"> 
+									          	<div id="chart_div2" style="padding-left: 4%"></div>						     
+								          	</div>
+								          	<div class="col-3"> 
+								          		<p class="columChartP" style="padding:1em 0 0 0">18.5미만 : 저체중</p>
+								          		<p class="columChartP">18.5이상~23미만: 정상</p>
+								          		<p class="columChartP">23이상~25미만 과체중</p>
+								          		<p class="columChartP">23이상~30미만 경도비반</p>
+								          		<p class="columChartP">30이상 고도비만</p>
+								          	</div>
+								          </div>
+								       </div>
+							     </div>					          
+							          				     
 								</section>
-								<section>
-									<h2 align="center">이주의 식단</h2>
-									<div>
-										<div class="row gtr-200" >												
+								<section >
+									<h2 align="center" style="margin-bottom:5%; font-size:2.5rem;">이주의 식단</h2>
+									<div style="width: 80%;margin: auto;">
+										<div class="row gtr-200" style="margin-bottom:1%;" >												
 											<div class="headresize">																						
 											</div>
 											<div class="resize">
-											<h5>월요일</h5>
+												<h5>월요일</h5>
 											</div>
 											<div class="resize">
-											<h5>화요일</h5>
+												<h5>화요일</h5>
 											</div>
 											<div class="resize">
-											<h5>수요일</h5>
+												<h5>수요일</h5>
 											</div>
 											<div class="resize" >
-											<h5>목요일</h5>
+												<h5>목요일</h5>
 											</div>
 											<div class="resize">
-											<h5>금요일</h5>
+												<h5>금요일</h5>
 											</div>
 											<div class="resize">	
-											<h5>토요일</h5>	
+												<h5>토요일</h5>	
 											</div>							
 										</div>
 										<div class="row gtr-200" >
 											<div class="headresize">
-												<span >아침</span>													
+												<span >아<br>침</span>													
 											</div>	
 											<div class="resize">
 												<a href="#">
@@ -156,7 +184,7 @@
 										</div>
 										<div class="row gtr-200" >
 											<div class="headresize">
-												<span >점심</span>													
+												<span >점<br>심</span>													
 											</div>	
 											<div class="resize">
 												<a href="#">
@@ -197,7 +225,7 @@
 										</div>
 										<div class="row gtr-200" >
 											<div class="headresize">
-												<span>저녁</span>													
+												<span>저<br>녁</span>													
 											</div>	
 											<div class="resize">
 												<a href="#">
@@ -240,6 +268,9 @@
 									
 									
 								</section>
+								<div>
+									<c:import url="/app/footer/footer_test.jsp" />
+								</div>
 						</div>
 					</div>
 

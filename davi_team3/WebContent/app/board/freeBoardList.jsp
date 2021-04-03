@@ -131,6 +131,9 @@
 									</div>
 					
 								</section>
+								<div>
+									<c:import url="/app/footer/footer_test.jsp" />
+								</div>
 						</div>
 					</div>
 

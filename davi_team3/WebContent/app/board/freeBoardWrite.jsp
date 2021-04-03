@@ -11,7 +11,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/app/board/summernote/summernote-lite.css">
 		
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />		
-	</head>
+	</head>	
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -30,21 +30,22 @@
 								
 								<section>
 									<h2 align="center">글쓰기</h2>
-									<div style="width:50%; margin: 0 auto; font-size: 1em;">
+									<div style="width:60%; margin: 0 auto; font-size: 1em; background-color: ">
 										<form method="post" action="#" name="freeBoardWriteForm">
-											<div>
-												<label for="subject">주제</label>
-												<select name="bulletinHead" id="bulletinHead" style="width: 20%;">
+											<div style="margin-bottom: 2em;">
+												
+												<select name="bulletinHead" id="bulletinHead" style="width: 30%;">
 													<option value="0">잡담</option>
 													<option value="1">고민상담</option>
 													<option value="2">팁/노하우</option>
 												</select>										
 											</div>
-											<div style="margin: 10px 0px; width: 80%;">
-												<label for="subject">제목</label>
-												<input type="text" id="subject" name="bulletinTitle">
+											<div style="width: 80%; margin-bottom: 2em;">
+												
+												<input type="text" id="subject" name="bulletinTitle" placeholder="제목">
 											</div>
 											<div>
+																						
 												<!-- 써머노트  폼 불러오기 -->
 												<textarea id="summernote" name="bulletinContent"></textarea>
 											</div>

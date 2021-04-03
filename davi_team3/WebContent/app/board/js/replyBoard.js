@@ -1,13 +1,17 @@
 //댓글 등록
-function replyOk(bulletinNum) {
-	var replyContent = $("#writeReply").val(); //댓글 내용	
+function replyOk(bulletinNum, replyLevel) {
+	var replyContent = $("#writeReplyContent").val(); //댓글 내용	
+	console.log(replyContent);
+	console.log(bulletinNum);
+	console.log(replyLevel);
 	var param = {
-			"replytext" : replyContent,
-			"bulletinNum" : bulletinNum
+			"replytext" : replyContent, 
+			"bulletinNum" : bulletinNum,
+			"replyLevel" : replyLevel
 	};	
 	$.ajax({
 		type : "post", //데이터를 보낼 방식
-		url : "", //데이터를 보낼 url
+		url : "#", //데이터를 보낼 url
 		data : param, //보낼 데이터
 		
 		success : function() { //데이터를 보내는것이 성공했을시 출력되는 메시지

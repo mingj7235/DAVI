@@ -16,6 +16,8 @@
     	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/slippry.css" />
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
+		integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 		<style>
 			body{
 				font-family: 'Sunflower', sans-serif;
@@ -64,7 +66,7 @@
 			}
 			
 			.slide-img {
-				height:900px !important;
+				height:700px !important;
 			}
 			
 			@media screen and (max-width: 1400px) {
@@ -73,6 +75,66 @@
 					height: 320px !important;
 				}
 			}
+			
+			.icon-box{
+				display:flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				font-size:4rem;
+			}
+			
+			.icon-box a{
+				display:flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				font-size:1.3rem;
+			}
+			
+			.icon-box a i{
+				font-size:4rem;
+				margin-bottom:5%;
+			}
+			
+			.headresize{
+				width: 9%;
+				display:flex;
+				justify-content:center;
+				align-items:center;			
+			}			
+			.resize{
+				width: 15%;
+				display:flex;
+				justify-content:center;
+					
+			}
+			
+			.resize a{
+				display:flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				padding-top:2%;
+			}
+			
+			.imgsize{
+			width: 100%;
+			object-fit: contain;
+			}
+			
+			.columChartP{
+			margin: 0 0 1em 0;
+			}
+			
+			.content p{
+				margin-bottom:1em !important;
+			}
+			
+			.gtr-200{
+				margin-bottom:3%;
+			}
+			
 		</style>
 	</head>
 	<body class="is-preload">
@@ -91,21 +153,45 @@
 							<!-- Banner -->
 								<section style="padding:13% 0;">
 									<div style="display:flex; justify-content:center; width:80%; margin:auto;">
-									<div class="content" style="width:40%; margin-top:3%;">
-										<header>
-											<h2 style="font-size:2.5rem;">나만의 다이어트 비서 DAVI</h2>
-										</header>
-										<div style="padding:2%; border:4px solid #0072c3; border-radius:4px; width:80%; ">
-											<p style="margin-bottom:0;">Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+									<div class="content" style="width:55%; margin-top:3%;">
+										<div style="padding:2%; width:80%; margin:auto; margin-bottom:2%; ">
+											<img alt="" 
+											src="https://cdn.discordapp.com/attachments/821644547493986328/827345147972550666/intro_1.png"
+											style="width:100%;">
 										</div>
-										<div>
-											<img alt="" src="images/example.PNG" style="width:80%; height:auto; margin-top:3%;;">
+										<div style="display:flex; justify-content:space-between; width:70%; margin:auto; padding:7%;
+											border: 3px solid #003bfb; border-radius:50%;">
+											<div class="icon-box">
+												<a href="#" style="height:auto;">
+													<i class="far fa-clipboard"></i>
+													식단관리
+												</a>
+											</div>
+											<div class="icon-box">
+												<a href="#" style="height:auto;">
+													<i class="fas fa-mobile-alt"></i>
+													인증게시판
+												</a>
+											</div>
+											<div class="icon-box">
+												<a href="#" style="height:auto;">
+													<i class="fas fa-chalkboard-teacher"></i>
+													자유게시판
+												</a>
+											</div>
+											<div class="icon-box">
+												<a href="#" style="height:auto;">
+													<i class="fas fa-running"></i>
+													홈트레이닝
+												</a>
+											</div>
 										</div>
 									</div>
-									<div style="width:50%;">
+									<div style="width:35%;">
 										<ul id="demo1">
-											<li><a href="#slide1"><img src="images/slide_img02.png" class="slide-img"></a></li>
-											<li><a href="#slide2"><img src="images/slide_img03.png" class="slide-img"></a></li>
+											<li><a href="#slide1"><img src="https://cdn.discordapp.com/attachments/821644547493986328/827334259891109888/3..png" class="slide-img"></a></li>
+											<li><a href="#slide2"><img src="https://cdn.discordapp.com/attachments/821644547493986328/827334268551430225/1.png" class="slide-img"></a></li>
+											<li><a href="#slide3"><img src="https://cdn.discordapp.com/attachments/821644547493986328/827346405688606720/1_ver2.png" class="slide-img"></a></li>
 											<li><a href="#slide3"><img src="images/slide_img04.png" class="slide-img"></a></li>
 										</ul>
 									</div>
@@ -118,58 +204,178 @@
 										<h1 style="padding-right:10px; margin-bottom:1.5%; font-size:3em;">다비의 Daily 보고서</h1>
 										<p>매일매일 관리받아보세요!</p>
 									</header>
-									<div class="features" style="border:20px solid #FCEEF5; padding:4% 4% 4% 0;">
-										<article class="article">
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>인증 Report</h3>
-												<p class="report">베스트 게시판 : <span>10개</span></p>
-												<p class="report">daily 인증 : <span>80회</span></p>
-												<p class="report">성공 후기 : <span>2개</span></p>
+									
+										 <div style="border: 1px solid rgba(0, 59, 251, 0.3); padding: 5% 2%;">
+									      <div class="row" style="margin-bottom:3%;">
+									      	<div class="col-12">
+									          <div id="chart_div"></div>
+									      	</div>
+									      </div>
+								          <div class="row">
+								          	<div class="col-9"> 
+									          	<div id="chart_div2" style="padding-left: 4%"></div>						     
+								          	</div>
+								          	<div class="col-3"> 
+								          		<p class="columChartP" style="padding:1em 0 0 0">18.5미만 : 저체중</p>
+								          		<p class="columChartP">18.5이상~23미만: 정상</p>
+								          		<p class="columChartP">23이상~25미만 과체중</p>
+								          		<p class="columChartP">23이상~30미만 경도비반</p>
+								          		<p class="columChartP">30이상 고도비만</p>
+								          	</div>
+								          </div>
+								       </div>
+								</section>
+							<!-- Section -->
+								<section>
+									<h2 align="center" style="margin-bottom:5%; font-size:2.5rem;">이주의 식단</h2>
+									<div style="width: 80%;margin: auto;">
+										<div class="row gtr-200" style="margin-bottom:1%;" >												
+											<div class="headresize">																						
 											</div>
-										</article>
-										<article class="article">
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>다비의 한마디</h3>
-												<p class="report">다이어트 하기로 했으면</p>
-												<p class="report">마음만 먹어야지</p>
-												<p class="report">자꾸 이것 저것 먹으면 되겠니?</p>
+											<div class="resize">
+												<h5>월요일</h5>
 											</div>
-										</article>
-										<article class="article">
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>각오 & 목표</h3>
-												<p class="report">각오 : <span>날 무시하던 전남친에게 제대로 복수하기!</span></p>
-												<p class="report">목표 : <span>20kg 감량!!</span></p>
+											<div class="resize">
+												<h5>화요일</h5>
 											</div>
-										</article>
-										<article class="article">
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>다이어트 Report</h3>
-												<div class="graph">
-									              <div class="graph__description">
-									                <span>목표: 54kg</span>
-									                <span>70%</span>
-									              </div>
-									               <div class="graph__bar">
-									                <div class="graph__value" style="width: 70%"></div>
-									              </div>
-									            </div>
-												<div class="graph">
-									              <div class="graph__description">
-									                <span>인증 현황</span>
-									                <span>18/20 (90%)</span>
-									              </div>
-									              <div class="graph__bar">
-									                <div class="graph__value" style="width: 90%"></div>
-									              </div>
-									            </div>
+											<div class="resize">
+												<h5>수요일</h5>
 											</div>
-										</article>
+											<div class="resize" >
+												<h5>목요일</h5>
+											</div>
+											<div class="resize">
+												<h5>금요일</h5>
+											</div>
+											<div class="resize">	
+												<h5>토요일</h5>	
+											</div>							
+										</div>
+										<div class="row gtr-200" >
+											<div class="headresize">
+												<span >아<br>침</span>													
+											</div>	
+											<div class="resize">
+												<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+												<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">	
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>							
+										</div>
+										<div class="row gtr-200" >
+											<div class="headresize">
+												<span >점<br>심</span>													
+											</div>	
+											<div class="resize">
+												<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+												<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>
+											<div class="resize">	
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>비서</span>												
+												</a>
+											</div>							
+										</div>
+										<div class="row gtr-200" >
+											<div class="headresize">
+												<span>저<br>녁</span>													
+											</div>	
+											<div class="resize">
+												<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>햄버거</span>												
+												</a>
+											</div>
+											<div class="resize">
+												<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>햄버거</span>											
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>햄버거</span>											
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>햄버거</span>												
+												</a>
+											</div>
+											<div class="resize">
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>햄버거</span>												
+												</a>
+											</div>
+											<div class="resize">	
+											<a href="#">
+													<span><img src="${pageContext.request.contextPath}/images/menu1.jpg" class="imgsize"></span>	
+													<span>햄버거</span>												
+												</a>
+											</div>							
+										</div>
 									</div>
+									
 								</section>
 
 							<!-- Section -->
@@ -188,7 +394,7 @@
 										</header>
 									</div>
 									
-									<div id="best_posts" class="posts" style="width:100%; margin:auto; padding:3% 6em 3% 0; border:20px solid #FCEEF5;">
+									<div id="best_posts" class="posts" style="width:100%; margin:auto; padding:3% 6em 3% 0; border:3px solid #003bfb;">
 										<article style="">
 											<div style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:flex-end;">
 												<span style="color:black; font-size:1.8rem; font-weight:bold;">1st</span>
@@ -365,9 +571,7 @@
 							
 						</div>
 					</div>
-					<div id="sidebar" class="off">
-						<c:import url="/app/footer/footer_index.jsp" />
-					</div>
+						<c:import url="/app/footer/footer.jsp" />
 					
 					
 			</div>
@@ -381,6 +585,10 @@
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/slippry.js"></script>
 			<script src="${pageContext.request.contextPath}/index.js"></script>
+			
+			<!-- 차트 로딩부분 -->
+			<script src="https://www.gstatic.com/charts/loader.js"></script>
+			<script src="${pageContext.request.contextPath}/app/dietary/chart.js"></script>
 			<script>
 			$(function() {
 				var demo1 = $("#demo1").slippry({
