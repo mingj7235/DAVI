@@ -142,7 +142,7 @@
 							<!-- 좋아요 숫자  -->
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 								<div>좋아요</div>
-								<div class ="icon_color"id="diamond_num"  >#</div>
+								<div class ="icon_color" id="diamond_num" >#</div>
 								<div>개</div>
 							</div>
 							
@@ -150,7 +150,7 @@
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 								<div id="" style="width: 20%;">글쓴이 </div>
 								<div id="mainPreview" style="width: 70%;">본문내용</div>
-								<textarea class="certificated_textarea" id="mainDetail" style="display: none; height: 50px; resize: none;" readonly="readonly">본문내용</textarea>
+								<textarea class="certificated_textarea" id="mainDetail" style="display: none; height: 100px; resize: none;" readonly="readonly">본문내용</textarea>
 								<div id="iconplus" style="width: 10%; text-align: right; margin: 0 5px; cursor: pointer;">
 									<i id="" class="far fa-plus-square icon_color"></i>
 								</div>
