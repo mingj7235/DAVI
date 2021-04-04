@@ -33,14 +33,14 @@
 			input[type="text"], 
 			input[type="text"]:focus{
 				border:0;
-				border-bottom: solid 1px #ffaec9;
+				border-bottom: solid 1px rgba(0, 59, 251, 0.3);
 				border-radius:0;
 				box-shadow: none;
 			}
 			
 			.board_content:focus {
 				border:0;
-				border-bottom: solid 1px #ffaec9;
+				border-bottom: solid 1px rgba(0, 59, 251, 0.3);
 				border-radius:0;
 				box-shadow: none;
 			
