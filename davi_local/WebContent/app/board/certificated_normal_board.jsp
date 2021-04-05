@@ -84,7 +84,7 @@
 					<article style="width:50%; margin-bottom: 60px;"> 
 						<!-- 일반게시판 글쓰기 아웃라인 -->
 						<form action="#">
-							<div class ="certificated_box" style="height: 10%; margin-top: 50px; ">
+							<div class ="certificated_box" style="height: auto; margin-top: 50px; ">
 								<div style="display:flex; justify-content: center;">
 									<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style=" margin:5px; width: 35px; height: 35px;
 										cursor: pointer;" onclick="#"/>
@@ -104,7 +104,7 @@
 							</div>
 						</form>
 						<!-- 일반게시판 전체 아웃라인 -->
-						<div class="certificated_box" style="height: 85%; margin-top: 20px; padding-bottom:30px; border-bottom: none;">
+						<div class="certificated_box" style="height: auto; margin-top: 20px; padding-bottom:30px; border-bottom: none;">
 							<!-- 작성자 -->
 							<div style="display : flex; justify-content: center; height: 30px;">
 								<div style="width:10%;">
