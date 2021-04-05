@@ -62,8 +62,6 @@
 			
 			
 			
-			
-			
 		</style>
 		
 	</head>
@@ -237,54 +235,6 @@
 					
 				}
 				
-				//플러스 버튼 hover 이벤트
-				var iconplus = $('#iconplus');
-				var iconmore = $('#iconmore');
-				
-				iconplus.hover(function() {
-					iconplus.css('display', 'none');
-					iconmore.css('display', '');
-					
-				});
-				
-				iconmore.hover(function () {
-					
-					
-				}, function (){
-					iconplus.css('display', '');
-					iconmore.css('display', 'none');
-				});
-				
-				//마이너스 버튼 hover 이벤트
-				var iconminus = $('#iconminus');
-				var iconminusmore = $('#iconminusmore');
-				
-				iconminus.hover(function() {
-					iconminus.css('display', 'none');
-					iconminusmore.css('display', '');
-					
-				});
-				
-				iconminusmore.hover(function () {
-					
-					
-				}, function (){
-					iconminus.css('display', '');
-					iconminusmore.css('display', 'none');
-				});
-				
-				
-/* 				$(function() {
-					$('#iconplus').mouseenter(function () {
-						$('#iconplus').hide();
-						$('#iconmore').show();
-					};
-					
-					$('#iconmore').mouseleave(function () {
-						$('#iconmore').hide();
-						$('#iconplus').show();
-					})
-				}); */
 				//+버튼 (더보기 hover이벤트)
  				 /*$(document).ready(function () {
 					$('#iconplus').hover(function () {
@@ -323,12 +273,12 @@
 				
 				//본문 내용 더보기 버튼 (마이너스 버튼 활성화 시키기)
 				var mainDetailCheck = false;
-				/* function mainDetail(){
+				function mainDetail(){
 					$("#mainDetail").show();
 					$("#mainPreview").hide();
-					iconplus.css('display', 'none');
-					iconmore.css('display', 'none');
-				} */
+					$("#iconplus").hide();
+					$("#iconmore").hide();
+				}
 				
 			
 			</script>

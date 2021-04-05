@@ -145,6 +145,10 @@
 		text-align: center;
 		margin-bottom: 10px;
 	}
+	
+	.team .image {
+		color : #7f888f;
+	}
 
 </style>
 </head>
