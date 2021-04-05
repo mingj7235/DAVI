@@ -62,6 +62,8 @@
 			
 			
 			
+			
+			
 		</style>
 		
 	</head>
@@ -82,9 +84,9 @@
 					<article style="width:50%; margin-bottom: 60px;"> 
 						<!-- 일반게시판 글쓰기 아웃라인 -->
 						<form action="#">
-							<div class ="certificated_box" style="height: 10%; margin-top: 30px; ">
+							<div class ="certificated_box" style="height: 10%; margin-top: 50px; ">
 								<div style="display:flex; justify-content: center;">
-									<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_3.png" alt="" style=" margin:5px; width: 35px; height: 35px;
+									<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style=" margin:5px; width: 35px; height: 35px;
 										cursor: pointer;" onclick="#"/>
 									<textarea class="certificated_textarea" id="" name="" placeholder="게시글을 작성해보세요" style=" 
 										resize:none; height:40px; padding: 5px; margin: 5px;" readonly="readonly" onclick="popup()"></textarea>
@@ -106,7 +108,7 @@
 							<!-- 작성자 -->
 							<div style="display : flex; justify-content: center; height: 30px;">
 								<div style="width:10%;">
-								<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_3.png" alt="" style="margin:5px; width: 35px; height: 35px;
+								<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style="margin:5px; width: 35px; height: 35px;
 									cursor: pointer;" onclick="#"/> <!-- 프로필 사진 클릭시 해당 계정으로 이동 -->
 								</div>
 								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">(#)</div>
@@ -124,7 +126,7 @@
 							<!-- 사진 -->
 							<div style="width: 70%; margin: 3% auto;">
 								<div style="position:relative; width:100%; height: 0; padding-bottom:100%; ">
-									<img src="${pageContext.request.contextPath}/images/logo_3.png" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; ">
+									<img src="${pageContext.request.contextPath}/images/비서.jpg" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; ">
 								</div>
 							</div>
 							
@@ -150,7 +152,7 @@
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 								<div id="" style="width: 20%;">글쓴이 </div>
 								<div id="mainPreview" style="width: 70%;">본문내용</div>
-								<textarea class="certificated_textarea" id="mainDetail" style="display: none; height: 100px; resize: none;" readonly="readonly">본문내용</textarea>
+								<textarea class="certificated_textarea" id="mainDetail" style="display: none; height: 50px; resize: none;" readonly="readonly">본문내용</textarea>
 								<div id="iconplus" style="width: 10%; text-align: right; margin: 0 5px; cursor: pointer;">
 									<i id="" class="far fa-plus-square icon_color"></i>
 								</div>
@@ -235,21 +237,69 @@
 					
 				}
 				
+				//플러스 버튼 hover 이벤트
+				var iconplus = $('#iconplus');
+				var iconmore = $('#iconmore');
+				
+				iconplus.hover(function() {
+					iconplus.css('display', 'none');
+					iconmore.css('display', '');
+					
+				});
+				
+				iconmore.hover(function () {
+					
+					
+				}, function (){
+					iconplus.css('display', '');
+					iconmore.css('display', 'none');
+				});
+				
+				//마이너스 버튼 hover 이벤트
+				var iconminus = $('#iconminus');
+				var iconminusmore = $('#iconminusmore');
+				
+				iconminus.hover(function() {
+					iconminus.css('display', 'none');
+					iconminusmore.css('display', '');
+					
+				});
+				
+				iconminusmore.hover(function () {
+					
+					
+				}, function (){
+					iconminus.css('display', '');
+					iconminusmore.css('display', 'none');
+				});
+				
+				
+/* 				$(function() {
+					$('#iconplus').mouseenter(function () {
+						$('#iconplus').hide();
+						$('#iconmore').show();
+					};
+					
+					$('#iconmore').mouseleave(function () {
+						$('#iconmore').hide();
+						$('#iconplus').show();
+					})
+				}); */
 				//+버튼 (더보기 hover이벤트)
- 				$(document).ready(function () {
+ 				 /*$(document).ready(function () {
 					$('#iconplus').hover(function () {
-						/* if($("#iconmore").css("display") == "none") { */
+						 if($("#iconmore").css("display") == "none") { 
 							$("#iconplus").hide();
 							$("#iconmore").show();
-						/* 	} */
+						 	} 
 					}, function () {
 							$("#iconplus").show();
 							$("#iconmore").hide();
 					})
-				}); 
+				}); */
 				
 				//-버튼 (삭제 hover이벤트)
- 				$(document).ready(function () {
+ 				/*$(document).ready(function () {
 					$('#iconminus').hover(function () {
 							$("#iconminus").hide();
 							$("#iconminusmore").show();
@@ -257,7 +307,7 @@
 							$("#iconminus").show();
 							$("#iconminusmore").hide();
 					})
-				}); 
+				}); */
 				
 				/* 비어져있는 아이콘, 채워져있는 아이콘 두개 가지고와서 display none을 js로 변환하기 */
 				var diamondCheck = false;
@@ -273,12 +323,12 @@
 				
 				//본문 내용 더보기 버튼 (마이너스 버튼 활성화 시키기)
 				var mainDetailCheck = false;
-				function mainDetail(){
+				/* function mainDetail(){
 					$("#mainDetail").show();
 					$("#mainPreview").hide();
-					$("#iconplus").hide();
-					$("#iconmore").hide();
-				}
+					iconplus.css('display', 'none');
+					iconmore.css('display', 'none');
+				} */
 				
 			
 			</script>
