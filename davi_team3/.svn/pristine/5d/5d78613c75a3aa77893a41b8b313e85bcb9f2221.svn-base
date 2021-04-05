@@ -116,7 +116,8 @@
 							     </div>					          
 							          				     
 								</section>
-								<section >
+								<!-- 식단 분리 -->
+								<%-- <section >
 									<h2 align="center" style="margin-bottom:5%; font-size:2.5rem;">이주의 식단</h2>
 									<div style="width: 80%;margin: auto;">
 										<div class="row gtr-200" style="margin-bottom:1%;" >												
@@ -265,9 +266,7 @@
 											</div>							
 										</div>
 									</div>
-									
-									
-								</section>
+								</section> --%>
 								<div>
 									<c:import url="/app/footer/footer_test.jsp" />
 								</div>
