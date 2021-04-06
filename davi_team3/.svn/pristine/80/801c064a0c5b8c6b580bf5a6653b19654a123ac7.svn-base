@@ -1,0 +1,172 @@
+@charset "UTF-8";
+	.report{
+		margin-bottom:10px;
+		color:#ffaec9;
+		font-weight:bold;
+	}
+	
+	.report span{
+		color:black;
+		margin-left:5px;
+		font-weight:100;
+	}
+	
+	.graph {
+		width:80%;
+	}
+	
+	.graph__description {
+	    display: flex;
+	    justify-content: space-between;
+	    margin-bottom: 10px;
+	}
+
+	.graph__bar{
+	    height: 3px;
+	    background-color: #D3D3D3;
+	    margin-bottom: 15px; 
+	}
+	
+	.graph__value{
+	    width: 100%;
+	    height: 3px;
+	    background-color: #ffaec9;
+	}
+	
+	.article {
+		/* opacity: 0.1; */			
+	}
+	
+	.slide-img {
+		height:700px !important;
+	}
+	
+	.slide-img-ver2 {
+		height:800px !important;
+	}
+	
+	/* icon-box: 첫번째섹션 누르는 아이콘 */		
+	.icon-box{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+	}
+	
+	.icon-box a{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		font-size:1.3rem;
+		color:black;
+	}
+	
+	.icon-box a i{
+		font-size:4rem;
+		margin-bottom:5%;
+		color:black !important;
+	}
+	
+	@media screen and (max-width:1680px){
+	
+		.slide-img {
+			max-width: 100%;
+			height: 500px !important;
+		}
+
+		.icon-box a{
+			font-size:1rem !important;
+		}
+	
+		.icon-box a i{
+			font-size:2rem !important;
+		}
+	
+	}
+	
+	@media screen and (max-width: 1280px) {
+		.slide-img {
+			max-width: 100%;
+			height: 500px !important;
+		}
+
+		.icon-box a{
+			font-size:1rem !important;
+		}
+	
+		.icon-box a i{
+			font-size:2rem !important;
+		}
+	}
+	
+	.headresize{
+		width: 9%;
+		display:flex;
+		justify-content:center;
+		align-items:center;			
+	}			
+	.resize{
+		width: 15%;
+		display:flex;
+		justify-content:center;
+			
+	}
+	
+	.resize a{
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		padding-top:2%;
+	}
+	
+	.imgsize{
+		width: 100%;
+		object-fit: contain;
+	}
+	
+	.columChartP{
+	margin: 0 0 1em 0;
+	}
+	
+	.content p{
+		margin-bottom:1em !important;
+	}
+	
+	.gtr-200{
+		margin-bottom:3%;
+	}
+	
+	/* 두번째 섹션: 그래프 설명부분 */
+	.graph-description{
+		font-size:1.8rem;
+	}
+
+	.graph-description span{
+		font-size:3rem;
+	}
+	
+	@media screen and (max-width:1680px){
+	
+		.graph-description{
+			font-size:1.3rem;
+		}
+	
+		.graph-description span{
+			font-size:2rem;
+		}
+		
+	}
+	
+	@media screen and (max-width: 1280px) {
+		.graph-description{
+			font-size:1.3rem;
+		}
+
+		.graph-description span{
+			font-size:2rem;
+		}
+	}
+	
+	
