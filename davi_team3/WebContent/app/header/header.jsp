@@ -7,12 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/main.css" />
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
-	rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 <title>header</title>
 <style>
 .headerul ul{
@@ -24,7 +21,7 @@
 }
 #menufont li{
 	margin: 0;
-	padding: 0 6% 0 0;
+	padding: 0 4% 0 0;
 	list-style: none;
 	float: right;
 	font-weight:bold;
@@ -47,11 +44,9 @@
 		}		
 }
 @media screen and (max-width: 736px) {
-		#menufont{
-			display: none;			
-		}
-		
-		
+		.secret{
+			display: none;
+		}		
 }
 
 /* #main-menu>li {
@@ -114,44 +109,51 @@
 </head>
 <body>
 	<!-- Header -->
-	<header id="header" border-bottom: solid 2px rgba(210, 215, 217, 0.75);">
-		<div class="headerul" style="display:flex;align-items: flex-end; ">
+	<header id="header" style="display: block; border-bottom: solid 2px rgba(210, 215, 217, 0.75);">
+		<div class="row headerul" style="display:flex; justify-content:space-between;">
+			
+			<div style="display:flex; width:70%;">
+				<div style="display:flex; margin-right:2%; margin-left:4%;">
 					<a href="${pageContext.request.contextPath}/index.jsp" class="logo" style="padding-bottom: 
-					0px; font-weight:bold; font-size:3rem; color: rgba(0, 59, 251, 1)">DAVI
+					0px; font-weight:bold; font-size:3rem; color: rgba(0, 59, 251, 1); font-style:italic">
+						DAVI
 					</a>
+				</div>
 				
-					<ul id="menufont" class="secret" style="width:70%;margin-left: 0">
-						<li><a href="#">홈트레이닝</a></li>
-						<li><a href="${pageContext.request.contextPath}/freeBoardList.bo?boardNum=1">자유게시판</a></li>	
+				<div  style="padding-left:1.5em; display:flex; align-items:center; width:80%;">
+					<ul id="menufont" class="secret" style="width:100%; display:flex; justify-content:flex-start;">
+						<li><a href="#">메인</a></li>
+						<li><a href="#" style="color:rgba(0, 59, 251, 1);">보고서</a></li>
+						<li><a href="#" style="color:rgba(0, 59, 251, 1);">식단</a></li>
+						<li><a href="#">식단인증샷</a></li>
+						
+						<li><a href="#">자유게시판</a></li>	
 								<li id="menuHover"><a href="#">치팅모임</a>
 									<ul id="sub-menu" style="display: flex;flex-direction: column;">
-										<li><a href="${pageContext.request.contextPath}/BoardList.bo?boardNum=0&chaetLocation=0" >서울/경기</a></li>
-										<li><a href="${pageContext.request.contextPath}/BoardList.bo?boardMum=0&chaetLocation=1" >강원도</a></li>
-										<li><a href="${pageContext.request.contextPath}/BoardList.bo?boardNum=0&chaetLocation=2" >충청도</a></li>
-										<li><a href="${pageContext.request.contextPath}/BoardList.bo?boardNum=0&chaetLocation=3" >경상도</a></li>
-										<li><a href="${pageContext.request.contextPath}/BoardList.bo?boardNum=0&chaetLocation=4" >전라도/기타</a></li>
+										<li><a href="#" >서울/경기</a></li>
+										<li><a href="#" >강원도</a></li>
+										<li><a href="#" >충청도</a></li>
+										<li><a href="#" >경상도</a></li>
 									</ul>
 								</li>
-						<li><a href="#">식단인증샷</a></li>
-						<li><a href="#" >식단</a></li>
-						<li><a href="#" >보고서</a></li>
-						<li><a href="#">메인</a></li>						
-					</ul>				
-				
+						<li><a href="#">홈트레이닝</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div style="display: flex; justify-content: flex-end; align-items:center; width:30%;">
+				<ul class="myMenu" style="margin-right: 3%; display:flex;">
 					<!-- 세션의 아이디로그인 정보를 이용하여 if문의 조건 검색 -->
-					<span style="margin-left: auto;">
-						<c:if test="${empty sessionScope.memberId}">						
-							(#)님 환영합니다.&nbsp;
-							<a href="#">로그아웃</a>&nbsp;
-						</c:if>
-						<c:if test="${not empty sessionScope.memberId}">					
-							<a href="#">회원가입</a>
-							<a href="#">로그인</a>&nbsp;						
-						</c:if>
-					</span>
-				
-			
-			
+					<c:if test="${empty sessionScope.memberId}">						
+						<li>(#)님 환영합니다.&nbsp;</li>
+						<li><a href="#">로그아웃</a>&nbsp;</li>
+					</c:if>
+					<c:if test="${not empty sessionScope.memberId}">					
+						<li><a href="#">회원가입</a></li>
+						<li><a href="#">로그인</a>&nbsp;</li>						
+					</c:if>
+				</ul>
+			</div>
 		</div>		
 	</header>
 

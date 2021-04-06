@@ -40,7 +40,8 @@
 						<div class="inner">
 
 							<!-- Header -->
-								<c:import url="/app/header/header.jsp" />
+								<!-- 실험용 헤더 -->
+								<c:import url="/app/header/header_old.jsp" />
 
 							<!-- Banner -->
 								<section style="padding:13% 0;">
@@ -54,25 +55,25 @@
 										<div style="display:flex; justify-content:space-between; width:70%; margin:auto; padding:3% 7%;">
 											<div class="icon-box">
 												<a href="#" style="height:auto;">
-													<img alt="" src="${pageContext.request.contextPath}/images/개인식단.png">
+													<i class="far fa-clipboard"></i>
 													식단관리
 												</a>
 											</div>
 											<div class="icon-box">
 												<a href="#" style="height:auto;">
-													<img alt="" src="${pageContext.request.contextPath}/images/smartphone.png">
+													<i class="fas fa-mobile-alt"></i>
 													인증게시판
 												</a>
 											</div>
 											<div class="icon-box">
 												<a href="#" style="height:auto;">
-													<img alt="" src="${pageContext.request.contextPath}/images/freeboard.png">
+													<i class="fas fa-chalkboard-teacher"></i>
 													자유게시판
 												</a>
 											</div>
 											<div class="icon-box">
 												<a href="#" style="height:auto;">
-													<img alt="" src="${pageContext.request.contextPath}/images/exercise.png">
+													<i class="fas fa-running"></i>
 													홈트레이닝
 												</a>
 											</div>
@@ -90,34 +91,47 @@
 								</section>
 
 							<!-- Section -->
-								<section style="padding:6% 0;">
+								<section style="padding:6% 2%;">
+									<!-- <header style="display:flex; flex-direction:column; justify-content:center; align-items:center; margin-bottom:0.5%;">
+										<h1 style="padding-right:10px; margin-bottom:1.5%; font-size:3em;">다비의 Daily 보고서</h1>
+										<p>매일매일 관리받아보세요!</p>
+									</header> -->
 									
-									<div class="second_section_div" style="margin-bottom:4%;">
-										<div id="chart_div2" style="width:50%;"></div>
-										<div id="chart_div3" style="width:50%;"></div>
-									</div>
-									<div class="second_section_div">
-										<div id="chart_div4" style="width:50%;"></div>
-										<div style="width:50%; display:flex; justify-content:center;">
-										<div style="padding:0 2%; color:#7f888f;" class="graph-description">
-									      	<span style="color:black !important;">
-									      		지금, 다비와 함께 확인해볼까요?
-									      	</span><br><br>
-									   		매일매일 *BMI체크로 변화를 직접 확인하세요.<br><br>
-
-											체중의 변화를 그래프로 한눈에 보세요.<br>
-											점점 변해가는 내 모습을 보며 동기부여가 될거에요.<br><br>
-											
-											일일 영양소 권장량은 어느정도인지 아세요?<br>
-											다비가 전문적으로 여러분의 식단을 책임져 줄게요.<br><br>
-											
-											*BMI란 ? 비만도 평가에 가장 많이 쓰이는 척도 (체중 / 신장(/100)^2)
-									      </div>
-									    </div>  
-									</div>
+										 <div style="display:flex; justify-content:center; align-items:center; margin-bottom:4%;">
+									      	<div class="col-12" style="width:60%;">
+									          <div id="chart_div"></div>
+									      	</div>
+									      	<div style="width:40%; padding:0 2%; color:#7f888f;" class="graph-description">
+									      		<span style="color:black !important;">
+									      			오늘의 난 얼만큼 변했을까?
+									      		</span><br><br>
+									   			매일매일 자신의 변화를 <br>
+									   			눈으로 직접 확인하세요.<br>
+									   			자신의 변화를 실시간으로 확인하면<br> 
+									   			동기부여가 더욱 될것입니다.
+									      	</div>
+									     </div>
+									      
+									      <div style="display:flex; justify-content:center; align-items:center; margin-left:6%;">
+									         <div style="width:40%; display:flex; justify-content:center;">
+										          <div style="padding:0 2%; color:#7f888f;" class="graph-description">
+										      		<span style="color:black !important;">
+										      			매일매일 BMI 체크!
+										      		</span><br><br>
+										   			BMI지수는 비만도를 평가하는 데 <br>
+										   			가장 많이 쓰이는 지표랍니다.<br>
+													몸매 유지에 있어서 가장 중요한 지표예요.<br>
+													다비와 함께 매일 BMI 체크해볼까요?
+										     	</div>
+									     	</div>
+									     	 <div class="col-9"  style="width:60%;"> 
+										     	<div id="chart_div2" style="padding-left: 4%; height:500px;"></div>						     
+									     	 </div>
+								         </div>
 								</section>
 							<!-- Section -->
-								<section>
+							<section>
+							
 									<h3 align="left" style="margin-bottom:3%; margin-left:6%;">이주의 식단</h3>
 									<h4 align="left" style="margin-bottom:5%; margin-left:6%; color:#7f888f;">다비에서 제공되는 일주일 식단이에요.</h4>
 									<div style="width: 80%;margin: auto;">
@@ -490,6 +504,48 @@
 			console.log(window.outerWidth);
 			$(function() {
 				var demo1 = $("#demo1").slippry({
+					// transition: 'fade',
+					// useCSS: true,
+					 speed: 1500,
+					// pause: 3000,
+					// auto: true,
+					// preload: 'visible',
+					// autoHover: false
+				});
+
+				$('.stop').click(function () {
+					demo1.stopAuto();
+				});
+
+				$('.start').click(function () {
+					demo1.startAuto();
+				});
+
+				$('.prev').click(function () {
+					demo1.goToPrevSlide();
+					return false;
+				});
+				$('.next').click(function () {
+					demo1.goToNextSlide();
+					return false;
+				});
+				$('.reset').click(function () {
+					demo1.destroySlider();
+					return false;
+				});
+				$('.reload').click(function () {
+					demo1.reloadSlider();
+					return false;
+				});
+				$('.init').click(function () {
+					demo1 = $("#demo1").slippry();
+					return false;
+				});
+			});
+		</script>
+		<script>
+			$(function() {
+				var demo2 = $("#demo2").slippry({
 					// transition: 'fade',
 					// useCSS: true,
 					 speed: 1500,
