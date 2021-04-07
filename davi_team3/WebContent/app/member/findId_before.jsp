@@ -46,15 +46,12 @@
 							<c:import url="/app/header/header.jsp" />
 					
 							<!-- Content -->
-							<section style="padding-top:3%; display:flex; justify-content:center; margin-top:5%;">
-							<div class="davi-img" style="height:300px; padding-top:5%;">
-								<img class="img" alt="" src="https://en.pimg.jp/060/396/704/1/60396704.jpg">
-							</div>
+							<section style="padding-top:3%; display:flex; justify-content:center; margin-top:2%;">
 							
 							<div style="width:60%;">
 								<form method="post" action="#">
-									<hr style="background-color: #ffaec9; height: 3px; width:70%; margin:7% auto;">
-									<h2 align="center">아이디를 찾으시나요?</h2>	
+									<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:0 auto;">
+									<h2 align="center" style="padding-top: 3%;">아이디를 찾으시나요?</h2>	
 									<div class="row gtr-uniform" style="text-align:center;">
 										<div class="col-12">
 											<input type="text" name="memberName" id="memberName"  placeholder="이름" style="width:50%; margin:1% auto;" />
@@ -64,8 +61,16 @@
 										<!-- button -->
 										<div class="col-12" style="padding-top:0%;">
 										<input type="submit" value="아이디 찾기" class="primary" style="width:50%; margin:1% auto;">
-										<hr style="background-color: #ffaec9; height: 3px; width:70%; margin:7% auto; margin-bottom:5%;">
-										<div><img src="${pageContext.request.contextPath}/images/mini_logo.png"> 비밀번호를 찾으세요? > <a href="join.jsp">비밀번호 찾기</a></div>
+										<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:7% auto; margin-bottom:5%;">
+										<div style="display: flex; justify-content: center; ">
+											<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" 
+											style=" margin:5px; width: 30px; height: 30px; "/> 
+											<div style ="margin-top: 6px;">
+												<span>비밀번호를 찾으세요? > </span>
+												<a href="join.jsp">비밀번호 찾기</a>
+											</div>
+											
+										</div>
 										</div>
 									</div>
 								</form>

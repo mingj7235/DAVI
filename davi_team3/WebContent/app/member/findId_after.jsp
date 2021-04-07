@@ -59,13 +59,13 @@
 							<c:import url="/app/header/header.jsp" />
 					
 							<!-- Content -->
-							<section style="padding-top:3%; display:flex; justify-content:center; margin-top:5%;">
+							<section style="padding-top:3%; display:flex; justify-content:center; margin-top:2%;">
 						
 							
 							<div style="width:60%;">
 								<form method="post" action="#">
-									<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:7% auto;">
-									<h2 align="center">회원님의 아이디는</h2>	
+									<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:0 auto;">
+									<h2 align="center" style="padding-top: 3%;">회원님의 아이디는</h2>	
 									<div class="row gtr-uniform" style="text-align:center; margin-top:5%;">
 										<div class="box" style="background: rgba(210, 215, 217, 0.75); width:40%; margin:auto;">
 											<p style="font-size:1.7rem; font-weight:bold; color:black;">math*****</p>
