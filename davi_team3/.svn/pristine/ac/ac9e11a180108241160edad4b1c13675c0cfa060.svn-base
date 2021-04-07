@@ -38,7 +38,7 @@
 	}
 	
 	.slide-img {
-		height:500px !important;
+		height:700px !important;
 	}
 	
 	.slide-img-ver2 {
@@ -59,13 +59,13 @@
 		flex-direction:column;
 		justify-content:center;
 		align-items:center;
-		font-size:1.1rem;
+		font-size:1.3rem;
 		color:black;
 	}
 	
 	.icon-box a img{
-		width:60px;
-		height:60px;
+		width:70px;
+		height:70px;
 		margin-bottom:5%;
 	}
 	
@@ -120,11 +120,6 @@
 		justify-content:center;
 		align-items:center;
 		padding-top:2%;
-	}
-	
-	.resize a span{
-		color:#7f888f;
-		font-weight:bold;
 	}
 	
 	.imgsize{
@@ -183,19 +178,6 @@
 		display:flex; 
 		align-items:center;
 		justify-content:space-between;
-		width:90%;
 		margin:auto;
 	}
 	
-	.headers p{
-		font-size:1.5rem;
-		margin-bottom:0;
-	}
-	
-	#free_posts article a img{
-		height:auto;
-	}
-	
-	#cheat_posts article a img{
-		height:auto;
-	}

@@ -3022,7 +3022,7 @@ input, select, textarea {
 
 		#main > .inner {
 			padding: 0 6em 0.1em 6em ;
-			margin: 0 13%;
+			margin: 0 15%;
 			max-width: 100%;
 		}
 
