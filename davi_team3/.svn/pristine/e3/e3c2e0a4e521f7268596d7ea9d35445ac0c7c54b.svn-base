@@ -1,7 +1,5 @@
 package com.davi.app.member;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,12 +8,11 @@ import com.davi.action.ActionForward;
 import com.davi.app.member.dao.MemberDAO;
 import com.davi.app.member.vo.DaviMemberVO;
 
-public class DaviMemberJoinOkAction implements Action{
+public class MemberJoinOkAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		
-		req.setCharacterEncoding("UTF-8");
+req.setCharacterEncoding("UTF-8");
 		
 		ActionForward forward = new ActionForward();
 		
@@ -36,15 +33,15 @@ public class DaviMemberJoinOkAction implements Action{
 		if(mdao.join(mvo)) {
 			
 			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/member/MemberjoinOk.me?result=true");
+			forward.setPath(req.getContextPath() + "/member/joinOk.me?result=true");
 			
 		}else {	
 			
 			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/member/MemberjoinOk.me?result=false");
+			forward.setPath(req.getContextPath() + "/member/joinOk.me?result=false");
 			
 		}		
-		return forward;		
+		return forward;	
 	}
 	
 }
