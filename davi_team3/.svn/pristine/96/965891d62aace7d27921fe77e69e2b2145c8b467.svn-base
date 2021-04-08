@@ -24,6 +24,7 @@
 
 							<!-- Header -->
 								<c:import url="/app/header/header.jsp" />
+								
 
 							<!-- Content -->										
 								
@@ -36,14 +37,14 @@
 												<c:set var="bulletinContent" value="글내용 내용........"></c:set>
 												
 												<label for="bulletinHead" style="padding-right: 5px;color:#9fa3a6;" >분류:</label>
-												<h3 id="bulletinHead" style="margin-right: 15px;">${bulletinHead}</h3>
+												<h3 id="bulletinHead" style="margin-right: 15px;font-size: 1.5em">${bulletinHead}</h3>
 														<span class="smallTitle">작성자: DAVI</span>													
 														<span class="smallTitle">2021-4-2</span>
 											</div>
 											<div class="viewTitle" style="margin-bottom: 1em; width: 80%;">
 												<!-- <label for="subject">제목</label>	 -->											
 												<!-- <input type="text" id="subject" name="bulletinTitle" placeholder="제목" value="제목1" readonly> -->
-												<h4 id="subjectH3">${bulletinTitle}</h4>
+												<h3 id="subjectH3">${bulletinTitle}</h3>
 												<input type="text" id="subjectInput" name="bulletinTitle" placeholder="제목" value="${bulletinTitle}" style="display: none;">
 												
 											</div>

@@ -42,7 +42,7 @@
 											<i class="fas fa-exclamation-triangle"></i>
 											전일 대비 몸무게 확인하기</button>
 											
-											<button id="weightUp"  style="box-shadow:rgba(0, 59, 251, 0.2) !important; ">
+											<button id="weightUp" style="margin:0 0 5% 40%;  box-shadow:rgb(0 59 251 / 20%) !important; ">
 											<i class="fas fa-exclamation-triangle"></i>
 											전일 대비 몸무게 숨기기&nbsp;&nbsp;&nbsp;</button>
 											
@@ -81,8 +81,8 @@
 										<div class="row" class="margin: 0 auto;">
 											<div style="width:32%;">
 												<h5>그래프</h5>
-											</div>
-											<div style="width:68%;">
+											</div style="width:68%;">
+											<div>
 												<h5>나의 프로필</h5>
 											</div>
 										</div>
@@ -90,7 +90,7 @@
 											<div id="seq1"  style="background-color: white;width:32%;">
 												<div id="chart_div3"></div>
 											</div>								
-											<div  style="background-color: white;margin: 0 2%;width:15%;padding:10px; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+											<div  style="background-color: white;margin: 0 2%;width:15%;padding:10px;">
 												<div>
 												<i class="fas fa-restroom"></i>
 												</div>

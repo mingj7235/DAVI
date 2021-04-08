@@ -128,7 +128,7 @@
 								<div style="position:relative; width:100%; height: 0; padding-bottom:100%; ">
 									<img src="${pageContext.request.contextPath}/images/비서.jpg" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; z-index:-1">
 									<!-- 한동석 강사 작업 - likeMark -->
-									<img id="likeMark" src="${pageContext.request.contextPath}/images/logo_blue_board.png" style="display:none; width:100%; margin-top:10%">
+									<img id="likeMark" src="${pageContext.request.contextPath}/images/logo_blue.png" style="display:none; width:100%; margin-top:10%">
 								</div>
 							</div>
 							
@@ -344,12 +344,12 @@
 				
 				//본문 내용 더보기 버튼 (마이너스 버튼 활성화 시키기)
 				var mainDetailCheck = false;
-				/* function mainDetail(){
+				function mainDetail(){
 					$("#mainDetail").show();
 					$("#mainPreview").hide();
 					iconplus.css('display', 'none');
 					iconmore.css('display', 'none');
-				} */
+				} 
 				
 			
 			</script>
