@@ -10,7 +10,7 @@
 */
 @font-face {
 	font-family: scDream5;
-	src: url(:./assets/fonts/SCDream5.otf) format("otf");	
+	src: url(:./assets/wfonts/SCDream5.otf) format("otf");	
 }
 
 html, body, div, span, applet, object,
@@ -29,10 +29,7 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
-	font-family: scDream5;
-	}
-	
+	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {

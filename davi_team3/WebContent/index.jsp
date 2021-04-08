@@ -109,14 +109,8 @@
 									<div class="content" style="width:50%;">
 										<div style="padding:2%; width:80%; margin:auto;">
 											<img alt="" 
-<<<<<<< .mine
-											src="https://cdn.discordapp.com/attachments/821644547493986328/829590045923999775/123.png"
-											style="width:100%;">
-||||||| .r407
-=======
 											src="https://cdn.discordapp.com/attachments/821644547493986328/829590045923999775/123.png"
 											style="width:140%;">
->>>>>>> .r416
 											
 											<div style="margin-top:8%;">
 												<p style="font-size:1.7rem; color:#7f888f; font-weight:bold;">

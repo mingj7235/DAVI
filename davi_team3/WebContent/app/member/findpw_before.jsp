@@ -54,8 +54,8 @@
 									<h2 align="center" style="padding-top: 3%;">비밀번호를 찾으시나요?</h2>	
 									<div class="row gtr-uniform" style="text-align:center;">
 										<div class="col-12">
-											<input type="text" name="memberName" id="memberName"  placeholder="아이디" style="width:50%; margin:1% auto;" />
-											<input type="text" name="memberPhone" id="memberPhone" placeholder="전화번호" style="width:50%; margin:1% auto;"/>
+											<input type="text" name="memberId" id="memberId"  placeholder="아이디" style="width:50%; margin:1% auto;" />
+											<input type="text" name="memberEmail" id="memberEmail" placeholder="이메일" style="width:50%; margin:1% auto;"/>
 											<div style="width:50%; margin:1% auto; color:red;">
 												회원정보가 일치하지 않습니다.
 											</div>
