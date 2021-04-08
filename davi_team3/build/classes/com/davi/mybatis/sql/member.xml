@@ -10,6 +10,9 @@
 	<select id="findId" parameterType="map" resultType="string">
 		SELECT MEMBERID FROM DAVI_MEMBER WHERE MEMBERNAME = #{name} AND MEMBEREMAIL = #{email}
 	</select>
+	<select id="checkId" parameterType="string" resultType="_int">
+		SELECT count(*) FROM DAVI_MEMBER WHERE MEMBERNAME = #{memberId}
+	</select>
 	
 	<select id="findPw" parameterType="hashmap" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_MEMBER WHERE MEMBERID = #{id} AND MEMBEREMAIL = #{email}

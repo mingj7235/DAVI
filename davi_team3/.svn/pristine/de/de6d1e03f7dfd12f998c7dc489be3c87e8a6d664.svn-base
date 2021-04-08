@@ -75,6 +75,7 @@ function drawBMI() {
     ]);
 
 	    var options = {
+		title : 'BMI지수',
 		hAxis : {
 		title : '날짜',
 		ticks: [5,10,15,20,25,30],
@@ -117,6 +118,7 @@ function drawPieChart() {
       ]);
 
       var options = {
+        title: '일일 권장 영양소 섭취량(2100kcal기준 단위g)',
         slices: {
             0: { color: '#005bfb' },
             1: { color: '#008afb' },
@@ -152,6 +154,7 @@ function drawBarChart() {
 	      ]);
 
 	      var options = {
+	        title: '나의 몸무게 비교',
 	        hAxis: {
 	          title: '몸무게(Kg)',
 	          minValue: 30
