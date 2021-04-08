@@ -35,54 +35,16 @@ public class MemberFrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		switch(command) {
-		case "/member/findIdOk.me" :
+		case "/member/findId.me" :
 			try {
 				forward = new MemberFindIdOkAction().execute(req, resp);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			break;
-		case "/member/findId.me" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/app/member/findId_before.jsp");
-			
+		case "2":
 			
 			break;
-		case "/member/join.me" :
-			try {
-				forward = new MemberJoinOkAction().execute(req, resp);				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-			break;
-		case "/member/joinOk.me" :		
-			if(req.getParameter("result").equals("true")) {
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("/app/member/login.jsp");
-			}else {
-				//회원기입 실패시 메세지
-			}			
-			
-			break;
-			
-		case "/member/loginOk.me":
-			try {
-				forward = new MemberLoginOkAction().execute(req, resp);
-			} catch (Exception e) {;}
-			break;
-			
-		case "/member/login.me":
-			String login = req.getParameter("login");
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/app/member/login.jsp" + (login != null ? "?login=false" : ""));
-			break;	
-			
 		default:
 			forward = new ActionForward();
 			forward.setRedirect(false);

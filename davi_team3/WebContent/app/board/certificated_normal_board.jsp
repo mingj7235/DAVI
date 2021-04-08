@@ -210,14 +210,14 @@
 						
 				</div>
 				
-				<c:import url="/app/footer/footer.jsp"></c:import>
+				<c:import url="/app/footer/footer_test.jsp"></c:import>
 				<!-- board body end -->
 
 				</div>
 			</div>
 				<!-- Sidebar -->
-				<c:import url="/app/footer/sidebar.jsp" />		
- 			</div>
+			<%-- 	<c:import url="/app/footer/footer.jsp" />		
+ --%>			</div>
 
 		<!-- Scripts -->
 			<script>var contextPath = "${pageContext.request.contextPath}";</script>

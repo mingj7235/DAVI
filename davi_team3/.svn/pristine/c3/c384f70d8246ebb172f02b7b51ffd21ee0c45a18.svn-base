@@ -49,40 +49,6 @@ public class MemberFrontController extends HttpServlet{
 			
 			
 			break;
-		case "/member/join.me" :
-			try {
-				forward = new MemberJoinOkAction().execute(req, resp);				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			
-			break;
-		case "/member/joinOk.me" :		
-			if(req.getParameter("result").equals("true")) {
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("/app/member/login.jsp");
-			}else {
-				//회원기입 실패시 메세지
-			}			
-			
-			break;
-			
-		case "/member/loginOk.me":
-			try {
-				forward = new MemberLoginOkAction().execute(req, resp);
-			} catch (Exception e) {;}
-			break;
-			
-		case "/member/login.me":
-			String login = req.getParameter("login");
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/app/member/login.jsp" + (login != null ? "?login=false" : ""));
-			break;	
-			
 		default:
 			forward = new ActionForward();
 			forward.setRedirect(false);

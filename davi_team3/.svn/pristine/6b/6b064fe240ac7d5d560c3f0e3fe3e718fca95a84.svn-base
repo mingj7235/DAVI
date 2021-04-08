@@ -3,10 +3,6 @@
 
 <mapper namespace="Member">
 
-	<select id="checkFindId" parameterType="map" resultType="_int">
-		SELECT COUNT(*) FROM DAVI_MEMBER WHERE MEMBERNAME = #{name} AND MEMBEREMAIL = #{email}
-	</select>
-
 	<select id="findId" parameterType="map" resultType="string">
 		SELECT MEMBERID FROM DAVI_MEMBER WHERE MEMBERNAME = #{name} AND MEMBEREMAIL = #{email}
 	</select>

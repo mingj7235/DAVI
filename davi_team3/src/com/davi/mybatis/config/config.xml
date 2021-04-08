@@ -3,7 +3,7 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.davi.app.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="com.davi.app.member.vo.DaviMemberVO" alias="memberVO"/>
 		
 	</typeAliases>
 	<environments default="development">

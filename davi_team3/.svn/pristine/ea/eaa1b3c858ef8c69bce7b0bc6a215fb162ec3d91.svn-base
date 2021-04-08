@@ -20,7 +20,7 @@ public class DaviMemberVO {
 	private String memberPw;
 	private String memberName;
 	private String memberPhone;
-	private String memberMail;
+	private String memberEmail;
 	private String memberGender;
 	private int memberHeight;
 	private int memberWeight;
@@ -50,12 +50,12 @@ public class DaviMemberVO {
 	}
 	public void setMemberPhone(String memberPhone) {
 		this.memberPhone = memberPhone;
+	}	
+	public String getMemberEmail() {
+		return memberEmail;
 	}
-	public String getMemberMail() {
-		return memberMail;
-	}
-	public void setMemberMail(String memberMail) {
-		this.memberMail = memberMail;
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 	public String getMemberGender() {
 		return memberGender;

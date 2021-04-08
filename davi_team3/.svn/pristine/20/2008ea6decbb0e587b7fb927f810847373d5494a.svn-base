@@ -9,7 +9,7 @@
 -->
 <html>
 	<head>
-		<title>회원 정보 입력</title>
+		<title>아이디찾기</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
@@ -20,13 +20,6 @@
 				font-family: 'Sunflower', sans-serif;
 			} 
 			
-			input[type="text"], input[type="text"]:focus{
-				border:0 !important;
-				border-bottom: solid 1px rgba(0, 59, 251, 0.3) !important;
-				border-radius:0;
-				box-shadow: none;
-			}
-			
 			@media screen and (min-width: 1400px) {
 				.davi-img, .img{
 					height:400px !important;
@@ -35,7 +28,7 @@
 			
 			@media screen and (max-width: 1400px) {
 				.davi-img, .img{
-					height:350px !important;
+					height:300px !important;
 				}
 			}
 		</style>
@@ -53,35 +46,44 @@
 							<c:import url="/app/header/header.jsp" />
 					
 							<!-- Content -->
-							<section style="padding-top:3%; display:flex; justify-content:center; align-items:center; margin-top:2%;">
+							<section style="padding-top:3%; display:flex; justify-content:center; margin-top:2%;">
 							
 							<div style="width:60%;">
-								<form method="post" action="#">
+								<form method="post" action="${pageContext.request.contextPath}/member/findId.me">
 									<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:0 auto;">
-									<h2 align="center" style="padding-top: 3%;">다비가 도와드릴께요!</h2>	
+									<h2 align="center" style="padding-top: 3%;">아이디를 찾으시나요?</h2>	
 									<div class="row gtr-uniform" style="text-align:center;">
 										<div class="col-12">
-											<input type="text" name="memberName" id="memberName"  placeholder="키 (숫자만 입력)" style="width:50%; margin:1% auto;" />
-											<input type="text" name="memberEmail" id="memberEmail" placeholder="몸무게 (숫자만 입력)" style="width:50%; margin:1% auto;"/>
-											<input type="text" name="memberEmail" id="memberEmail" placeholder="목표 몸무게 (숫자만 입력)" style="width:50%; margin:1% auto;"/>
-											<textarea name="demo-message" id="demo-message" placeholder="내가 되고 싶은 모습" rows="6" style="width:50%; margin:2% auto; height:80px; border:1px solid rgba(0, 59, 251, 0.3); resize: none;" ></textarea>
-											<textarea name="demo-message" id="demo-message" placeholder="각오" rows="6" style="width:50%; margin:2% auto; height:80px; border:1px solid rgba(0, 59, 251, 0.3); resize: none;"></textarea>
+											<input type="text" name="memberName" id="memberName"  placeholder="이름" style="width:50%; margin:1% auto;" />
+											<input type="text" name="memberEmail" id="memberEmail" placeholder="이메일" style="width:50%; margin:1% auto;"/>
 										</div>
 										
 										<!-- button -->
 										<div class="col-12" style="padding-top:0%;">
-										<input type="submit" value="제출하기" class="primary" style="width:50%; margin:1% auto;">
+										<input type="submit" value="아이디 찾기" class="primary" style="width:50%; margin:1% auto;">
 										<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:7% auto; margin-bottom:5%;">
+										<div style="display: flex; justify-content: center; ">
+											<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" 
+											style=" margin:5px; width: 30px; height: 30px; "/> 
+											<div style ="margin-top: 6px;">
+												<span>비밀번호를 찾으세요? > </span>
+												<a href="join.jsp">비밀번호 찾기</a>
+											</div>
+											
+										</div>
 										</div>
 									</div>
 								</form>
 							</div>
 							</section>
+							<div>
+								<c:import url="/app/footer/footer.jsp"/>
+							</div>
 						</div>
 					</div>
 
 				<!-- Sidebar -->
-					<c:import url="/app/footer/footer.jsp" />
+					<c:import url="/app/footer/sidebar.jsp" />
 
 			</div>
 

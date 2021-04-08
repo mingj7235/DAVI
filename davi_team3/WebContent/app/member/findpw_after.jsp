@@ -87,13 +87,13 @@
 							</div>
 							</section>
 							<div>
-								<c:import url="/app/footer/footer_test.jsp"/>
+								<c:import url="/app/footer/footer.jsp"/>
 							</div>
 						</div>
 					</div>
 
 				<!-- Sidebar -->
-					<c:import url="/app/footer/footer.jsp" />
+					<c:import url="/app/footer/sidebar.jsp" />
 
 			</div>
 
