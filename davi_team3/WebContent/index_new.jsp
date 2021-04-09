@@ -20,6 +20,11 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
 		integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 		<style>
+			@font-face {
+              font-family: ppak;
+              src: url('fonts/gabia_solmee.ttf');
+            }
+			
 			body{
 				font-family: 'Sunflower', sans-serif;
 			}
@@ -50,10 +55,11 @@
 								<section style="padding:9% 0; margin:5% 0;">
 									<div style="display:flex; justify-content:space-between; align-items:center; padding:0 5%;">
 									<div class="content" style="width:50%;">
-										<div style="padding:2%; width:100%; margin:auto;">
-											<img alt="" 
-											src="https://cdn.discordapp.com/attachments/821644547493986328/827345147972550666/intro_1.png"
-											style="width:110%;">
+										<div style="padding:2%; width:140%; margin:auto; margin-bottom:5%;">
+											<p style="font-size:4rem; font-family:ppak; margin-bottom:0 !important; line-height:120%; margin-left:-5%;">
+												먹으면서 <span style="font-size:6rem; color:rgba(0, 59, 251, 1);">다이어트</span> 하자<br>
+												지금 바로 <span style="font-size:6rem; color:rgba(0, 59, 251, 1);">다비</span>하자
+											</p>
 										</div>
 										<div style="display:flex; justify-content:space-between; width:80%; margin:auto; padding:3% 3%;">
 											<div class="icon-box">
@@ -108,9 +114,12 @@
 									</div>
 									<div class="content" style="width:50%;">
 										<div style="padding:2%; width:80%; margin:auto;">
-											<img alt="" 
-											src="https://cdn.discordapp.com/attachments/821644547493986328/829590045923999775/123.png"
-											style="width:140%;">
+											<div style="width:160%; margin:auto; margin-left:8%;  margin-bottom:5%;">
+												<p style="font-size:3.5rem; font-family:ppak; margin-bottom:0 !important; line-height:120%;">
+													다비와 함께 확인해볼까요?<br>
+													체중의 변화를 그래프로 한눈에
+												</p>
+											</div>
 											
 											<div style="margin-top:8%; width:140%;">
 												<p style="font-size:1.1rem; color:#7f888f; font-weight:bold; text-align:right;">
@@ -142,9 +151,12 @@
 									<div style="display:flex; justify-content:space-between; align-items:center;">
 									<div class="content" style="width:50%;">
 										<div style="padding:2%; width:100%; margin:auto;">
-											<img alt="" 
-											src="https://cdn.discordapp.com/attachments/821644547493986328/829212235372953610/1245.png"
-											style="width:105%;">
+											<div style="width:160%; margin:auto; margin-bottom:5%;">
+												<p style="font-size:3.5rem; font-family:ppak; margin-bottom:0 !important; line-height:120%;">
+													다양한 <span style="color:red;">레시피</span>로 함께해요!<br>
+													바보야, 정답은 식단이야...
+												</p>
+											</div>
 											<div style="margin-top:8%;">
 												<p style="font-size:1.1rem; color:#7f888f; font-weight:bold;">
 													매일 식단짜기 귀찮지 않으셨나요?<br>

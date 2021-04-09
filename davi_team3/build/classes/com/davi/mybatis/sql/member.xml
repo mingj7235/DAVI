@@ -10,18 +10,24 @@
 	<select id="findId" parameterType="map" resultType="string">
 		SELECT MEMBERID FROM DAVI_MEMBER WHERE MEMBERNAME = #{name} AND MEMBEREMAIL = #{email}
 	</select>
+	
 	<select id="checkId" parameterType="string" resultType="_int">
-		SELECT count(*) FROM DAVI_MEMBER WHERE MEMBERNAME = #{memberId}
+		SELECT count(*) FROM DAVI_MEMBER WHERE MEMBERID = #{memberId}
 	</select>
 	
 	<select id="findPw" parameterType="hashmap" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_MEMBER WHERE MEMBERID = #{id} AND MEMBEREMAIL = #{email}
 	</select>
 	
+	<update id="changePw" parameterType="hashmap">
+		UPDATE DAVI_MEMBER SET MEMBERPW = #{pw} WHERE MEMBEREMAIL = #{email}
+	</update>
+	
 	<select id="login" parameterType="map" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_MEMBER 
 		WHERE MEMBERID = #{id} AND MEMBERPW = #{pw}
 	</select>
+	
 	<insert id="join" parameterType="memberVO">
 		INSERT INTO DAVI_MEMBER VALUES ( 
 		#{memberId}, #{memberPw}, #{memberName}, #{memberPhone}, #{memberEmail}, 
