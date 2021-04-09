@@ -8,7 +8,7 @@ import com.davi.action.ActionForward;
 import com.davi.app.board.dao.BoardFreeDAO;
 import com.davi.app.board.vo.BoardFreeVO;
 
-public class BoardFreeViewAction implements Action {
+public class BoardFreeViewOkAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.setCharacterEncoding("UTF-8");
