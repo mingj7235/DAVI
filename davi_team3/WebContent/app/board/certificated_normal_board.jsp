@@ -90,17 +90,17 @@
 										cursor: pointer;" onclick="#"/>
 									<textarea class="certificated_textarea" id="" name="" placeholder="게시글을 작성해보세요" style=" 
 										resize:none; height:40px; padding: 5px; margin: 5px;" readonly="readonly" onclick="popup()"></textarea>
-									<input id="" name="" type="submit" value="등록" style="margin:5px;">
+									<input id="" name="" type="submit" value="인증하기" style="margin:5px;" onclick="popup()">
 								</div>
 									<!-- 사진 업로드 -->
-								<div style="display:flex; justify-content: center;">
+								<!-- <div style="display:flex; justify-content: center;">
 									<a class ="icon_color" href="#" style="display:flex; justify-content: center; width:30%; border-bottom: none; ">
 										<div style="margin: 1px;">
 											<i class="fas fa-images"></i>
 										</div>
 										<div style="color:#9FA3A6; margin-left: 3px;">사진 첨부하기</div>
 									</a>
-								</div>
+								</div> -->
 							</div>
 						</form>
 						<!-- 일반게시판 전체 아웃라인 -->
@@ -210,7 +210,7 @@
 						
 				</div>
 				
-				<c:import url="/app/footer/footer_test.jsp"></c:import>
+				<c:import url="/app/footer/footer.jsp"></c:import>
 				<!-- board body end -->
 
 				</div>
@@ -234,10 +234,10 @@
 					document.getElementById("wrapper").style.opacity = "0.3%"; */
 					
 					var width = '700';
-				    var height = '510';
+				    var height = '500';
 				    var left = Math.ceil(( window.screen.width - width )/2);
 				    var top = Math.ceil(( window.screen.height - height )/2); 
-				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_write.jsp', '게시물 작성', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
+				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_photo.jsp', '사진등록', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 					
 				}
 				
