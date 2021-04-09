@@ -71,7 +71,7 @@
 				<div style="display: flex; justify-content: center; margin:10px 0; padding-top: 5px;">
 					<h1>사진 선택하기</h1>
 				</div>
-				<form method="post" action="${pageContext.request.contextPath}/board/certificatePhoto.me">
+				<form method="post" action="${pageContext.request.contextPath}/board/certificatePhoto.bo">
 					<div style="display: flex; justify-content: center;">
 						<div style="width: 80%; height: 420px; border: 1px solid rgba(164, 167, 170, 0.3);">
 							<!-- 게시글 작성자 프로필, 닉네임, 제목 -->
@@ -82,13 +82,17 @@
 								</div>
 								
 								<div style="width : 45%; display:flex; justify-content: center; margin-top: 3.4%; margin-left: 23%;">
-								<a href="#" style="display:flex; justify-content: center; border-bottom: none; color:rgba(0, 59, 251, 0.3);">
+								<!-- <a href="#" style="display:flex; justify-content: center; border-bottom: none; color:rgba(0, 59, 251, 0.3);">
 									<div style="margin: 1px;">
 										<i class="fas fa-images"></i>
 									</div>
 									<div style="color:#9FA3A6; margin-left: 3px;">사진 첨부하기</div>
 								</a>
-								</div>
+ -->							
+ 									<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple>
+										<button class="browse-btn">사진업로드</botton>
+ 	
+ 								</div>
 								
 								<div style="width: 45%; text-align: right; display:flex; justify-content: flex-end;">
 									<input id="" name="" type="submit" value="다음" style="box-shadow: none; font-size: 1em; padding-right: 2%; padding-left: 2%;">
@@ -103,9 +107,13 @@
 						
 							<!-- 게시글 본문 -->
 							<div style="display:flex; justify-content: center;">
-								<textarea class="board_content" id="" name="" style="border:0; border-bottom: 1px solid rgba(0, 59, 251, 0.3); 
+								<!-- <textarea class="board_content" id="" name="" style="border:0; border-bottom: 1px solid rgba(0, 59, 251, 0.3); 
 									resize:none; height:300px; padding: 5px; margin: 5px; color: rgba(0, 59, 251 0.3)" readonly="readonly">사진을 등록해주세요 :-)
-								</textarea>
+								</textarea> -->
+								
+								<div id="imagePreview" style="width:300px; height: 300px;">
+									<img id="img" />
+								</div>
 							</div>
 							
 								<!-- 사진 업로드 -->
@@ -140,6 +148,46 @@
 			    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_preview.jsp', '미리보기', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 				
 			}
+			
+			const browseBtn = document.querySelector('.browse-btn');
+			const realInput = document.querySelector('#real-input');
+
+			browseBtn.addEventListener('click',()=>{
+				realInput.click();
+			});
+			
+			function readInputFile(e){
+			    var sel_files = [];
+			    
+			    sel_files = [];
+			    $('#imagePreview').empty();
+			    
+			    var files = e.target.files;
+			    var fileArr = Array.prototype.slice.call(files);
+			    var index = 0;
+			    
+			    fileArr.forEach(function(f){
+			    	if(!f.type.match("image/.*")){
+			        	alert("이미지 확장자만 업로드 가능합니다.");
+			            return;
+			        };
+			        if(files.length < 11){
+			        	sel_files.push(f);
+			            var reader = new FileReader();
+			            reader.onload = function(e){
+			            	var html = "<a id=img_id_${index}><img src=${e.target.result} data-file=${f.name} /></a>";
+			                $('imagePreview').append(html);
+			                index++;
+			            };
+			            reader.readAsDataURL(f);
+			        }
+			    })
+			    if(files.length > 11){
+			    	alert("최대 10장까지 업로드 할 수 있습니다.");
+			    }
+			}
+
+			$('#real-input').on('change',readInputFile);
 			
 			</script>
 

@@ -3,6 +3,7 @@ package com.davi.app.board.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.davi.app.board.vo.BoardFreeVO;
 import com.davi.mybatis.config.SqlMapConfig;
 
 public class BoardDAO {
@@ -11,8 +12,12 @@ public class BoardDAO {
 	SqlSession session;
 	
 	public BoardDAO() {
-		session = sessionf.openSession(true);
-		
+		session = sessionf.openSession(true);		
 	}
+	
+	//자유게시판 글쓰기
+		public boolean boardFreeWrite(BoardFreeVO bvo) {		
+			return session.insert("Board.freeWrite", bvo) == 1;
+		}
 	
 }

@@ -1,0 +1,35 @@
+package com.davi.app.board.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.davi.app.board.vo.BoardFreeVO;
+import com.davi.mybatis.config.SqlMapConfig;
+
+public class BoardDAO {
+
+	SqlSessionFactory sessionf = SqlMapConfig.getSqlMapInstance();
+	SqlSession session;
+	
+	public BoardDAO() {
+		session = sessionf.openSession(true);		
+	}
+	
+	// 자유게시판 글쓰기
+	public boolean boardFreeWrite(BoardFreeVO bvo) {		
+		return session.insert("Board.freeWrite", bvo) == 1;
+	}
+	
+	// 자유게시판 목록 불러오기
+	public List<BoardFreeVO> getBoardList(int startRow, int endRow){
+		HashMap<String, Integer> page = new HashMap<>();
+		page.put("startRow", startRow);
+		page.put("endRow", endRow);
+		
+		return session.selectOne("Board.listAll", page);
+	}
+	
+}

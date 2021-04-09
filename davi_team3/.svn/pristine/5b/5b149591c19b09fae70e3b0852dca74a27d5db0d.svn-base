@@ -42,21 +42,6 @@ public class BoardFrontController extends HttpServlet{
 				e.printStackTrace();
 			}			
 			break;		
-			
-		case "/board/certificatePhoto.bo" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/app/board/certificated_normal_board_write.jsp");
-			break;
-			
-		case "/board/freeView.bo":
-			try {
-				forward = new BoardFreeViewAction().execute(req, resp);
-			} catch (Exception e) {				
-				e.printStackTrace();
-			}			
-			break;	
-			
 		default:
 			forward = new ActionForward();
 			forward.setRedirect(false);
