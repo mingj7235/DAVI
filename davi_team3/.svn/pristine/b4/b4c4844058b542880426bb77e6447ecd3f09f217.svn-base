@@ -90,7 +90,7 @@
 								</a>
  -->							
  									<input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple>
-										<button class="browse-btn">사진업로드</button>
+										<button class="browse-btn">사진업로드</botton>
  	
  								</div>
 								
