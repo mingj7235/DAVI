@@ -32,7 +32,7 @@
 	</select>
 	
 	<select id="getBoardCnt" resultType="_int">
-		SELECT COUNT(*) FROM DAVI_FREE_BOARD;
+		SELECT COUNT(*) FROM DAVI_FREE_BOARD
 	</select>
 	
 	<select id="getDetail" parameterType="_int" resultType="boardFreeVO">
