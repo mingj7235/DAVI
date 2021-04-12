@@ -66,7 +66,7 @@
 				<div style="display: flex; justify-content: center; margin:10px 0; padding-top: 5px;">
 					<h1>사진 선택하기</h1>
 				</div>
-				<form method="post" action="${pageContext.request.contextPath}/board/certificatePhoto.bo">
+				<form method="post" action="${pageContext.request.contextPath}/board/certificatePhotoOk.bo">
 					<div style="display: flex; justify-content: center;">
 						<div style="width: 80%; height: 420px; border: 1px solid rgba(164, 167, 170, 0.3);">
 							<!-- 게시글 작성자 프로필, 닉네임, 제목 -->
