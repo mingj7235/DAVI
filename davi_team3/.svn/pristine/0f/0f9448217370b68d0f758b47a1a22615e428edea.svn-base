@@ -38,14 +38,6 @@
 	<select id="getDetail" parameterType="_int" resultType="boardFreeVO">
 		SELECT * FROM DAVI_FREE_BOARD WHERE FREENUM = #{FREENUM}
 	</select>	
-	
-		<delete id="deleteFree" parameterType="_int">
-		DELETE FROM DAVI_FREE_BOARD WHERE FREENUM = #{FREENUM}
-	</delete>
-	
-	<update id="updateFree" parameterType="boardFreeVO">
-		UPDATE DAVI_FREE_BOARD SET FREETITLE = #{freeTitle}, FREECONTENT=#{freeContent} WHERE FREENUM = #{freeNum}
-	</update>
 </mapper>
 
 

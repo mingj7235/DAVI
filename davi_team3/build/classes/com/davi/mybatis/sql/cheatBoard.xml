@@ -3,7 +3,7 @@
 
 <mapper namespace="CheatBoard">
 
-	<insert id="cheatWrite" parameterType="boardFreeVO">
+	<insert id="cheatWrite" parameterType="boardCheatVO">
 		INSERT INTO DAVI_CHEAT_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent},SYSDATE)
 	</insert>
 		

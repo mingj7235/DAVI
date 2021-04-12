@@ -15,19 +15,19 @@
 	<select id="listSearchHead" parameterType="map" resultType="boardFreeVO">
 		SELECT * FROM 
 			(SELECT ROWNUM R, D.* FROM 
-				(SELECT * FROM DAVI_FREE_BOARD WHERE FREEHEAD LIKE '%#{freeHead}%' ORDER BY FREENUM DESC) D) F 
+				(SELECT * FROM DAVI_FREE_BOARD WHERE FREEHEAD LIKE #{freeHead} ORDER BY FREENUM DESC) D) F 
 		WHERE F.R BETWEEN #{startRow} AND #{endRow}
 	</select>
 	<select id="listSearchTitle" parameterType="map" resultType="boardFreeVO">
 		SELECT * FROM 
 			(SELECT ROWNUM R, D.* FROM 
-				(SELECT * FROM DAVI_FREE_BOARD WHERE FREETITLE LIKE '%#{freeTitle}%' ORDER BY FREENUM DESC) D) F 
+				(SELECT * FROM DAVI_FREE_BOARD WHERE FREETITLE LIKE #{freeTitle} ORDER BY FREENUM DESC) D) F 
 		WHERE F.R BETWEEN #{startRow} AND #{endRow}
 	</select>
-	<select id="listSearchContent" parameterType="map" resultType="boardFreeVO">
+	<select id="listSearchId" parameterType="map" resultType="boardFreeVO">
 		SELECT * FROM 
 			(SELECT ROWNUM R, D.* FROM 
-				(SELECT * FROM DAVI_FREE_BOARD WHERE FREECONTENT LIKE '%#{freeContent}%' ORDER BY FREENUM DESC) D) F 
+				(SELECT * FROM DAVI_FREE_BOARD WHERE MEMBERID LIKE #{memberId} ORDER BY FREENUM DESC) D) F 
 		WHERE F.R BETWEEN #{startRow} AND #{endRow}
 	</select>
 	
@@ -38,6 +38,14 @@
 	<select id="getDetail" parameterType="_int" resultType="boardFreeVO">
 		SELECT * FROM DAVI_FREE_BOARD WHERE FREENUM = #{FREENUM}
 	</select>	
+	
+		<delete id="deleteFree" parameterType="_int">
+		DELETE FROM DAVI_FREE_BOARD WHERE FREENUM = #{FREENUM}
+	</delete>
+	
+	<update id="updateFree" parameterType="boardFreeVO">
+		UPDATE DAVI_FREE_BOARD SET FREETITLE = #{freeTitle}, FREECONTENT=#{freeContent} WHERE FREENUM = #{freeNum}
+	</update>
 </mapper>
 
 

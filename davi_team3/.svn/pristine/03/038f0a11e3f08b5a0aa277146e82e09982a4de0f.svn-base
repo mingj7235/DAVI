@@ -70,14 +70,4 @@ public class BoardFreeDAO {
 	public BoardFreeVO getDetail(int freeNum) {
 		return session.selectOne("FreeBoard.getDetail", freeNum);
 	}
-	
-	//게시글 삭제하기
-	public boolean deleteFree(int freeNum) {
-		return session.delete("FreeBoard.deleteFree",freeNum)==1;
-	}
-	
-	//게시글 업데이트
-	public boolean updateFree(BoardFreeVO bvo) {
-		return session.update("FreeBoard.updateFree",bvo)==1;
-	}
 }
