@@ -14,7 +14,7 @@ import com.davi.app.board.file.SummernoteFileUpload;
 public class BoardFrontController extends HttpServlet{
 
 	/**
-	 * d
+	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -64,14 +64,6 @@ public class BoardFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			break;
-			
-		case "/board/certificateWriteOk.bo" :
-			
-			try {
-				forward = new CertificatedBoardWriteOkAction().execute(req, resp);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 			
 		case "/board/freeViewOk.bo":
 			try {

@@ -3,7 +3,7 @@
 
 <mapper namespace="FreeBoard">
 	<insert id="freeWrite" parameterType="boardFreeVO">
-		INSERT INTO DAVI_FREE_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent},SYSDATE)
+		INSERT INTO DAVI_FREE_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent}, SYSDATE)
 	</insert>
 	
 	<select id="listAll" parameterType="map" resultType="boardFreeVO">

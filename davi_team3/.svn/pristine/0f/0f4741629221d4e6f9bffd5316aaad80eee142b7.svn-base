@@ -65,14 +65,6 @@ public class BoardFrontController extends HttpServlet{
 			}
 			break;
 			
-		case "/board/certificateWriteOk.bo" :
-			
-			try {
-				forward = new CertificatedBoardWriteOkAction().execute(req, resp);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
 		case "/board/freeViewOk.bo":
 			try {
 				forward = new BoardFreeViewOkAction().execute(req, resp);

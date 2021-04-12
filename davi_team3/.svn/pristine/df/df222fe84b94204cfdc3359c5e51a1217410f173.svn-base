@@ -29,26 +29,28 @@
 							<!-- Content -->
 								<section>									
 									<div class="mainFrame" style="width:50%; margin: 0 auto; font-size: 1em;">
-										<form method="post" action="${pageContext.request.contextPath}/board/freeWriteOk.bo" id="freeBoardWriteForm" name="freeBoardWriteForm">
-											<div style="margin-bottom: 1em;">												 
-													<select name="freeHead" id="freeHead" style="width: 30%;border: none;border-bottom: solid 1px #dde1e2;">
-														<option value="0">잡담</option>
-														<option value="1">고민상담</option>
-														<option value="2">팁/노하우</option>
+										<form method="post" action="${pageContext.request.contextPath}/board/cheatWriteOk.bo" id="cheatBoardWriteForm" name="cheatBoardWriteForm">
+											<div style="margin-bottom: 1em;">
+													<select name="cheatHead" id="cheatHead" style="width: 30%;">
+														<option value="0">서울/경기</option>
+														<option value="1">강원도</option>
+														<option value="2">충청도</option>
+														<option value="3">경상도</option>
+														<option value="5">전라도/기타</option>
 													</select>
 											</div>
 											<div style="margin-bottom: 1em;display: flex;">
 												
-												<input type="text" id="subject" name="freeTitle" placeholder="제목">
-												<a href="javascript:freeBoardWriteForm.submit()" class="button small" style="font-size: 0.785em">글 등록</a>
+												<input type="text" id="subject" name="cheatTitle" placeholder="제목">
+												<a href="javascript:cheatBoardWriteForm.submit()" class="button small" style="font-size: 0.785em">글 등록</a>
 											</div>
 											<div>
 																						
 												<!-- 써머노트  폼 불러오기 -->
-												<textarea id="summernote" name="freeContent"></textarea>
+												<textarea id="summernote" name="cheatContent"></textarea>
 											</div>
 											<div style="margin: 10px 0px; text-align: right;">
-											<!-- <a href="javascript:freeBoardWriteForm.submit()"  style="margin-right: 15px;font-size: 1.5em"><i class="fas fa-edit"></i></a> -->
+											<!-- <a href="javascript:cheatBoardWriteForm.submit()"  style="margin-right: 15px;font-size: 1.5em"><i class="fas fa-edit"></i></a> -->
 											<!-- <a href="javascript:textReset()" class="button small">내용 초기화</a> -->											
 											</div>									
 											<input type="hidden" name="boardNum" value="${param.boardNum}">									

@@ -29,7 +29,7 @@ public class CertificatedBoardOkAction implements Action {
 		
 		String saveFolder = "/Users/joshua/Desktop/JoshuaStudy/projects/DAVI/davi_team3/WebContent/app/board/temp";
 		
-		int fileSize = 5 * 1024 * 1024;  //size
+		int fileSize = 5 * 1024 * 1024; 
 		
 		MultipartRequest multi = null;		
 		
@@ -44,7 +44,6 @@ public class CertificatedBoardOkAction implements Action {
 			out.print("/tempImg/" + systemName.trim());
 		}		
 		out.close();
-		
 		
 		return null;		
 		

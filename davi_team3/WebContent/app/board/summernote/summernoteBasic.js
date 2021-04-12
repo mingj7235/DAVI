@@ -68,9 +68,7 @@ function sendFile(file, el) {
 		enctype : 'multipart/form-data',
 		processData : false,
 		success : function(img) {			
-			console.log(img);
 			$(el).summernote('insertImage', img);
 		}
-		
 	});
 }

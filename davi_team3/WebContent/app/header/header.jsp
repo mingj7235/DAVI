@@ -127,7 +127,7 @@
 						<li><a href="#" style="color:rgba(0, 59, 251, 1);">식단</a></li>
 						<li><a href="#">식단인증샷</a></li>
 						
-						<li><a href="${pageContext.request.contextPath}/board/freeList.bo">자유게시판</a></li>	
+						<li><a href="#">자유게시판</a></li>	
 								<li id="menuHover"><a href="#">치팅모임</a>
 									<ul id="sub-menu" style="display: flex;flex-direction: column;">
 										<li><a href="#" >서울/경기</a></li>

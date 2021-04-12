@@ -45,7 +45,6 @@ public class CertificatedBoardOkAction implements Action {
 		}		
 		out.close();
 		
-		
 		return null;		
 		
 		
