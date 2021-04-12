@@ -6,7 +6,18 @@
 	<insert id="cheatWrite" parameterType="boardCheatVO">
 		INSERT INTO DAVI_CHEAT_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent},SYSDATE)
 	</insert>
-		
+	
+	<select id="getDetail" parameterType="_int" resultType="boardCheatVO">
+		SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATNUM = #{CHEATNUM}
+	</select>	
+	
+		<delete id="deleteCheat" parameterType="_int">
+		DELETE FROM DAVI_CHEAT_BOARD WHERE CHEATNUM = #{CHEATNUM}
+	</delete>
+	
+	<update id="updateCheat" parameterType="boardCheatVO">
+		UPDATE DAVI_CHEAT_BOARD SET CHEATTITLE = #{cheatTitle}, CHEATCONTENT=#{cheatContent} WHERE CHEATNUM = #{cheatNum}
+	</update>		
 </mapper>
 
 

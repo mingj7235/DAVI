@@ -7,7 +7,7 @@ import com.davi.action.Action;
 import com.davi.action.ActionForward;
 import com.davi.app.board.dao.BoardFreeDAO;
 
-public class CheatFreeListOkAction implements Action {
+public class BoardFreeListOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
@@ -22,8 +22,9 @@ public class CheatFreeListOkAction implements Action {
 		
 		System.out.println(temp);
 		
-		String searchHead = req.getParameter("searchFreeHead");
-		String searchWord = req.getParameter("searchFreeWord");
+		String searchFreeHead = req.getParameter("searchFreeHead");
+		String searchFreeWord = req.getParameter("searchFreeWord");
+		int totalCnt = 0;
 		
 		// 목록으로 돌아갈 때 필요한 page
 		int page = temp == null ? 1 : Integer.parseInt(temp);
@@ -42,7 +43,20 @@ public class CheatFreeListOkAction implements Action {
 		int startPage = ((page - 1) / pageSize) * pageSize + 1;
 		int endPage = startPage + (pageSize - 1);
 		
-		int totalCnt = f_dao.getBoardCnt();
+		if(searchFreeHead == null) {
+			totalCnt = f_dao.getBoardCnt();
+		}else {
+			if(searchFreeHead.equals("0")) {
+				//분류
+				totalCnt = f_dao.getBoardCntSearchHead(searchFreeWord);
+			}else if(searchFreeHead.equals("1")) {
+				//제목
+				totalCnt = f_dao.getBoardCntSearchTitle(searchFreeWord);
+			}else {
+				//아이디
+				totalCnt = f_dao.getBoardCntSearchId(searchFreeWord);
+			}
+		}
 		
 		int realEndPage = (totalCnt - 1) / boardSize + 1;
 		
@@ -55,23 +69,23 @@ public class CheatFreeListOkAction implements Action {
 		req.setAttribute("realEndPage", realEndPage);
 		req.setAttribute("pageSize", pageSize);
 		
-		if(searchHead == null) {
+		if(searchFreeHead == null) {
 			req.setAttribute("FreeBoardList", f_dao.getBoardList(startRow, endRow));			
 		}else {
-			if(searchHead.equals("0")) {
+			if(searchFreeHead.equals("0")) {
 				//분류
-				req.setAttribute("FreeBoardList", f_dao.getBoardListSearchHead(startRow, endRow, searchWord));				
-			}else if(searchHead.equals("1")) {
+				req.setAttribute("FreeBoardList", f_dao.getBoardListSearchHead(startRow, endRow, searchFreeWord));				
+			}else if(searchFreeHead.equals("1")) {
 				//제목
-				req.setAttribute("FreeBoardList", f_dao.getBoardListSearchTitle(startRow, endRow, searchWord));
+				req.setAttribute("FreeBoardList", f_dao.getBoardListSearchTitle(startRow, endRow, searchFreeWord));
 			}else {
 				//아이디
-				req.setAttribute("FreeBoardList", f_dao.getBoardListSearchId(startRow, endRow, searchWord));
+				req.setAttribute("FreeBoardList", f_dao.getBoardListSearchId(startRow, endRow, searchFreeWord));
 			}
 		}
 		
 		forward.setRedirect(false);
-		forward.setPath("/app/board/freeBoardList.jsp");
+		forward.setPath("/app/board/freeBoardList.jsp?searchFreeHead=" + searchFreeHead + "&searchFreeWord" + searchFreeWord);
 		
 		return forward;
 	}

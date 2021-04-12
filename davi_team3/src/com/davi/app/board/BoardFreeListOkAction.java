@@ -24,6 +24,7 @@ public class BoardFreeListOkAction implements Action {
 		
 		String searchFreeHead = req.getParameter("searchFreeHead");
 		String searchFreeWord = req.getParameter("searchFreeWord");
+		int totalCnt = 0;
 		
 		// 목록으로 돌아갈 때 필요한 page
 		int page = temp == null ? 1 : Integer.parseInt(temp);
@@ -42,7 +43,20 @@ public class BoardFreeListOkAction implements Action {
 		int startPage = ((page - 1) / pageSize) * pageSize + 1;
 		int endPage = startPage + (pageSize - 1);
 		
-		int totalCnt = f_dao.getBoardCnt();
+		if(searchFreeHead == null) {
+			totalCnt = f_dao.getBoardCnt();
+		}else {
+			if(searchFreeHead.equals("0")) {
+				//분류
+				totalCnt = f_dao.getBoardCntSearchHead(searchFreeWord);
+			}else if(searchFreeHead.equals("1")) {
+				//제목
+				totalCnt = f_dao.getBoardCntSearchTitle(searchFreeWord);
+			}else {
+				//아이디
+				totalCnt = f_dao.getBoardCntSearchId(searchFreeWord);
+			}
+		}
 		
 		int realEndPage = (totalCnt - 1) / boardSize + 1;
 		

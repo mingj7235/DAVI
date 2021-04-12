@@ -32,14 +32,29 @@
 	</select>
 	
 	<select id="getBoardCnt" resultType="_int">
-		SELECT COUNT(*) FROM DAVI_FREE_BOARD
+		SELECT COUNT(*) FROM DAVI_FREE_BOARD 
+	</select>
+	
+	<select id="getBoardCntSearchHead" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM 
+			(SELECT * FROM DAVI_FREE_BOARD WHERE FREEHEAD LIKE #{freeHead})		
+	</select>
+	
+	<select id="getBoardCntSearchTitle" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM 
+			(SELECT * FROM DAVI_FREE_BOARD WHERE FREETITLE LIKE #{freeTitle})
+	</select>
+	
+	<select id="getBoardCntSearchId" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM 
+			(SELECT * FROM DAVI_FREE_BOARD WHERE MEMBERID LIKE #{memberId})
 	</select>
 	
 	<select id="getDetail" parameterType="_int" resultType="boardFreeVO">
 		SELECT * FROM DAVI_FREE_BOARD WHERE FREENUM = #{FREENUM}
 	</select>	
 	
-		<delete id="deleteFree" parameterType="_int">
+	<delete id="deleteFree" parameterType="_int">
 		DELETE FROM DAVI_FREE_BOARD WHERE FREENUM = #{FREENUM}
 	</delete>
 	
