@@ -14,8 +14,16 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
  -->
 
 <mapper namespace="CertificatedBoard">
-	<insert id="certificatedWrite" parameterType="CertificatedBoardVO">
-		INSERT INTO CERTIFICATED_BOARD VALUES(#{memberId}, CERTIFICATED_SEQ.NEXTVAL, #{certificatedTitle}, #{certificatedContent}, SYSDATE)
+	<insert id="certificatedWrite" parameterType="certificatedBoardVO">
+		INSERT INTO DAVI_CERTIFICATED_BOARD VALUES(#{memberId}, CERTIFICATED_SEQ.NEXTVAL, #{certificatedTitle}, #{certificatedContent}, SYSDATE)
+	</insert>
+	
+	<select id="getCertificatedNum" parameterType="string" resultType="_int">
+		SELECT CERTIFICATEDNUM FROM (SELECT * FROM DAVI_CERTIFICATED_BOARD ORDER BY CERTIFICATEDNUM DESC) WHERE MEMBERID = #{memberId} AND ROWNUM = 1
+	</select>
+	
+	<insert id="certificatedFile" parameterType="certificatedFilesVO">
+		INSERT INTO DAVI_CERTIFICATED_FILE VALUES(#{certificatedNum},#{certificatedPath}, #{certificatedFileName})
 	</insert>
 		
 </mapper>

@@ -4,14 +4,14 @@
 <mapper namespace="CheatBoard">
 
 	<insert id="cheatWrite" parameterType="boardCheatVO">
-		INSERT INTO DAVI_CHEAT_BOARD VALUES(CHEAT_SEQ.NEXTVAL, #{cheatHead}, #{memberId}, #{cheatTitle}, #{cheatContent},SYSDATE)
+		INSERT INTO DAVI_CHEAT_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent},SYSDATE)
 	</insert>
 	
 	<select id="getDetail" parameterType="_int" resultType="boardCheatVO">
 		SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATNUM = #{CHEATNUM}
 	</select>	
 	
-	<delete id="deleteCheat" parameterType="_int">
+		<delete id="deleteCheat" parameterType="_int">
 		DELETE FROM DAVI_CHEAT_BOARD WHERE CHEATNUM = #{CHEATNUM}
 	</delete>
 	

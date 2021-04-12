@@ -86,11 +86,11 @@ public class BoardCheatDAO {
 	
 	//게시글 삭제하기
 		public boolean deleteCheat(int cheatNum) {
-			return session.delete("CheatBoard.deleteCheat",cheatNum)==1;
+			return session.delete("CheatBoard.deleteFree",cheatNum)==1;
 		}
 		
 	//게시글 업데이트
 	public boolean updateCheat(BoardCheatVO bvo) {
-		return session.update("CheatBoard.updateCheat",bvo)==1;
+		return session.update("CheatBoard.updateFree",bvo)==1;
 	}
 }

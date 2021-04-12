@@ -66,20 +66,12 @@ public class BoardFrontController extends HttpServlet{
 			break;
 			
 		case "/board/certificateWriteOk.bo" :
+			
 			try {
 				forward = new CertificatedBoardWriteOkAction().execute(req, resp);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;
-			
-		case "/board/ceritificatedBoard.bo" :
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			System.out.println("들어옴");
-			forward.setPath(req.getContextPath() + "/app/board/certificated_normal_board.jsp");
-			
-			break;
 			
 		case "/board/freeViewOk.bo":
 			try {
