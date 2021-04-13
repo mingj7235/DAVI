@@ -88,41 +88,44 @@
 				<div style="display: flex; justify-content: center;">
 					<article style="width:50%; margin-bottom: 60px;"> 
 						<!-- 일반게시판 글쓰기 아웃라인 -->
-						<!-- 로그인안됬을 경우  -->
-					<c:if test="${empty session_id}"> 
-						<form id="toLoginForm" name="toLoginForm" action="${pageContext.request.contextPath}/member/login.me">
-							<div class ="certificated_box" style="height: auto; margin-top: 50px; ">
-								<div style="display:flex; justify-content: center;">
-									<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style=" margin:5px; width: 35px; height: 35px;
-										cursor: pointer;" onclick="#"/>
-									
-									<textarea class="certificated_textarea" id="" name="" placeholder="게시글을 작성해보세요" style=" 
-										resize:none; height:40px; padding: 
-										5px; margin: 5px;" readonly="readonly" onclick="login()"></textarea>
-									<input id="" name="" type="button" value="인증하기" style="margin:5px;" onclick="login()">
-									
-									</div>
-							</div>
-						</form>
-						</c:if>
-						
-						<c:if test="${not empty session_id }">
 						<form action="#">
 							<div class ="certificated_box" style="height: auto; margin-top: 50px; ">
 								<div style="display:flex; justify-content: center;">
 									<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style=" margin:5px; width: 35px; height: 35px;
 										cursor: pointer;" onclick="#"/>
+									<c:if test="${empty session_id}">
+									
+									<textarea class="certificated_textarea" id="" name="" placeholder="게시글을 작성해보세요" style=" 
+										resize:none; height:40px; padding: 
+										5px; margin: 5px;" readonly="readonly" onclick="login()"></textarea>
+									<input id="" name="" type="submit" value="인증하기" style="margin:5px;" onclick="login()">
+									<div>
+									
+									
+									</c:if>
 									<textarea class="certificated_textarea" id="" name="" placeholder="게시글을 작성해보세요" style=" 
 										resize:none; height:40px; padding: 
 										5px; margin: 5px;" readonly="readonly" onclick="popup()"></textarea>
 									<input id="" name="" type="submit" value="인증하기" style="margin:5px;" onclick="popup()">
+									<div>
+									${c_vo.getMemberId()}
+									${cf_vo.getCertificatedPath()}
+									${path}
 									
 									</div>
+								</div>
+									<!-- 사진 업로드 -->
+								<!-- <div style="display:flex; justify-content: center;">
+									<a class ="icon_color" href="#" 
+									style="display:flex; justify-content: center; width:30%; border-bottom: none; ">
+										<div style="margin: 1px;">
+											<i class="fas fa-images"></i>
+										</div>
+										<div style="color:#9FA3A6; margin-left: 3px;">사진 첨부하기</div>
+									</a>
+								</div> -->
 							</div>
 						</form>
-						</c:if>
-						
-						
 						<!-- 일반게시판 전체 아웃라인 -->
 						<div class="certificated_box" style="height: auto; margin-top: 20px; padding-bottom:30px; border-bottom: none;">
 							<!-- 작성자 -->
@@ -256,7 +259,8 @@
 			<script>
 				//로그인 상태 아닐 때 로그인으로 돌려보내는 함수
 				function login () {
-					toLoginForm.submit();
+					
+					
 				}
 			
 			
