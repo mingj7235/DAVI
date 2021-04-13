@@ -41,8 +41,8 @@ public class CertificatedBoardWriteOkAction implements Action{
 				System.out.println(path);
 				System.out.println(Calendar.MILLISECOND);
 				forward = new ActionForward();
-				forward.setRedirect(true);
-				forward.setPath(path);
+				forward.setRedirect(false);
+				forward.setPath("/board/ceritificatedBoard.bo");
 			}
 		}
 		

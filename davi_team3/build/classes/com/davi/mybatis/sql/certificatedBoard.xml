@@ -32,4 +32,7 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 				(SELECT * FROM DAVI_CERTIFICATED_BOARD ORDER BY CERTIFICATEDNUM DESC) D) F 
 		WHERE F.R BETWEEN #{startRow} and #{endRow}
 	</select>	
+	<select id="getCertificatedFilePath" parameterType="_int" resultType="certificatedFilesVO">
+		SELECT * FROM DAVI_CERTIFICATED_FILE WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</select>
 </mapper>

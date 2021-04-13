@@ -104,7 +104,7 @@
 								<!-- 사진 업로드 -->
 							<div style="display:flex; justify-content: center;">
 								<input id="" name="" type="button" value="미리보기" style="box-shadow: none; font-size: 1em;" onclick="preview()">
-								<input id="writeButton" type="button" value="인증하기" style="box-shadow: none; font-size: 1em;"  >
+								<input id="writeButton" type="button" value="인증하기" style="box-shadow: none; font-size: 1em;">
 							</div>
 							<input type="hidden" name="memberId" value="${sessionScope.session_id}">
 							<input type="hidden" name="certificatedPath" value="${path}">
@@ -143,10 +143,10 @@
 			}
 			
 			
-			$("#writeButton").click(function() {
+			 $("#writeButton").click(function() {
 				/* setTimeout (opener.location.reload(), 10);
-				console.log('들어옴1'); */
-				/* setTimeout (window.close, 20);
+				console.log('들어옴1'); 
+				setTimeout (window.close, 20);
 				console.log('들어옴2'); */
 				
 				certificatedWriteForm.submit();
