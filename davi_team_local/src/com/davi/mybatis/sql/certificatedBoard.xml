@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+CREATE TABLE DAVI_CERTIFICATED_BOARD(
+	MEMBERID VARCHAR2(300),
+	CERTIFICATEDNUM NUMBER(10),
+	CERTIFICATEDTITLE VARCHAR2(3000),
+	CERTIFICATEDCONTENT VARCHAR2(3000),
+	CERTIFICATEDDATE DATE,
+	CONSTRAINT DAVI_CERTIFICATEDNUM_PK PRIMARY KEY(CERTIFICATEDNUM),
+	CONSTRAINT DAVI_CERTIFICATED_MEMBERID_FK FOREIGN KEY(MEMBERID) REFERENCES DAVI_MEMBER(MEMBERID)
+)
+ -->
+
+<mapper namespace="CertificatedBoard">
+	<insert id="certificatedWrite" parameterType="certificatedBoardVO">
+		INSERT INTO DAVI_CERTIFICATED_BOARD VALUES(#{memberId}, CERTIFICATED_SEQ.NEXTVAL, #{certificatedTitle}, #{certificatedContent}, SYSDATE)
+	</insert>
+	
+	<select id="getCertificatedNum" parameterType="string" resultType="_int">
+		SELECT CERTIFICATEDNUM FROM (SELECT * FROM DAVI_CERTIFICATED_BOARD ORDER BY CERTIFICATEDNUM DESC) WHERE MEMBERID = #{memberId} AND ROWNUM = 1
+	</select>
+	
+	<insert id="certificatedFile" parameterType="certificatedFilesVO">
+		INSERT INTO DAVI_CERTIFICATED_FILE VALUES(#{certificatedNum},#{certificatedPath}, #{certificatedFileName})
+	</insert>
+	
+	<select id="getCertificatedList" parameterType="map" resultType="certificatedBoardVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM
+				(SELECT * FROM DAVI_CERTIFICATED_BOARD ORDER BY CERTIFICATEDNUM DESC) D) F 
+		WHERE F.R BETWEEN #{startRow} and #{endRow}
+	</select>	
+	<select id="getCertificatedFilePath" parameterType="_int" resultType="certificatedFilesVO">
+		SELECT * FROM DAVI_CERTIFICATED_FILE WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</select>
+</mapper>

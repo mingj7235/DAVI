@@ -141,7 +141,7 @@
       </Realm>
 
       <Host appBase="webapps" autoDeploy="true" name="localhost" unpackWARs="true">
-      <Context docBase="/Users/joshua/Desktop/JoshuaStudy/projects/DAVI/davi_team3/WebContent/app/board/temp" path="/tempImg" reloadable="false" />
+      <Context docBase="/Users/joshua/Desktop/JoshuaStudy/projects/DAVI/davi_team3/WebContent/app/board/temp" path="/tempImg" reloadable="false"/>
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
@@ -154,7 +154,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="davi_team3" path="/davi_team3" reloadable="true" source="org.eclipse.jst.jee.server:davi_team3"/><Context docBase="davi_local" path="/davi_local" reloadable="true" source="org.eclipse.jst.jee.server:davi_local"/>
+      <Context docBase="davi_team3" path="/davi_team3" reloadable="true" source="org.eclipse.jst.jee.server:davi_team3"/>
       </Host>
     </Engine>
   </Service>

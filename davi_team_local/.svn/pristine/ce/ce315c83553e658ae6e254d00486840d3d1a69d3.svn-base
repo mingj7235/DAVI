@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>		
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CheatBoard">
+
+	<insert id="cheatWrite" parameterType="boardCheatVO">
+		INSERT INTO DAVI_CHEAT_BOARD VALUES(CHEAT_SEQ.NEXTVAL, #{cheatHead}, #{memberId}, #{cheatTitle}, #{cheatContent},SYSDATE)
+	</insert>
+	
+	<select id="getDetail" parameterType="_int" resultType="boardCheatVO">
+		SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATNUM = #{CHEATNUM}
+	</select>	
+	
+	<delete id="deleteCheat" parameterType="_int">
+		DELETE FROM DAVI_CHEAT_BOARD WHERE CHEATNUM = #{CHEATNUM}
+	</delete>
+	
+	<update id="updateCheat" parameterType="boardCheatVO">
+		UPDATE DAVI_CHEAT_BOARD SET CHEATTITLE = #{cheatTitle}, CHEATCONTENT=#{cheatContent} WHERE CHEATNUM = #{cheatNum}
+	</update>
+	
+	<select id="listSearchHead" parameterType="map" resultType="boardCheatVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM 
+				(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} ORDER BY CHEATNUM DESC) D) C 
+		WHERE C.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="listSearchTitle" parameterType="map" resultType="boardCheatVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM 
+				(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND CHEATTITLE LIKE #{cheatTitle} ORDER BY CHEATNUM DESC) D) C 
+		WHERE C.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="listSearchId" parameterType="map" resultType="boardCheatVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM 
+				(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND MEMBERID LIKE #{memberId} ORDER BY CHEATNUM DESC) D) C 
+		WHERE C.R BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="getBoardCntCheatHead" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM 
+			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead})		
+	</select>
+			
+	<select id="getBoardCntSelectTitle" parameterType="map" resultType="_int">
+		SELECT COUNT(*) FROM 
+			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND CHEATTITLE LIKE #{cheatTitle} )		
+	</select>	
+		
+	<select id="getBoardCntSelectId" parameterType="map" resultType="_int">
+		SELECT COUNT(*) FROM 
+			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND MEMBERID LIKE #{memberId})		
+	</select>		
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
