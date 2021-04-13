@@ -25,5 +25,11 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 	<insert id="certificatedFile" parameterType="certificatedFilesVO">
 		INSERT INTO DAVI_CERTIFICATED_FILE VALUES(#{certificatedNum},#{certificatedPath}, #{certificatedFileName})
 	</insert>
-		
+	
+	<select id="getCertificatedList" parameterType="map" resultType="certificatedBoardVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM
+				(SELECT * FROM DAVI_CERTIFICATED_BOARD ORDER BY CERTIFICATEDNUM DESC) D) F 
+		WHERE F.R BETWEEN #{startRow} and #{endRow}
+	</select>	
 </mapper>
