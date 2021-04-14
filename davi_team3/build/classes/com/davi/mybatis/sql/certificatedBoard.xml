@@ -68,8 +68,8 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 		VALUES(#{certificatedNum}, CERTIFICATED_REPLY_SEQ.NEXTVAL, #{memberId}, #{certificatedReplyContent}, SYSDATE)
 	</insert>
 	
-	<select id="certificatedReply" resultType="certificatedReplyVO">
-		SELECT * FROM DAVI_CERTIFICATED_REPLY
+	<select id="certificatedReply" parameterType="_int" resultType="certificatedReplyVO">
+		SELECT * FROM DAVI_CERTIFICATED_REPLY WHERE CERTIFICATEDNUM = #{certificatedNum} ORDER BY DESC
 	</select>
 	
 </mapper>
