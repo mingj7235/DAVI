@@ -47,4 +47,15 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 	<select id="certificatedLikeCheck" parameterType="map" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_CERTIFICATED_LIKE	WHERE CERTIFICATEDNUM = #{certificatedNum} AND MEMBERID = #{memberId}
 	</select>
+	
+	<select id="certificatedBestOrder"  resultType="map">
+		SELECT  D.* FROM 
+			(SELECT COUNT(CERTIFICATEDNUM) LIKECNT, CERTIFICATEDNUM FROM 
+			DAVI_CERTIFICATED_LIKE GROUP BY CERTIFICATEDNUM ORDER BY LIKECNT DESC) D 
+		WHERE ROWNUM BETWEEN 1 AND 12
+	</select>
+	
+	<select id="certificatedVO" parameterType="_int" resultType="certificatedBoardVO">
+		SELECT * FROM DAVI_CERTIFICATED_BOARD WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</select>
 </mapper>

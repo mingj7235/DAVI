@@ -49,6 +49,7 @@
 							<section style="padding-top:3%; display:flex; justify-content:center; margin-top:2%;">
 							<div style="width:60%;">
 								<form method="post" action="${pageContext.request.contextPath}/member/loginOk.me">
+								<input type="hidden" name = "certificatedCheck" value="${certificatedCheck}">
 									<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:0 auto;">
 									<h2 align="center" style="padding-top: 3%;">다비를 부를까요?</h2>	
 									<div class="row gtr-uniform" style="text-align:center;">

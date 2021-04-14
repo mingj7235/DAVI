@@ -125,7 +125,14 @@
 						<li><a href="#">메인</a></li>
 						<li><a href="#" style="color:rgba(0, 59, 251, 1);">보고서</a></li>
 						<li><a href="#" style="color:rgba(0, 59, 251, 1);">식단</a></li>
-						<li><a href="${pageContext.request.contextPath}/board/ceritificatedBoard.bo">식단인증샷</a></li>
+						<c:choose>
+							<c:when test="${not empty session_id }">
+								<li><a href="${pageContext.request.contextPath}/board/ceritificatedBoard.bo">식단인증샷</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/member/login.me?certificatedCheck=true">식단인증샷</a></li>
+							</c:otherwise>
+						</c:choose>
 						<li><a href="${pageContext.request.contextPath}/board/freeList.bo">자유게시판</a></li>	
 								<li id="menuHover"><a href="#">치팅모임</a>
 									<ul id="sub-menu" style="display: flex;flex-direction: column;">

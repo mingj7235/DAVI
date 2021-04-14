@@ -22,13 +22,19 @@ public class MemberLoginOkAction implements Action {
 		
 		String id = req.getParameter("memberId");
 		String pw = req.getParameter("memberPw");
+		String certificatedCheck = req.getParameter("certificatedCheck");
+		System.out.println(certificatedCheck);
 		
 		if(m_dao.login(id, pw)) {
 			//로그인 성공
 			session.setAttribute("session_id", id);
 			forward.setRedirect(true);
 			//인덱스로 보내기
-			forward.setPath(req.getContextPath()+"/index.jsp");
+			if(certificatedCheck != null) {
+				forward.setPath(req.getContextPath()+"/board/ceritificatedBoard.bo");
+			}else {
+				forward.setPath(req.getContextPath()+"/index.jsp");
+			}
 		}else {
 			//로그인 실패
 			forward.setRedirect(false);

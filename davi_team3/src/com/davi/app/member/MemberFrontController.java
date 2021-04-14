@@ -89,6 +89,8 @@ public class MemberFrontController extends HttpServlet{
 			break;	
 		case "/member/login.me":
 			String login = req.getParameter("login");
+			System.out.println(req.getParameter("certificatedCheck"));
+			req.setAttribute("certificatedCheck", req.getParameter("certificatedCheck"));
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/app/member/login.jsp" + (login != null ? "?login=false" : ""));

@@ -1,7 +1,10 @@
 /*
  * 서머노트 로딩과 기본 설정
  * 
- * ※톰켓 server.xml에   파일 절대경로  맵핑설정 예)<Host><Context docBase="K:\0900_gb_kko\jsp\DAVIporject\summernote\" path="/summernoteImg" reloadable="false" /></Host>
+ * ※톰켓 server.xml에   파일 절대경로  맵핑설정 
+ * 예)<Host>
+ * 		<Context docBase="이미지가 저장될 시스템 경로" path="/summernoteImg" reloadable="false" />
+ *   </Host>
  */
 
 	

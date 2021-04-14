@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.davi.action.Action;
 import com.davi.action.ActionForward;
@@ -24,6 +25,7 @@ public class CertificatedBoardViewOkAction implements Action {
 		int[] likes = new int[2];
 		String[] times = new String[2];
 		boolean[] likeChecks = new boolean[2];
+		HttpSession session = req.getSession();
 		
 		for(int i=0 ; i<lists.size() ; i++) {
 //			cvo.setCertificatedPath(c_dao.getFilePath(cvo.getCertificatedNum()));
@@ -34,7 +36,7 @@ public class CertificatedBoardViewOkAction implements Action {
 				texts[i]  = lists.get(i).getCertificatedContent();
 			}
 			likes[i] = c_dao.certificatedLikeCnt(lists.get(i).getCertificatedNum());
-			likeChecks[i] = c_dao.certificatedLikeCheck(lists.get(i).getCertificatedNum(), lists.get(i).getMemberId());
+			likeChecks[i] = c_dao.certificatedLikeCheck(lists.get(i).getCertificatedNum(), (String)session.getAttribute("session_id") );
 		}
 		
 		
