@@ -174,7 +174,7 @@
 										
 										<ul id="sub-menu" style="display: flex;flex-direction: column;">
 											<li><a href="#" type="button">수정</a></li>
-											<li><a href="${pageContext.request.contextPath}/board/certificateDeleteOk.bo" type="button">삭제</a></li>
+											<li><a href="#" type="button">삭제</a></li>
 										
 										</ul>
 									</div>
