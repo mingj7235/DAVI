@@ -173,7 +173,7 @@
 									<div id="menuHover"><i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
 										
 										<ul id="sub-menu" style="display: flex;flex-direction: column;">
-											<li><a href="" type="button">수정</a></li>
+											<li><a href="#" type="button">수정</a></li>
 											<li><a href="${pageContext.request.contextPath}/board/certificateDeleteOk.bo?certificatedNum=${certificatedList[i].getCertificatedNum()}" type="button">삭제</a></li>
 										
 										</ul>

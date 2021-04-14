@@ -80,6 +80,6 @@ public class CertificatedBoardDAO {
 	}
 	
 	public boolean certificatedBoardDelete(int certificatedNum) {
-		return session.delete("CertificatedBoard.certificatedDelete", certificatedNum) == 1;
+		return session.delete("CertificatedBoard.certificatedVO", certificatedNum) == 1;
 	}
 }

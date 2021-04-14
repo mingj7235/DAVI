@@ -1,0 +1,28 @@
+package com.davi.app.board;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.davi.action.Action;
+import com.davi.action.ActionForward;
+import com.davi.app.board.dao.CertificatedBoardDAO;
+
+public class CertificatedBoardDeleteOkAction implements Action {
+
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+				
+		ActionForward forward = new ActionForward();
+		
+		CertificatedBoardDAO c_dao = new CertificatedBoardDAO();
+		
+		req.getParameter("certificatedNum");
+		
+		if(c_dao.certificatedBoardDelete(Integer.parseInt(req.getParameter("certificatedNum")))) {
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/board/ceritificatedBoard.bo");
+		}		
+		return forward;
+	}
+
+}

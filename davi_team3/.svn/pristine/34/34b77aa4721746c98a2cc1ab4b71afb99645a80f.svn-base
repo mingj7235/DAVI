@@ -54,7 +54,6 @@ public class BoardFrontController extends HttpServlet{
 		case "/board/certificateDeleteOk.bo" :
 			try {
 				forward = new CertificatedBoardDeleteOkAction().execute(req, resp);
-				System.out.println("들어옴 ");
 				
 			} catch (Exception e) {
 				e.printStackTrace();

@@ -8,6 +8,7 @@
 		<typeAlias type="com.davi.app.board.vo.BoardCheatVO" alias="boardCheatVO"/>
 		<typeAlias type="com.davi.app.board.vo.CertificatedBoardVO" alias="certificatedBoardVO"/>
 		<typeAlias type="com.davi.app.board.vo.CertificatedFilesVO" alias="certificatedFilesVO"/>
+		<typeAlias type="com.davi.app.board.vo.CertificatedReplyVO" alias="certificatedReplyVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

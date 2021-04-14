@@ -58,4 +58,18 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 	<select id="certificatedVO" parameterType="_int" resultType="certificatedBoardVO">
 		SELECT * FROM DAVI_CERTIFICATED_BOARD WHERE CERTIFICATEDNUM = #{certificatedNum}
 	</select>
+	
+	<delete id="certificatedDelete" parameterType="_int">
+		DELETE DAVI_CERTIFICATED_BOARD WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</delete>
+	
+	<insert id="certificatedReplyInsert" parameterType="certificatedReplyVO">
+		INSERT INTO DAVI_CERTIFICATED_REPLY 
+		VALUES(#{certificatedNum}, CERTIFICATED_REPLY_SEQ.NEXTVAL, #{memberId}, #{certificatedReplyContent}, SYSDATE)
+	</insert>
+	
+	<select id="certificatedReply" resultType="certificatedReplyVO">
+		SELECT * FROM DAVI_CERTIFICATED_REPLY
+	</select>
+	
 </mapper>
