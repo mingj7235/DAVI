@@ -190,6 +190,14 @@ public class BoardFrontController extends HttpServlet{
 			}
 			break;	
 			
+//		case "/board/bestBoardDetail.bo":
+//			try {
+//				forward = new CertificatedBestPopUpAction().execute(req, resp);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			break;	
+			
 		default:
 			forward = new ActionForward();
 			forward.setRedirect(false);

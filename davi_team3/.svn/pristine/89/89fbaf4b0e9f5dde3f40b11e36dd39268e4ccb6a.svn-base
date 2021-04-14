@@ -260,13 +260,13 @@
 							
 							--%>
 							<div id="ajaxFunction">
-								
-								<input id="reply_${i}" type="hidden" value="${certificatedList[i].getCertificatedNum()}">
+							
+								<input id="reply_${certificatedList[i].getCertificatedNum()}" type="hidden" value="${certificatedList[i].getCertificatedNum()}">
 									
 							
-								<div id = "replyAjaxDiv_${certificatedList[i].getCertificatedNum()}">
+								<div id = "replyAjaxDiv">
 
-				  				<%-- 	<div id = "replyContents_${certificatedList[i].getCertificatedNum()}" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
+					<%-- 							<div id = "replyContents_${certificatedList[i].getCertificatedNum()}" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 										<div style="width: 20%;">댓글쓴사람 </div>
 										<div style="width: 70%;">댓글 내용1 </div>
 										<div id="iconminus" style="width: 10%; text-align: right; margin: 0 5px; cursor: pointer;">
@@ -335,12 +335,16 @@
 				function login () {
 					toLoginForm.submit();
 				}
-								
 				
+				console.log(document.getElementById("reply_0").value);
+				console.log(document.getElementById("reply_1").value);
 				
-					getReplyList(document.getElementById("reply_0").value);				
+				setTimeout(function(){
+					getReplyList(document.getElementById("reply_0").value);
+					},500);
+				setTimeout(function(){
 					getReplyList(document.getElementById("reply_1").value);
-					
+					},500);
 				
 
 			</script>

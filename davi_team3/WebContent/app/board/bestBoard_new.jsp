@@ -146,11 +146,11 @@ a.image:hover img {
 					<img style="width:80%; height:auto;" src="https://cdn.discordapp.com/attachments/829186101029502990/829186131043287060/28e4f757ba966512.png">
 				</div>
 				<section style="padding-top: 30px; width: 80%; margin: auto;">
-
+					<form name="detailForm" method="post">
 					<div id="best_posts" class="best_posts">
 						<c:forEach var="i" begin="0" end="${fn:length(listsVO) - 1}">
 								<div style="width:30%; margin-bottom:5%; ">
-									<a href="" class="image" style="border:1px solid rgba(210, 215, 217, 0.75); ">
+									<a href="javascript:bestDetail(${i + 1})" class="image" style="border:1px solid rgba(210, 215, 217, 0.75); ">
 									<img
 										src="${listsVO[i].getCertificatedPath()}"
 										alt=""
@@ -160,129 +160,13 @@ a.image:hover img {
 									</div>
 									</a>
 								</div>
+								<input type="hidden" name = "path${i + 1}" value="${listsVO[i].getCertificatedPath()}">
+								<input type="hidden" name = "id${i + 1}" value="${listsVO[i].getMemberId()}">
+								<input type="hidden" name = "content${i + 1}" value="${listsVO[i].getCertificatedContent()}">
+								<input type="hidden" name = "title${i + 1}" value="${listsVO[i].getCertificatedTitle()}">
 						</c:forEach>
-						
-						<!-- <article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205998991310928/1.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article> -->
-						
-						<!-- <article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829206000216834068/2.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205998291779664/10.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205996382978058/9.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205994612850698/8.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205993388638248/7.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205992557772810/6.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205991207862282/5.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205990284066847/4.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205989042946078/3.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205989042946078/3.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article>
-						
-						<article>
-							<div>
-								<a href="#" class="image">
-								<img
-									src="https://cdn.discordapp.com/attachments/829186101029502990/829205989042946078/3.png"
-									alt=""
-									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
-							</div>
-						</article> -->
-					
 					</div>
+					</form>
 				</section>
 			<div>
 				<c:import url="/app/footer/footer.jsp"/>
@@ -303,7 +187,18 @@ a.image:hover img {
 		src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-	
+	<script>
+		function bestDetail(num) {
+			var width = '1100';
+		    var height = '530';
+		    var left = Math.ceil(( window.screen.width - width )/2);
+		    var top = Math.ceil(( window.screen.height - height )/2); 
+		    window.open('${pageContext.request.contextPath}/board/bestBoardDetail.bo', 'bestDetail', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top ); 
+		    detailForm.action = "${pageContext.request.contextPath}/board/bestBoardDetail.bo?num=" + num;
+		    detailForm.target = 'bestDetail';
+		    detailForm.submit(); 
+		}
+	</script>
 
 </body>
 </html>

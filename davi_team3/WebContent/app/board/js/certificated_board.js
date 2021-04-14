@@ -95,8 +95,7 @@ var check = true;
 			likeMarkDiamond.fadeIn(500);
 			likeMarkDiamond.fadeOut(500);
 			/*var id = sessionStorage.getItem("session_id");*/
-			var id = sessionId;
-			console.log(id);
+			var id = sessionId;			
 			$.ajax({
 				url: contextPath + "/board/ceritificatedBoardLikeOk.bo?memberId="+ id +"&certificatedNum=" + num + "&likeCheck=1" ,
 				type : "get",
