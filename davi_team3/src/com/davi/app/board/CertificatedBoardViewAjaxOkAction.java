@@ -33,7 +33,7 @@ public class CertificatedBoardViewAjaxOkAction implements Action {
 		
 		List<CertificatedBoardVO> replys = c_dao.getCertificatedList(certificatedNum, certificatedNum+1);
 		
-		String text;
+		String text = "";
 		
 		for(CertificatedBoardVO c_vo : replys) {
 			

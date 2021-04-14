@@ -59,8 +59,6 @@
 						<div class="inner">
 
 							<!-- Header -->
-				<c:set var="c_vo" value="${c_vo}"></c:set>
-				<c:set var="cf_vo" value="${cf_vo}"/>
 				<!-- body -->
 				<div style="display: flex; justify-content: center;">
 					<article style="width:80%; margin-bottom: 60px;"> 
@@ -81,7 +79,7 @@
 							
 							<!-- 게시판 제목 -->
 							<div style="height: 30px; padding-top: 5px; margin:5px;">
-								<p3>${c_vo.getCertificatedTitle()}</p3>
+								<p3>${certificatedTitle}</p3>
 							</div>
 							
 							<!-- 사진 -->
@@ -111,7 +109,7 @@
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 								<div id="" style="width: 20%;">글쓴이 </div>
 								<div id="" style="width: 70%;">본문내용</div>
-								<textarea rows="" cols="" style="display: none;">본문내용</textarea>
+								<textarea rows="" cols="" style="display: none;">${certificatedContent}</textarea>
 								<div id="" style="width: 10%; text-align: right; margin: 0 5px;">
 									<i class="far fa-plus-square" onclick="#" style="cursor: pointer; color: rgba(0, 59, 251, 0.3);"></i>
 								</div>

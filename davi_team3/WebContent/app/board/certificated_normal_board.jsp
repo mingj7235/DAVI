@@ -57,7 +57,7 @@
 			}
 			
 			.icon_color {
-				color : rgba(0, 59, 251, 0.3);
+				color : rgba(164, 167, 170, 0.7);
 			}
 			
 			
@@ -74,6 +74,8 @@
 	<c:set var="path" value="${path}"></c:set>	 --%>
 	<c:set var="certificatedList" value="${certificatedList}"/>
 	<c:set var="ContentSubStringList" value="${ContentSubStringList}"/>
+	<c:set var="LikeCntList" value="${LikeCntList}"/>
+	<c:set var="likeChecks" value="${likeChecks}"/>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -87,7 +89,7 @@
 								<c:import url="/app/header/header.jsp" />
 				
 				<!-- body -->
-				<div style="display: flex; justify-content: center;">
+				<div id="scrollDiv" style="display: flex; justify-content: center;">
 					<article style="width:50%; margin-bottom: 60px;"> 
 						<!-- 일반게시판 글쓰기 아웃라인 -->
 						<!-- 로그인안됬을 경우  -->
@@ -159,21 +161,37 @@
 							
 							<!-- 아이콘들 (다이아몬드, 댓글아이콘등) -->
 							<div class="icon_color" style="display : flex; justify-content: flex-start; height: 35px; padding: 5px;">
-								<div id="diamond" style="font-size: 0.9rem; padding-top: 2px;" onclick="changeDiamond()">
-									<i  class="far fa-gem fa-lg" style="cursor: pointer;" ></i>
-								</div>
-								<div id="checkedDiamond" style="font-size: 0.9rem; padding-top: 2px; display : none;" onclick="unchangeDiamond()">
+								<c:choose>
+									<c:when test="${likeChecks[i] == 'true'}">
+										<div id="checkedDiamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; color:#0038fb;" onclick="unchangeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i class="fas fa-gem fa-lg" style="cursor: pointer; " ></i>
+										</div>
+										<div id="diamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; display : none;" onclick="changeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i  class="far fa-gem fa-lg" style="cursor: pointer;" ></i>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div id="checkedDiamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; color:#0038fb; display : none;" onclick="unchangeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i class="fas fa-gem fa-lg" style="cursor: pointer; " ></i>
+										</div>
+										<div id="diamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px;" onclick="changeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i  class="far fa-gem fa-lg" style="cursor: pointer;" ></i>
+										</div>
+									</c:otherwise>
+								</c:choose>
+								
+								<%-- <div id="checkedDiamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; display : none; color:#0038fb;" onclick="unchangeDiamond(${certificatedList[i].getCertificatedNum()})">
 									<i class="fas fa-gem fa-lg" style="cursor: pointer; " ></i>
-								</div>
-								<div style="font-size: 0.95rem;" onclick ="focusComment()">
+								</div> --%>
+								<div style="font-size: 1.3rem;" onclick ="focusComment()">
 									<i class="far fa-comment fa-lg" style="cursor: pointer; margin-left: 9px;" onclick="#"></i>
 								</div>
 							</div>
 							 
 							<!-- 좋아요 숫자  -->
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-								<div>좋아요</div>
-								<div class ="icon_color" id="diamond_num" >#</div>
+								<div>좋아요&nbsp;</div>
+								<div class ="icon_color" id="diamond_num_${certificatedList[i].getCertificatedNum()}" style="color:#0038fb;">${LikeCntList[i]}</div>
 								<div>개</div>
 							</div>
 							
@@ -226,14 +244,10 @@
 							</div>
 							
 						</div><!-- end 일반게시판 게시물 div박스-->
-					</c:forEach>
 						<div style="height: 20px; border-top : 1px solid rgba(164, 167, 170, 0.3);)">
-						
-							
-						
-						
 						</div>
-						<input type="button" onclick="javascript:getList()" />
+					</c:forEach>
+						<!-- <input type="button" onclick="javascript:getList()" /> -->
 						<div id="listAJAX"></div>
 					</article>
 						
@@ -249,7 +263,11 @@
 		</div>
 
 		<!-- Scripts -->
-			<script>var contextPath = "${pageContext.request.contextPath}";</script>
+			<script>
+			var contextPath = "${pageContext.request.contextPath}";
+			var sessionId = "${session_id}";
+			</script>
+			
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
@@ -317,65 +335,6 @@
 					iconminus.css('display', '');
 					iconminusmore.css('display', 'none');
 				});
-				
-				
-/* 				$(function() {
-					$('#iconplus').mouseenter(function () {
-						$('#iconplus').hide();
-						$('#iconmore').show();
-					};
-					
-					$('#iconmore').mouseleave(function () {
-						$('#iconmore').hide();
-						$('#iconplus').show();
-					})
-				}); */
-				//+버튼 (더보기 hover이벤트)
- 				 /*$(document).ready(function () {
-					$('#iconplus').hover(function () {
-						 if($("#iconmore").css("display") == "none") { 
-							$("#iconplus").hide();
-							$("#iconmore").show();
-						 	} 
-					}, function () {
-							$("#iconplus").show();
-							$("#iconmore").hide();
-					})
-				}); */
-				
-				//-버튼 (삭제 hover이벤트)
- 				/*$(document).ready(function () {
-					$('#iconminus').hover(function () {
-							$("#iconminus").hide();
-							$("#iconminusmore").show();
-					}, function () {
-							$("#iconminus").show();
-							$("#iconminusmore").hide();
-					})
-				}); */
-				
-				/* 비어져있는 아이콘, 채워져있는 아이콘 두개 가지고와서 display none을 js로 변환하기 */
-				
-				var diamond = $("#diamond");
-				var checkedDiamond = $("#checkedDiamond");
-				var likeMarkDiamond = $("img#likeMark");
-				var diamondCheck = false; 
-				
-				function changeDiamond() {
-					diamond.css('display', 'none');
-					checkedDiamond.css('display','');
-					diamondCheck = true;
-					likeMarkDiamond.fadeIn(500);
-					likeMarkDiamond.fadeOut(500);
-				}
-				
-				function unchangeDiamond(){
-					diamond.css('display','');
-					checkedDiamond.css('display', 'none');
-					diamondCheck = false;
-
-					
-				}
 				
 				var comment = $("#comment_certificated");
 				

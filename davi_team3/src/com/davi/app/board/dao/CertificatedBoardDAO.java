@@ -46,12 +46,29 @@ public class CertificatedBoardDAO {
 		
 	}
 	
+	public boolean certificatedLike(int certificatedNum, String memberId) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("certificatedNum", String.valueOf(certificatedNum));
+		map.put("memberId", memberId);
+		return session.insert("CertificatedBoard.certificatedLike", map) == 1;
+	}
 	
+	public boolean certificatedUnLike(int certificatedNum, String memberId) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("certificatedNum", String.valueOf(certificatedNum));
+		map.put("memberId", memberId);
+		return session.delete("CertificatedBoard.certificatedUnLike", map) == 1;
+	}
 	
+	public int certificatedLikeCnt(int certificatedNum) {
+		return session.selectOne("CertificatedBoard.certificatedLikeCnt",certificatedNum);
+	}
 	
-	
-	
-	
-	
+	public boolean certificatedLikeCheck(int certificatedNum, String memberId) {
+		HashMap<String, String> map = new HashMap<>();
+		map.put("certificatedNum", String.valueOf(certificatedNum));
+		map.put("memberId", memberId);
+		return (Integer)session.selectOne("CertificatedBoard.certificatedLikeCheck", map) == 1;
+	}
  		
 }

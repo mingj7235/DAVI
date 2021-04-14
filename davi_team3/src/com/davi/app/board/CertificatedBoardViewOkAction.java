@@ -20,7 +20,10 @@ public class CertificatedBoardViewOkAction implements Action {
 		
 		int certificatedNum = 1;
 		List<CertificatedBoardVO> lists = c_dao.getCertificatedList(certificatedNum, certificatedNum+1);
-		String[] texts = new String[2] ;  
+		String[] texts = new String[2];
+		int[] likes = new int[2];
+		String[] times = new String[2];
+		boolean[] likeChecks = new boolean[2];
 		
 		for(int i=0 ; i<lists.size() ; i++) {
 //			cvo.setCertificatedPath(c_dao.getFilePath(cvo.getCertificatedNum()));
@@ -30,12 +33,19 @@ public class CertificatedBoardViewOkAction implements Action {
 			}else {
 				texts[i]  = lists.get(i).getCertificatedContent();
 			}
-			
+			likes[i] = c_dao.certificatedLikeCnt(lists.get(i).getCertificatedNum());
+			likeChecks[i] = c_dao.certificatedLikeCheck(lists.get(i).getCertificatedNum(), lists.get(i).getMemberId());
 		}
+		
+		
+		
 		System.out.println(lists.size());
+		System.out.println(lists.get(0).getCertificatedDate());
 		
 		req.setAttribute("certificatedList", lists); 
 		req.setAttribute("ContentSubStringList", texts);
+		req.setAttribute("LikeCntList", likes);
+		req.setAttribute("likeChecks", likeChecks);
 		
 		forward.setRedirect(false);
 		forward.setPath("/app/board/certificated_normal_board.jsp");

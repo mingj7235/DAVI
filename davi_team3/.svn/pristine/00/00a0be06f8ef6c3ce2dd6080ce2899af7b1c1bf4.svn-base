@@ -34,6 +34,7 @@ public class BoardFrontController extends HttpServlet{
 		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		ActionForward forward = null;
+		System.out.println(command);
 		
 		switch(command) {
 		case "/board/freeWriteOk.bo":
@@ -77,13 +78,23 @@ public class BoardFrontController extends HttpServlet{
 		case "/board/ceritificatedBoard.bo" :
 			try {
 				forward = new CertificatedBoardViewOkAction().execute(req, resp);
-				System.out.println("Board 프론트 컨트롤러");
-			} catch (Exception e) {;}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
 			
 		case "/board/ceritificatedBoardAjax.bo" :
 			try {
 				forward = new CertificatedBoardViewAjaxOkAction().execute(req, resp);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			break;	
+			
+		case "/board/ceritificatedBoardLikeOk.bo" :
+			try {
+				forward = new CertificatedLikeOkAction().execute(req, resp);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

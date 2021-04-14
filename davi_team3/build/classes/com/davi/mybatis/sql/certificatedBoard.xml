@@ -35,4 +35,16 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 	<select id="getCertificatedFilePath" parameterType="_int" resultType="certificatedFilesVO">
 		SELECT * FROM DAVI_CERTIFICATED_FILE WHERE CERTIFICATEDNUM = #{certificatedNum}
 	</select>
+	<insert id="certificatedLike" parameterType="map">
+		INSERT INTO DAVI_CERTIFICATED_LIKE VALUES(#{certificatedNum},#{memberId})
+	</insert>
+	<delete id="certificatedUnLike">
+		DELETE DAVI_CERTIFICATED_LIKE WHERE CERTIFICATEDNUM = #{certificatedNum} AND MEMBERID = #{memberId}
+	</delete>
+	<select id="certificatedLikeCnt" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM DAVI_CERTIFICATED_LIKE WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</select>
+	<select id="certificatedLikeCheck" parameterType="map" resultType="_int">
+		SELECT COUNT(*) FROM DAVI_CERTIFICATED_LIKE	WHERE CERTIFICATEDNUM = #{certificatedNum} AND MEMBERID = #{memberId}
+	</select>
 </mapper>
