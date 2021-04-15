@@ -6,30 +6,32 @@ import javax.servlet.http.HttpServletResponse;
 import com.davi.action.Action;
 import com.davi.action.ActionForward;
 import com.davi.app.board.dao.BoardFreeDAO;
+import com.davi.app.board.vo.BoardFreeReplyVO;
 
-public class BoardFreeReplyDeleteOkAction implements Action {
-
+public class BoardFreeReplyUpdateOkAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.setCharacterEncoding("UTF-8");
 		
 		BoardFreeDAO fr_dao = new BoardFreeDAO();
+		BoardFreeReplyVO fr_vo = new BoardFreeReplyVO();
 		ActionForward forward = new ActionForward();
-		
+		System.out.println("들어옴 컨트롤러");
 		int freeReplyNum = Integer.parseInt(req.getParameter("freeReplyNum"));
-		if(fr_dao.replyDelete(freeReplyNum)) {
-			System.out.println("댓글 삭제 성공");
-			if(fr_dao.reReplyDelete(freeReplyNum)) {
-				System.out.println("대댓글 삭제 성공");
-			}
+		String freeReplyContent = req.getParameter("readReply"+freeReplyNum);
+		fr_vo.setFreeReplyContent(freeReplyContent);
+		fr_vo.setFreeReplyNum(freeReplyNum);
+		
+		if(fr_dao.replyUpdate(fr_vo)) {
+			System.out.println("수정 성공");
+			
 			forward.setRedirect(true);
 			forward.setPath(req.getContextPath() + "/board/freeViewOk.bo?page=" + req.getParameter("page") + "&freeNum=" + req.getParameter("freeNum"));
 		}else {
-			System.out.println("삭제 실패");
+			System.out.println("수정 실패");
 			
 		}
 		
 		return forward;
 	}
-
 }

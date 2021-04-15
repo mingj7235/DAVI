@@ -82,6 +82,10 @@
 	<update id="replyUpdate" parameterType="freeReplyVO">
 		UPDATE DAVI_FREE_REPLY SET FREEREPLYCONTENT = #{freeReplyContent} WHERE FREEREPLYNUM = #{freeReplyNum}
 	</update>
+	
+	<delete id="reReplyDelete" parameterType="_int">
+		DELETE DAVI_FREE_REPLY WHERE PARENTREPLYNUM = #{freeReplyNum}
+	</delete>
 </mapper>
 
 
