@@ -335,14 +335,10 @@
 				function login () {
 					toLoginForm.submit();
 				}
-								
-				
 				
 					getReplyList(document.getElementById("reply_0").value);				
 					getReplyList(document.getElementById("reply_1").value);
 					
-				
-
 			</script>
 			
 			<script>
