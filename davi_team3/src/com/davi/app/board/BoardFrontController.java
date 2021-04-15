@@ -190,13 +190,13 @@ public class BoardFrontController extends HttpServlet{
 			}
 			break;	
 			
-//		case "/board/bestBoardDetail.bo":
-//			try {
-//				forward = new CertificatedBestPopUpAction().execute(req, resp);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//			break;	
+		case "/board/bestBoardDetail.bo":
+			try {
+				forward = new CertificatedBestPopUpAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
 		
 		case "/board/certificateModifyOk.bo":
 			try {

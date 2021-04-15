@@ -177,7 +177,7 @@
 									<div id="menuHover"><i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
 										
 										<ul id="sub-menu" style="display: flex;flex-direction: column;">
-											<li><a href="" type="button">수정</a></li>
+											<li><a href="javascript:modifyPopup('${certificatedList[i].getCertificatedNum()}','${certificatedList[i].getCertificatedTitle()}','${certificatedList[i].getCertificatedContent()}','${certificatedList[i].certificatedPath}')" type="button">수정</a></li>
 											<li><a href="${pageContext.request.contextPath}/board/certificateDeleteOk.bo?certificatedNum=${certificatedList[i].getCertificatedNum()}" type="button">삭제</a></li>
 										
 										</ul>
@@ -252,38 +252,13 @@
 								</div>
 							</div>
 							
-							<!-- 댓글 -->
-							
-							<%--  
-							<c:if test="">
-								<c:forEach>
-							
-							--%>
-							<div id="ajaxFunction">
-							
-								<input id="reply_${certificatedList[i].getCertificatedNum()}" type="hidden" value="${certificatedList[i].getCertificatedNum()}">
-									
-							
-								<div id = "replyAjaxDiv">
-
-					<%-- 							<div id = "replyContents_${certificatedList[i].getCertificatedNum()}" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-										<div style="width: 20%;">댓글쓴사람 </div>
-										<div style="width: 70%;">댓글 내용1 </div>
-										<div id="iconminus" style="width: 10%; text-align: right; margin: 0 5px; cursor: pointer;">
-											<i id="" class="far fa-minus-square icon_color" onclick=""></i>
-										</div>
-										<div id="iconminusmore" style="width: 10%; text-align: right; margin: 0 5px; display: none; cursor: pointer;">
-											<input id=""type="button" value="삭제" style="box-shadow: none; padding : 0 5px;;color: rgba(0, 59, 251, 0.3) !important;">
-										</div>
-									</div> --%>
+							<!-- 댓글 -->							
+						
+							<div id="ajaxFunction">								
+								<input id="reply_${i}" type="hidden" value="${certificatedList[i].getCertificatedNum()}">
+								<div id = "replyAjaxDiv_${certificatedList[i].getCertificatedNum()}">
 								</div>
 							</div>
-
-							<%--  
-							</c:forEach>
-								</c:if>
-							
-							--%>
 							
 							<!-- 댓글 입력 칸 -->
 							
@@ -336,16 +311,9 @@
 					toLoginForm.submit();
 				}
 				
-				console.log(document.getElementById("reply_0").value);
-				console.log(document.getElementById("reply_1").value);
-				
-				setTimeout(function(){
-					getReplyList(document.getElementById("reply_0").value);
-					},500);
-				setTimeout(function(){
+					getReplyList(document.getElementById("reply_0").value);				
 					getReplyList(document.getElementById("reply_1").value);
-					},500);
-				
+					
 
 			</script>
 			
@@ -361,6 +329,16 @@
 				    var top = Math.ceil(( window.screen.height - height )/2); 
 				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_photo.jsp', '사진등록', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 					
+				}
+				
+				function modifyPopup(num,title,content,path){
+					
+					var width = '700';
+				    var height = '500';
+				    var left = Math.ceil(( window.screen.width - width )/2);
+				    var top = Math.ceil(( window.screen.height - height )/2); 
+				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_modify.jsp?num='+num+'&title='+title+'&content='+content+'&path='+path, 
+				    	'modifyPopup', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 				}
 				
 				//플러스 버튼 hover 이벤트

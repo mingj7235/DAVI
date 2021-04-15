@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -25,7 +26,10 @@ public class CertificatedBoardViewAjaxOkAction implements Action {
 		CertificatedBoardDAO c_dao = new CertificatedBoardDAO();
 		CertificatedFilesVO cf_vo = new CertificatedFilesVO();
 		
-		int certificatedNum = Integer.parseInt(req.getParameter("certificatedNum"));		
+		HttpSession session = req.getSession();
+		
+		int certificatedNum = Integer.parseInt(req.getParameter("certificatedNum"));
+		String replyWriterId = (String)session.getAttribute("session_id");
 					
 		PrintWriter out = resp.getWriter();		
 		
@@ -34,6 +38,9 @@ public class CertificatedBoardViewAjaxOkAction implements Action {
 		List<CertificatedBoardVO> replys = c_dao.getCertificatedList(certificatedNum, certificatedNum+1);
 		
 		String text = "";
+		
+		int  likeCnt = c_dao.certificatedLikeCnt(certificatedNum);
+		boolean likeCheck = c_dao.certificatedLikeCheck(certificatedNum, replyWriterId);
 		
 		for(CertificatedBoardVO c_vo : replys) {
 			
@@ -44,6 +51,9 @@ public class CertificatedBoardViewAjaxOkAction implements Action {
 			reply.put("certificatedTitle", c_vo.getCertificatedTitle());
 			reply.put("certificatedContent", c_vo.getCertificatedContent());						
 			reply.put("certificatedDate", c_vo.getCertificatedDate());
+			reply.put("replyWriterId", replyWriterId);
+			reply.put("certificatedlikeCnt", likeCnt );
+			reply.put("certificatedlikeCheck", likeCheck );
 			
 			if(c_vo.getCertificatedContent().length() > 10) {
 				text  = c_vo.getCertificatedContent().substring(0, 10) + "...";				
