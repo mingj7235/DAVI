@@ -61,6 +61,27 @@
 	<update id="updateFree" parameterType="boardFreeVO">
 		UPDATE DAVI_FREE_BOARD SET FREETITLE = #{freeTitle}, FREECONTENT=#{freeContent} WHERE FREENUM = #{freeNum}
 	</update>
+	
+	<insert id="replyInsert" parameterType="freeReplyVO">
+		INSERT INTO HR.DAVI_FREE_REPLY
+		(FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE)
+		VALUES(#{freeNum}, FREE_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{freeReplyContent}, SYSDATE)		
+	</insert>
+	
+	<select id="replyList" parameterType="_int" resultType="freeReplyVO">
+		SELECT FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE 
+		FROM (SELECT * FROM DAVI_FREE_REPLY WHERE FREENUM = #{freeNum}) 
+		START WITH PARENTREPLYNUM = 0 
+		CONNECT BY PRIOR FREEREPLYNUM = PARENTREPLYNUM ORDER SIBLINGS BY FREEREPLYNUM
+	</select>
+	
+	<delete id="replyDelete" parameterType="_int">
+		DELETE DAVI_FREE_REPLY WHERE FREEREPLYNUM = #{freeReplyNum}
+	</delete>
+	
+	<update id="replyUpdate" parameterType="freeReplyVO">
+		UPDATE DAVI_FREE_REPLY SET FREEREPLYCONTENT = #{freeReplyContent} WHERE FREEREPLYNUM = #{freeReplyNum}
+	</update>
 </mapper>
 
 
