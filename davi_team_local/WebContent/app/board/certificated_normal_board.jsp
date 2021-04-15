@@ -57,7 +57,38 @@
 			}
 			
 			.icon_color {
-				color : rgba(0, 59, 251, 0.3);
+				color : rgba(164, 167, 170, 0.7);
+			}
+			
+			#sub-menu {
+				position: absolute;
+				background: #ffffff9e;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.15s ease-in;
+			}
+			
+			
+			#sub-menu>li {
+				padding: 5px 0;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+				margin-top: 5px;
+			}
+			
+			
+			#sub-menu>li>a {
+				color: #7f888f;
+				text-decoration: none;
+			}
+			
+			
+			#sub-menu>li>a:hover {
+				text-decoration: underline;
+			}
+			
+			#menuHover:hover #sub-menu{
+				opacity: 1;
+				visibility: visible;
 			}
 			
 			
@@ -67,6 +98,7 @@
 		</style>
 		
 	</head>
+	
 	<body class="is-preload">
 	
 	<%-- <c:set var="c_vo" value="${c_vo}"></c:set>
@@ -74,6 +106,11 @@
 	<c:set var="path" value="${path}"></c:set>	 --%>
 	<c:set var="certificatedList" value="${certificatedList}"/>
 	<c:set var="ContentSubStringList" value="${ContentSubStringList}"/>
+	<c:set var="LikeCntList" value="${LikeCntList}"/>
+	<c:set var="likeChecks" value="${likeChecks}"/>
+	<script>
+		var arNumbers = [];
+	</script>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -87,7 +124,7 @@
 								<c:import url="/app/header/header.jsp" />
 				
 				<!-- body -->
-				<div style="display: flex; justify-content: center;">
+				<div id="scrollDiv" style="display: flex; justify-content: center;">
 					<article style="width:50%; margin-bottom: 60px;"> 
 						<!-- 일반게시판 글쓰기 아웃라인 -->
 						<!-- 로그인안됬을 경우  -->
@@ -136,8 +173,16 @@
 									cursor: pointer;" onclick="#"/> --> <!-- 프로필 사진 클릭시 해당 계정으로 이동 -->
 								</div>
 								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">${certificatedList[i].getMemberId()}</div>
-								<div class="icon_color" style="width:80%; text-align: right; padding-top: 10px; padding-right: 10px;">
-									<i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
+								<div class="icon_color" style="display: flex; justify-content: flex-end; width:80%; padding-top: 10px; padding-right: 10px;">
+									<div id="menuHover"><i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
+										
+										<ul id="sub-menu" style="display: flex;flex-direction: column;">
+											<li><a href="javascript:modifyPopup('${certificatedList[i].getCertificatedNum()}','${certificatedList[i].getCertificatedTitle()}','${certificatedList[i].getCertificatedContent()}','${certificatedList[i].certificatedPath}')" type="button">수정</a></li>
+											<li><a href="${pageContext.request.contextPath}/board/certificateDeleteOk.bo?certificatedNum=${certificatedList[i].getCertificatedNum()}" type="button">삭제</a></li>
+										
+										</ul>
+									</div>
+									
 								
 								</div>
 							</div>
@@ -159,21 +204,37 @@
 							
 							<!-- 아이콘들 (다이아몬드, 댓글아이콘등) -->
 							<div class="icon_color" style="display : flex; justify-content: flex-start; height: 35px; padding: 5px;">
-								<div id="diamond" style="font-size: 0.9rem; padding-top: 2px;" onclick="changeDiamond()">
-									<i  class="far fa-gem fa-lg" style="cursor: pointer;" ></i>
-								</div>
-								<div id="checkedDiamond" style="font-size: 0.9rem; padding-top: 2px; display : none;" onclick="unchangeDiamond()">
+								<c:choose>
+									<c:when test="${likeChecks[i] == 'true'}">
+										<div id="checkedDiamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; color:#0038fb;" onclick="unchangeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i class="fas fa-gem fa-lg" style="cursor: pointer; " ></i>
+										</div>
+										<div id="diamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; display : none;" onclick="changeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i  class="far fa-gem fa-lg" style="cursor: pointer;" ></i>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div id="checkedDiamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; color:#0038fb; display : none;" onclick="unchangeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i class="fas fa-gem fa-lg" style="cursor: pointer; " ></i>
+										</div>
+										<div id="diamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px;" onclick="changeDiamond(${certificatedList[i].getCertificatedNum()})">
+											<i  class="far fa-gem fa-lg" style="cursor: pointer;" ></i>
+										</div>
+									</c:otherwise>
+								</c:choose>
+								
+								<%-- <div id="checkedDiamond_${certificatedList[i].getCertificatedNum()}" style="font-size: 1.2rem; padding-top: 2px; display : none; color:#0038fb;" onclick="unchangeDiamond(${certificatedList[i].getCertificatedNum()})">
 									<i class="fas fa-gem fa-lg" style="cursor: pointer; " ></i>
-								</div>
-								<div style="font-size: 0.95rem;" onclick ="focusComment()">
+								</div> --%>
+								<div style="font-size: 1.3rem;" onclick ="focusComment()">
 									<i class="far fa-comment fa-lg" style="cursor: pointer; margin-left: 9px;" onclick="#"></i>
 								</div>
 							</div>
 							 
 							<!-- 좋아요 숫자  -->
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-								<div>좋아요</div>
-								<div class ="icon_color" id="diamond_num" >#</div>
+								<div>좋아요&nbsp;</div>
+								<div class ="icon_color" id="diamond_num_${certificatedList[i].getCertificatedNum()}" style="color:#0038fb;">${LikeCntList[i]}</div>
 								<div>개</div>
 							</div>
 							
@@ -191,49 +252,29 @@
 								</div>
 							</div>
 							
-							<!-- 댓글 -->
-							
-							<%--  
-							<c:if test="">
-								<c:forEach>
-							
-							--%>
-									<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-										<div style="width: 20%;">댓글쓴이</div>
-										<div style="width: 70%;">댓글</div>
-										<div id="iconminus" style="width: 10%; text-align: right; margin: 0 5px; cursor: pointer;">
-											<i id="" class="far fa-minus-square icon_color" onclick=""></i>
-										</div>
-										<div id="iconminusmore" style="width: 10%; text-align: right; margin: 0 5px; display: none; cursor: pointer;">
-											<input id=""type="button" value="삭제" style="box-shadow: none; padding : 0 5px;;color: rgba(0, 59, 251, 0.3) !important;">
-										</div>
-										
-										<!-- <input type="button" value="게시" style="box-shadow: none; width: 10%; margin: 0 5px; color: rgba(0, 59, 251, 0.3) !important;"> -->
-									</div>
-
-							<%--  
-							</c:forEach>
-								</c:if>
-							
-							--%>
+							<!-- 댓글 -->							
+						
+							<div id="ajaxFunction">								
+								<input id="reply_${i}" type="hidden" value="${certificatedList[i].getCertificatedNum()}">
+								<div id = "replyAjaxDiv_${certificatedList[i].getCertificatedNum()}">
+								</div> 
+							</div>
 							
 							<!-- 댓글 입력 칸 -->
 							
-							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-								<div style="width: 20%; padding-top: 5px;">접속아이디 </div>
-								<input id="comment_certificated"type="text" placeholder="댓글을 작성해주세요" style="width:70%; border:0; border-bottom: 1px solid rgba(0, 59, 251, 0.3);"/>
-								<input type="button" value="등록" style="width:10%; margin: 0 5px; box-shadow: none; color: rgba(0, 59, 251, 0.3)!important">
-							</div>
+								<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
+									<div style="width: 20%; padding-top: 5px;">${session_id} </div>
+									<input id="replyContents_${certificatedList[i].getCertificatedNum()}"type="text" placeholder="댓글을 작성해주세요" style="width:70%; border:0; border-bottom: 1px solid rgba(0, 59, 251, 0.3);"/>
+									<input type="button" value="등록" style="width:10%; margin: 0 5px; box-shadow: none; color: rgba(0, 59, 251, 0.3)!important" 
+										onclick="javascript:writeReply(${certificatedList[i].getCertificatedNum()}, '${session_id}')">
+								</div>
+							
 							
 						</div><!-- end 일반게시판 게시물 div박스-->
-					</c:forEach>
 						<div style="height: 20px; border-top : 1px solid rgba(164, 167, 170, 0.3);)">
-						
-							
-						
-						
 						</div>
-						<input type="button" onclick="javascript:getList()" />
+					</c:forEach>
+						<!-- <input type="button" onclick="javascript:getList()" /> -->
 						<div id="listAJAX"></div>
 					</article>
 						
@@ -249,13 +290,18 @@
 		</div>
 
 		<!-- Scripts -->
-			<script>var contextPath = "${pageContext.request.contextPath}";</script>
+			<script>
+			var contextPath = "${pageContext.request.contextPath}";
+			var sessionId = "${session_id}";
+			</script>
+			
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			<script src="${pageContext.request.contextPath}/app/board/js/certificated_board.js"></script>
+			<script src="${pageContext.request.contextPath}/app/board/js/certificated_reply.js"></script>
 			<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
 			
 						
@@ -264,8 +310,11 @@
 				function login () {
 					toLoginForm.submit();
 				}
-			
-			
+				
+					getReplyList(document.getElementById("reply_0").value);				
+					getReplyList(document.getElementById("reply_1").value);
+					
+
 			</script>
 			
 			<script>
@@ -280,6 +329,16 @@
 				    var top = Math.ceil(( window.screen.height - height )/2); 
 				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_photo.jsp', '사진등록', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 					
+				}
+				
+				function modifyPopup(num,title,content,path){
+					
+					var width = '700';
+				    var height = '500';
+				    var left = Math.ceil(( window.screen.width - width )/2);
+				    var top = Math.ceil(( window.screen.height - height )/2); 
+				    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_modify.jsp?num='+num+'&title='+title+'&content='+content+'&path='+path, 
+				    	'modifyPopup', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 				}
 				
 				//플러스 버튼 hover 이벤트
@@ -318,65 +377,6 @@
 					iconminusmore.css('display', 'none');
 				});
 				
-				
-/* 				$(function() {
-					$('#iconplus').mouseenter(function () {
-						$('#iconplus').hide();
-						$('#iconmore').show();
-					};
-					
-					$('#iconmore').mouseleave(function () {
-						$('#iconmore').hide();
-						$('#iconplus').show();
-					})
-				}); */
-				//+버튼 (더보기 hover이벤트)
- 				 /*$(document).ready(function () {
-					$('#iconplus').hover(function () {
-						 if($("#iconmore").css("display") == "none") { 
-							$("#iconplus").hide();
-							$("#iconmore").show();
-						 	} 
-					}, function () {
-							$("#iconplus").show();
-							$("#iconmore").hide();
-					})
-				}); */
-				
-				//-버튼 (삭제 hover이벤트)
- 				/*$(document).ready(function () {
-					$('#iconminus').hover(function () {
-							$("#iconminus").hide();
-							$("#iconminusmore").show();
-					}, function () {
-							$("#iconminus").show();
-							$("#iconminusmore").hide();
-					})
-				}); */
-				
-				/* 비어져있는 아이콘, 채워져있는 아이콘 두개 가지고와서 display none을 js로 변환하기 */
-				
-				var diamond = $("#diamond");
-				var checkedDiamond = $("#checkedDiamond");
-				var likeMarkDiamond = $("img#likeMark");
-				var diamondCheck = false; 
-				
-				function changeDiamond() {
-					diamond.css('display', 'none');
-					checkedDiamond.css('display','');
-					diamondCheck = true;
-					likeMarkDiamond.fadeIn(500);
-					likeMarkDiamond.fadeOut(500);
-				}
-				
-				function unchangeDiamond(){
-					diamond.css('display','');
-					checkedDiamond.css('display', 'none');
-					diamondCheck = false;
-
-					
-				}
-				
 				var comment = $("#comment_certificated");
 				
 				function focusComment() {
@@ -394,6 +394,8 @@
 				
 			
 			</script>
+			
+			
 
 	</body>
 </html>

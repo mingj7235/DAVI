@@ -58,6 +58,8 @@ function replyAnd(num, level) {
 }
 
 function replyAnswer(num, level) {
+	console.log(num);
+	console.log(level);
 	var lv = replyLevelLimit(level);
 	$("#reReplyLevelName" + num).addClass("replyLevel-" + (lv + 1));	
 	$("#reReplyLevelText" + num).addClass("replyLevel-" + (lv + 1));	

@@ -35,4 +35,46 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 	<select id="getCertificatedFilePath" parameterType="_int" resultType="certificatedFilesVO">
 		SELECT * FROM DAVI_CERTIFICATED_FILE WHERE CERTIFICATEDNUM = #{certificatedNum}
 	</select>
+	<insert id="certificatedLike" parameterType="map">
+		INSERT INTO DAVI_CERTIFICATED_LIKE VALUES(#{certificatedNum},#{memberId})
+	</insert>
+	<delete id="certificatedUnLike">
+		DELETE DAVI_CERTIFICATED_LIKE WHERE CERTIFICATEDNUM = #{certificatedNum} AND MEMBERID = #{memberId}
+	</delete>
+	<select id="certificatedLikeCnt" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM DAVI_CERTIFICATED_LIKE WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</select>
+	<select id="certificatedLikeCheck" parameterType="map" resultType="_int">
+		SELECT COUNT(*) FROM DAVI_CERTIFICATED_LIKE	WHERE CERTIFICATEDNUM = #{certificatedNum} AND MEMBERID = #{memberId}
+	</select>
+	
+	<select id="certificatedBestOrder"  resultType="map">
+		SELECT  D.* FROM 
+			(SELECT COUNT(CERTIFICATEDNUM) LIKECNT, CERTIFICATEDNUM FROM 
+			DAVI_CERTIFICATED_LIKE GROUP BY CERTIFICATEDNUM ORDER BY LIKECNT DESC) D 
+		WHERE ROWNUM BETWEEN 1 AND 12
+	</select>
+	
+	<select id="certificatedVO" parameterType="_int" resultType="certificatedBoardVO">
+		SELECT * FROM DAVI_CERTIFICATED_BOARD WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</select>
+	
+	<delete id="certificatedDelete" parameterType="_int">
+		DELETE DAVI_CERTIFICATED_BOARD WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</delete>
+	
+	<insert id="certificatedReplyInsert" parameterType="certificatedReplyVO">
+		INSERT INTO DAVI_CERTIFICATED_REPLY 
+		VALUES(#{certificatedNum}, CERTIFICATED_REPLY_SEQ.NEXTVAL, #{memberId}, #{certificatedReplyContent}, SYSDATE)
+	</insert>
+	
+	<select id="certificatedReply" parameterType="_int" resultType="certificatedReplyVO">
+		SELECT * FROM DAVI_CERTIFICATED_REPLY WHERE CERTIFICATEDNUM = #{certificatedNum} ORDER BY CERTIFICATEDREPLYNUM DESC
+	</select>
+	
+	<update id="certificatedModify" parameterType="certificatedBoardVO">
+		UPDATE DAVI_CERTIFICATED_BOARD
+		SET CERTIFICATEDCONTENT =#{certificatedContent}, CERTIFICATEDTITLE = #{certificatedTitle}
+		WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</update>
 </mapper>

@@ -71,7 +71,7 @@
 				<div style="display: flex; justify-content: center; margin:10px 0; padding-top: 5px;">
 					<h1>게시물 만들기</h1>
 				</div>
-				<form name="certificatedWriteForm" action="${pageContext.request.contextPath}/board/certificateWriteOk.bo">
+				<form name="certificatedWriteForm">
 					<div style="display: flex; justify-content: center;">
 						<div style="width: 80%; height: 420px; border: 1px solid rgba(164, 167, 170, 0.3);">
 							<!-- 게시글 작성자 프로필, 닉네임, 제목 -->
@@ -103,7 +103,6 @@
 							
 								<!-- 사진 업로드 -->
 							<div style="display:flex; justify-content: center;">
-								
 								<input id="" name="" type="button" value="미리보기" style="box-shadow: none; font-size: 1em;" onclick="preview()">
 								<input id="writeButton" type="button" value="인증하기" style="box-shadow: none; font-size: 1em;"  >
 							</div>
@@ -127,19 +126,6 @@
 
 		<!-- Scripts -->
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-			<script>
-			$("#writeButton").click(function() {
-				 setTimeout (opener.location.reload(), 50);
-				console.log('들어옴1');
-				/* setTimeout (window.close, 20);
-				console.log('들어옴2'); */
-				
-				certificatedWriteForm.submit();
-				console.log('들어옴3');
-				
-				
-			});
-			</script>
 			<script>var contextPath = "${pageContext.request.contextPath}";</script>
 			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
@@ -152,10 +138,19 @@
 			    var height = '700';
 			    var left = Math.ceil(( window.screen.width - width )/2);
 			    var top = Math.ceil(( window.screen.height - height )/2); 
-			   /*  window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_preview.jsp', '미리보기', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top ); */
-			    window.open('${pageContext.request.contextPath}/board/certificatePreviewOk.bo', '미리보기', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
-				
+			    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_preview.jsp', 'preview', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
+			    certificatedWriteForm.action = "${pageContext.request.contextPath}/app/board/certificated_normal_board_preview.jsp";
+			    certificatedWriteForm.target = 'preview';
+			    certificatedWriteForm.submit();
 			}
+			
+			$("#writeButton").click(function() {
+				window.opener.name = "parentPage";
+				certificatedWriteForm.action = contextPath + "/board/certificateWriteOk.bo";
+				certificatedWriteForm.target =  "parentPage";
+				certificatedWriteForm.submit();
+				self.close();
+			});
 			
 			</script>
 			

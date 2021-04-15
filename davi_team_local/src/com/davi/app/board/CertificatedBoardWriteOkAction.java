@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.davi.action.Action;
 import com.davi.action.ActionForward;
@@ -20,6 +21,7 @@ public class CertificatedBoardWriteOkAction implements Action{
 		resp.setCharacterEncoding("UTF-8");
 		
 		ActionForward forward = null;
+		HttpSession session = req.getSession();
 		PrintWriter out = resp.getWriter();
 		String path = req.getContextPath() + "/board/ceritificatedBoard.bo";
 		
@@ -37,9 +39,15 @@ public class CertificatedBoardWriteOkAction implements Action{
 			cf_vo.setCertificatedNum(c_dao.getCertificatedNum(req.getParameter("memberId")));
 			if(c_dao.certificatedFilesWrite(cf_vo) ) {
 				//db 성공 
+				//req.setAttribute("path", path);	
+				
+				// 세션 삭제
+				session.removeAttribute("filename");
+				session.removeAttribute("path");
+				
 				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("/board/ceritificatedBoard.bo");
+				forward.setRedirect(true);
+				forward.setPath(path);
 			}
 		}
 		

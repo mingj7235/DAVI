@@ -22,13 +22,22 @@ public class MemberLoginOkAction implements Action {
 		
 		String id = req.getParameter("memberId");
 		String pw = req.getParameter("memberPw");
+		String prepage = req.getParameter("prepage");
+		String certificatedCheck = req.getParameter("certificatedCheck");
+		
+		prepage = prepage.substring(prepage.indexOf("davi_team_local") + 10 );	
+		
 		
 		if(m_dao.login(id, pw)) {
 			//로그인 성공
 			session.setAttribute("session_id", id);
 			forward.setRedirect(true);
 			//인덱스로 보내기
-			forward.setPath(req.getContextPath()+"/index.jsp");
+			if(certificatedCheck.equals("true") ) {
+				forward.setPath(req.getContextPath()+"/board/ceritificatedBoard.bo");
+			}else {				
+				forward.setPath(req.getContextPath() + prepage);
+			}
 		}else {
 			//로그인 실패
 			forward.setRedirect(false);

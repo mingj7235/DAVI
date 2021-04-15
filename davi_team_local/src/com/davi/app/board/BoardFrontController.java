@@ -9,7 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.davi.action.ActionForward;
+import com.davi.app.board.cheat.BoardCheatDeleteOkAction;
+import com.davi.app.board.cheat.BoardCheatListOkAction;
+import com.davi.app.board.cheat.BoardCheatModifyOkAction;
+import com.davi.app.board.cheat.BoardCheatViewOkAction;
+import com.davi.app.board.cheat.BoardCheatWriteOkAcrion;
 import com.davi.app.board.file.SummernoteFileUpload;
+import com.davi.app.board.free.BoardFreeDeleteOkAction;
+import com.davi.app.board.free.BoardFreeListOkAction;
+import com.davi.app.board.free.BoardFreeModifyOkAction;
+import com.davi.app.board.free.BoardFreeReplyDeleteOkAction;
+import com.davi.app.board.free.BoardFreeReplyUpdateOkAction;
+import com.davi.app.board.free.BoardFreeReplyWriteOkAction;
+import com.davi.app.board.free.BoardFreeViewOkAction;
+import com.davi.app.board.free.BoardFreeWriteOkAcrion;
 
 public class BoardFrontController extends HttpServlet{
 
@@ -34,6 +47,7 @@ public class BoardFrontController extends HttpServlet{
 		String contextPath = req.getContextPath();
 		String command = requestURI.substring(contextPath.length());
 		ActionForward forward = null;
+		System.out.println(command);
 		
 		switch(command) {
 		case "/board/freeWriteOk.bo":
@@ -49,7 +63,16 @@ public class BoardFrontController extends HttpServlet{
 			} catch (Exception e) {				
 				e.printStackTrace();
 			}			
-			break;		
+			break;
+		case "/board/certificateDeleteOk.bo" :
+			try {
+				forward = new CertificatedBoardDeleteOkAction().execute(req, resp);
+				System.out.println("들어옴 ");
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+			break;
 		case "/board/summernoteFile.bo":
 			try {				
 				forward = new SummernoteFileUpload().fileUpload(req, resp);
@@ -72,25 +95,44 @@ public class BoardFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;		
-		case "/board/certificatePreviewOk.bo" :
-			try {
-				forward = new CertificatedBoardPreviewOkAction().execute(req, resp);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;		
 			
+			break;			
 		case "/board/ceritificatedBoard.bo" :
 			try {
 				forward = new CertificatedBoardViewOkAction().execute(req, resp);
-				System.out.println("Board 프론트 컨트롤러");
-			} catch (Exception e) {;}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
 			
 		case "/board/ceritificatedBoardAjax.bo" :
 			try {
 				forward = new CertificatedBoardViewAjaxOkAction().execute(req, resp);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			break;	
+			
+		case "/board/ceritificatedBoardLikeOk.bo" :
+			try {
+				forward = new CertificatedLikeOkAction().execute(req, resp);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			break;	
+		case "/board/certificatedBoardReplyList.bo" :
+			try {
+				forward = new CertificatedBoardReplyListAction().execute(req, resp);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			break;	
+		case "/board/certificatedBoardReplyWriteOk.bo" :
+			try {
+				forward = new CertificatedBoardReplyWriteOkAction().execute(req, resp);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -153,6 +195,52 @@ public class BoardFrontController extends HttpServlet{
 			}
 			break;	
 			
+		case "/board/bestList.bo":
+			try {
+				forward = new CertificatedBestViewAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
+			
+		case "/board/bestBoardDetail.bo":
+			try {
+				forward = new CertificatedBestPopUpAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
+		
+		case "/board/certificateModifyOk.bo":
+			try {
+				forward = new CertificatedBoardModifyOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;		
+		case "/board/freeReplyWrite.bo":
+			try {
+				forward = new BoardFreeReplyWriteOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;		
+			
+		case "/board/freeReplyUpdate.bo":
+			try {
+				forward = new BoardFreeReplyUpdateOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;		
+			
+		case "/board/freeReplyDelete.bo":
+			try {
+				forward = new BoardFreeReplyDeleteOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;		
 		default:
 			forward = new ActionForward();
 			forward.setRedirect(false);

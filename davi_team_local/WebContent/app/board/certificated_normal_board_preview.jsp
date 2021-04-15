@@ -59,6 +59,7 @@
 						<div class="inner">
 
 							<!-- Header -->
+				
 				<!-- body -->
 				<div style="display: flex; justify-content: center;">
 					<article style="width:80%; margin-bottom: 60px;"> 
@@ -70,7 +71,7 @@
 								<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style="margin:5px; width: 35px; height: 35px;
 									cursor: pointer;" onclick="#"/> <!-- 프로필 사진 클릭시 해당 계정으로 이동 -->
 								</div>
-								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">${session_id}</div>
+								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">(#)</div>
 								<div style="width:80%; text-align: right; padding-top: 10px; padding-right: 10px; color:rgba(0, 59, 251, 0.3);">
 									<i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
 								
@@ -79,7 +80,7 @@
 							
 							<!-- 게시판 제목 -->
 							<div style="height: 30px; padding-top: 5px; margin:5px;">
-								<p3>${certificatedTitle}</p3>
+								<p3>${param.certificatedTitle}</p3> 
 							</div>
 							
 							<!-- 사진 -->
@@ -108,8 +109,8 @@
 							<!-- 본문  -->					
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 								<div id="" style="width: 20%;">글쓴이 </div>
-								<div id="" style="width: 70%;">본문내용</div>
-								<textarea rows="" cols="" style="display: none;">${certificatedContent}</textarea>
+								<div id="" style="width: 70%;">${param.certificatedContent}</div>
+								<textarea rows="" cols="" style="display: none;">${certificatedContent }</textarea>
 								<div id="" style="width: 10%; text-align: right; margin: 0 5px;">
 									<i class="far fa-plus-square" onclick="#" style="cursor: pointer; color: rgba(0, 59, 251, 0.3);"></i>
 								</div>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>    
 <!DOCTYPE HTML>
 <!--
 	Editorial by Pixelarity
@@ -96,6 +97,8 @@ h1, h2, h3, h4 {
 </style>
 </head>
 <body class="is-preload">
+<c:set var="listsVO" value="${listsVO}"></c:set>
+<c:set var="likeCntList" value="${likeCntList}"></c:set>
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -114,7 +117,19 @@ h1, h2, h3, h4 {
 				<section style="padding-top: 60px; width: 60%; margin: auto;">
 
 					<div id="best_posts" class="posts">
-						<article>
+						<c:forEach var="i" begin="0" end="${fn:length(listsVO) - 1}">
+							<article>
+								<div>
+									<a href="" class="image">
+									<img
+										src="${listsVO[i].getCertificatedPath()}"
+										alt=""
+										style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
+								</div>
+							</article>
+						</c:forEach>
+						
+						<!-- <article>
 							<div>
 								<a href="#" class="image">
 								<img
@@ -122,9 +137,9 @@ h1, h2, h3, h4 {
 									alt=""
 									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
 							</div>
-						</article>
+						</article> -->
 						
-						<article>
+						<!-- <article>
 							<div>
 								<a href="#" class="image">
 								<img
@@ -232,7 +247,7 @@ h1, h2, h3, h4 {
 									alt=""
 									style="display: inline-block; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" /></a>
 							</div>
-						</article>
+						</article> -->
 					
 					</div>
 				</section>

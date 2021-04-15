@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.davi.app.board.vo.BoardFreeReplyVO;
 import com.davi.app.board.vo.BoardFreeVO;
 import com.davi.mybatis.config.SqlMapConfig;
 
@@ -96,5 +97,27 @@ public class BoardFreeDAO {
 	//게시글 업데이트
 	public boolean updateFree(BoardFreeVO bvo) {
 		return session.update("FreeBoard.updateFree",bvo)==1;
+	}
+	
+	//댓글 쓰기
+	public boolean replyInsert(BoardFreeReplyVO fr_vo) {
+		return session.insert("FreeBoard.replyInsert", fr_vo) == 1;
+	}
+	
+	//댓글 리스트
+	public List<BoardFreeReplyVO> replyList(int freeNum) {
+		return session.selectList("FreeBoard.replyList", freeNum) ;
+	}
+	//댓글 삭제
+	public boolean replyDelete(int freeReplyNum) {
+		return session.delete("FreeBoard.replyDelete", freeReplyNum) == 1;
+	}
+	//댓글 수정
+	public boolean replyUpdate(BoardFreeReplyVO fr_vo) {
+		return session.update("FreeBoard.replyUpdate", fr_vo) == 1;
+	}
+	//부모댓글 삭제
+	public boolean reReplyDelete(int freeReplyNum) {
+		return session.delete("FreeBoard.reReplyDelete", freeReplyNum) >= 1;
 	}
 }

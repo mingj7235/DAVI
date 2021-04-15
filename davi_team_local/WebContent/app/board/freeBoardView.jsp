@@ -18,6 +18,7 @@
 	
 	<!-- 컨트롤러에서 받아온 부분  -->
 	<c:set var="bf_vo" value="${bf_vo}"/>
+	<c:set var="lists" value="${lists}"/>
 	
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -83,106 +84,91 @@
 											<c:set var="replyLevel" value="0" />
 											<c:set var="freeNum" value="0" />
 										</form>
+										<form name="replyForm" action="${pageContext.request.contextPath}/board/freeReplyWrite.bo">
 											<article class="replyArti" style="margin-bottom: 10px; ">
 												<h5 style="margin-top:20px">새댓글 작성</h5>	
 												<div class="row" style="margin-top:5px">
-													<div class="col-10 replyLevel${replyNumber}" >
-														<textarea name="writeReply" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
+													<div class="col-10 replyLevel0" >
+														<textarea name="freeReplyContent" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
 													</div>
 													<div class="col-2" style="margin:auto 0;padding-left: 10%;">
 														<c:if test="${true}">
-															<a href="javascript:replyOk(${freeNum}, ${replyLevel})"><i class="fas fa-edit"></i></a>
+															<a href="javascript:replyForm.submit()"><i class="fas fa-edit"></i></a>
 														</c:if>											
 													</div>											
 												</div>										
 											</article>
+											<input type="hidden" value="${session_id}" name="memberId"/>											
+											<input type="hidden" value="${param.freeNum}" name="freeNum"/>
+											<input type="hidden" value="${param.page}" name="page"/>
+										</form>
 											<div id="replyAjax">											
 											<!-- 반복문으로 댓글 뿌리기 -->
-											<%-- <c:forEach var="replyArr" items=""> --%>
+											<c:forEach var="list" items="${lists}">
+												<c:if test="${list.getParentReplyNum() == 0}">
+													<c:set var="level" value="0"/>
+												</c:if>
+												<c:if test="${list.getParentReplyNum() != 0}">
+													<c:set var="level" value="1"/>
+												</c:if>
 												<article class="replyArti">
+												<form action="${pageContext.request.contextPath}/board/freeReplyUpdate.bo" name="updateForm" method="post">
 													<div class="row">
 														<div  class="col-10">
-															<div id="reply" class="replyLevel-${replyLevel}">	
+															<div id="reply" class="replyLevel-${level}">	
 															<div>
-																<span class="smallTitle">2021-12-1</span>	
-																<span class="smallTitle">주인1</span>	
+																<span class="smallTitle">${list.getFreeReplyDate()}</span>	
+																<span class="smallTitle">${list.getMemberId()}</span>	
 															</div>														
-																<textarea name="readReply${replyNumber}" class="replycontent" readonly>
-첫번째 댓글
-내용내용
-내용내용
-내용내용
-내용내용
+																<textarea name="readReply${list.getFreeReplyNum()}" class="replycontent" readonly>
+${list.getFreeReplyContent()}
 																</textarea>
 															</div>																						
 														</div>											
-														<div class="col-2" style=";margin:auto 0;padding-left: 10%;display: grid;">														
-															<a id="replyModify" href="javascript:replyModify(${replyNumber})"><i class="fas fa-pencil-alt"></i></a>
-															<a id="replyDelete" href="#"><i class="fas fa-trash-alt"></i></a>
-															<a id="replyModifyOk" href="#" style="display: none"><i class="fas fa-edit"></i></a>																														
-															<a id="replyWrite" href="javascript:replyAnswer(${replyNumber}, ${replyLevel})" ><i class="fas fa-edit"></i></a>
-														</div>												
+														<div class="col-2" style=";margin:auto 0;padding-left: 10%;display: flex ;">														
+															<c:if test="${session_id eq list.getMemberId()}">
+															<a id="replyModify" href="javascript:replyModify(${list.getFreeReplyNum()})"><i class="fas fa-pencil-alt"></i></a>
+															<a id="replyDelete" href="${pageContext.request.contextPath}/board/freeReplyDelete.bo?freeReplyNum=${list.getFreeReplyNum()}&page=${param.page}&freeNum=${param.freeNum}"><i class="fas fa-trash-alt"></i></a>
+															<!-- <a id="replyModifyOk" href="javascript:updateForm.submit()" ><i class="fas fa-edit"></i></a> -->
+															<input type="submit" value="수정완료">																													
+															</c:if>
+															<a id="replyWrite" href="javascript:replyAnswer(${list.getFreeReplyNum()}, ${level})" ><i class="fas fa-edit"></i></a>
+														</div>	
+															<input type="hidden" name="freeReplyNum" value="${list.getFreeReplyNum()}">											
+															<input type="hidden" name="page" value="${param.page}">											
+															<input type="hidden" name="freeNum" value="${param.freeNum}">											
 													</div>
-													<article id="replyAnswer${replyNumber}" class="replyArti" style="display: none;">
-														<h5 id="reReplyLevelName${replyNumber}" style="margin-top:20px;">댓글 작성</h5>	
-														<div class="row" style="margin-top:5px">
-															<div class="col-10">
-																<div id="reReplyLevelText${replyNumber}">
-																	<textarea id="writeReReply" name="writeReReply" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
+												</form>
+												
+													<form name="repeatForm" action="${pageContext.request.contextPath}/board/freeReplyWrite.bo">
+														<article id="replyAnswer${list.getFreeReplyNum()}" class="replyArti" style="display: none;">
+															<h5 id="reReplyLevelName${list.getFreeReplyNum()}" style="margin-top:20px;">댓글 작성</h5>	
+															<div class="row" style="margin-top:5px">
+																<div class="col-10">
+																	<div id="reReplyLevelText${list.getFreeReplyNum()}">
+																		<textarea id="writeReReply" name="freeReplyContent" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
+																	</div>
 																</div>
-															</div>
-															<div class="col-2" style="padding-left: 10%;">
-																<c:if test="${true}">
-																	<a href="javascript:replyOk(${freeNum}, ${replyNumber}, ${replyLevel})"><i class="fas fa-edit"></i></a>
-																</c:if>											
-															</div>											
-														</div>										
-													</article>
+																<div class="col-2" style="padding-left: 10%;">
+																	
+																		<%-- <a href="javascript:replyOk(${list.getFreeNum()}, ${list.getFreeReplyNum()}, ${level})"><i class="fas fa-edit"></i></a> --%>
+																		<a href="javascript:repeatForm.submit()"><i class="fas fa-edit"></i></a>
+																		<input type="submit" value="ok"/>
+																											
+																</div>											
+															</div>										
+														</article>
+														<input type="hidden" value="${session_id}" name="memberId"/>											
+														<input type="hidden" value="${param.freeNum}" name="freeNum"/>
+														<input type="hidden" value="${param.page}" name="page"/>
+														<input type="hidden" value="${list.getFreeReplyNum()}" name="freeReplyNum"/>
+														
+													</form>
 												</article>
 												
-											<%-- </c:forEach> --%>
+											</c:forEach>
 											<!-- 여기까지 1번째댓글 -->	
-											</div>
 											
-											<%-- <article class="replyArti">
-												<div class="row">
-													<div  class="col-10 commentBox">
-														<div style="margin-left: 15px;">
-															<textarea name="readReply2" class="replycontent" readonly>
-첫번째 댓글에 댓글
-내용용
-내용용
-내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용내용용
-내용용
-내용용
-내용용
-내용용
-															</textarea>														
-														</div>																						
-													</div>											
-													<div class="col-2" style="margin-top:20px;">
-														
-														<a href="#" >수정하기</a><br>
-														<a href="#" >삭제하기</a><br>
-														<a href="javascript:replyAnswer(${replyNumber+1}, ${replyLevel+1})" >답변하기</a><br>
-													</div>												
-												</div>
-												<article id="replyAnswer${replyNumber+1}" class="replyArti" style="display: none;">
-													<h5 id="replyLevel${replyNumber+1}" style="margin-top:20px">댓글 작성</h5>	
-													<div class="row" style="margin-top:5px">
-														<div class="col-10">
-															<div id="replyLevel${replyNumber + 1}">
-																<textarea name="writeReply" class="replycontent" placeholder="이곳에 입력하세요"></textarea>
-															</div>
-														</div>
-														<div class="col-2" style="margin-top:30px;">
-															<c:if test="${true}">
-																<a href="#" >입력하기</a>
-															</c:if>											
-														</div>											
-													</div>										
-												</article>
-											</article> --%>
 									</div>					
 								</section>
 								<div>

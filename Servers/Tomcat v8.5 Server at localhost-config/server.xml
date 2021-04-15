@@ -155,7 +155,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
       <Context docBase="davi_team3" path="/davi_team3" reloadable="true" source="org.eclipse.jst.jee.server:davi_team3"/>
-      </Host>
+      <Context docBase="davi_team_local" path="/davi_team_local" reloadable="true" source="org.eclipse.jst.jee.server:davi_team_local"/></Host>
     </Engine>
   </Service>
 </Server>
