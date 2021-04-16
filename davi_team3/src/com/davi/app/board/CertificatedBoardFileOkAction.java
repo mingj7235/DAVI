@@ -26,7 +26,7 @@ public class CertificatedBoardFileOkAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		
-		String saveFolder = "/Users/joshua/Desktop/JoshuaStudy/projects/DAVI/davi_team3/WebContent/app/board/temp";
+		String saveFolder = "D:\\3조프로젝트\\workspace\\davi_team3\\WebContent\\app\\board\\temp";
 		
 		int fileSize = 5 * 1024 * 1024;  //size
 		

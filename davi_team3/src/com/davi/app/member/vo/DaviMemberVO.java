@@ -26,7 +26,14 @@ public class DaviMemberVO {
 	private int memberWeight;
 	private int memberGoalWeight;
 	private String memberResolution;
+	private int memberRate;
 	
+	public int getMemberRate() {
+		return memberRate;
+	}
+	public void setMemberRate(int memberRate) {
+		this.memberRate = memberRate;
+	}
 	public String getMemberId() {
 		return memberId;
 	}

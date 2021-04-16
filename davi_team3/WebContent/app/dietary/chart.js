@@ -101,18 +101,18 @@ function drawBMI() {
 	window.addEventListener('resize', drawBMI, false);
 }
 
-function drawPieChart() {
+function drawPieChart(data1, data2) {
 	var data = new google.visualization.DataTable();
     data.addColumn('string', '대상');
-    data.addColumn('number', 'WeightAVG');
+    data.addColumn('number', 'day');
     data.addRows([
-      ['평균', 54],
-      ['나', 56],
+      ['출석', 80],
+      ['결석', 21],
       
     ]);
 
     var options = {
-      title: '아직 미정',
+      title: '출석률',
       sliceVisibilityThreshold: .2,
       chartArea:{
           'width':'70%',

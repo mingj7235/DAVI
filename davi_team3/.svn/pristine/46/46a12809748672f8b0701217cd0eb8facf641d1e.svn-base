@@ -136,6 +136,21 @@ public class MemberFrontController extends HttpServlet{
 			forward.setPath("/app/member/mypage_changePw.jsp"+ (checkPw != null? "?check=false" : ""));
 			break;
 			
+		case "/member/reportView.me" :
+			try {
+				forward = new MemberReportViewOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "/member/bodyInsert.me" :
+			try {
+				forward = new MemberBodyInsertOkAction().execute(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
 			
 		default:
 			forward = new ActionForward();

@@ -1,10 +1,12 @@
 package com.davi.app.member.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.davi.app.member.vo.DaviBodyVO;
 import com.davi.app.member.vo.DaviMemberVO;
 import com.davi.mybatis.config.SqlMapConfig;
 
@@ -100,6 +102,15 @@ public class MemberDAO {
 		return session.update("Member.changePw", map) == 1;
 	}
 	
+	// 몸무게 입력
+	public boolean insertBody(DaviBodyVO vo) {
+		return session.insert("Member.insertBody", vo) == 1;
+	}
+	
+	// 몸무게날짜 리스트
+	public HashMap<String, Object> getBodyDate(String memberId){
+		return session.selectOne("Member.getBody", memberId);
+	}
 	
 }
 

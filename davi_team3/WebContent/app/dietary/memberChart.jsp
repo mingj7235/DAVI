@@ -17,7 +17,25 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" 
 		integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-					
+		<style>
+			#data input{
+				width:30%;
+				font-size:2em;
+				margin:auto;
+				border:0;
+				border-bottom: solid 1px rgba(0, 59, 251, 0.3);
+				text-align: center; 
+				margin-bottom:1%;
+			}
+			#notice {
+				width:30%;
+				margin:auto;
+				display:none;
+				text-align: center;
+				font-size:1em;
+				color:red;
+			}	
+		</style>			
 	</head>
 	<body class="is-preload">
 
@@ -33,6 +51,7 @@
 					
 
 							<!-- Content -->
+							<c:if test="${check == 'true'}">
 								<section id="memberChartMain">
 								
 									<article>
@@ -131,7 +150,7 @@
 												<h4>150</h4>
 												</div>
 												<div class="chartDetail">
-													미정
+													출석일수
 												</div>	
 											</div>
 										</div>
@@ -163,13 +182,13 @@
 									<article>
 									<div style="padding: 0 11%;">
 										<table>
-										<caption style="text-align:left;"><h3>내 테이블</h3></caption>
+										<caption style="text-align:left;"><h3>지난주 다이어트 랭킹</h3></caption>
 											<thead>
 												<tr>
-													<th width="10%">date</th>
-													<th width="30%">2</th>
-													<th width="30%">3</th>
-													<th width="30%">4</th>
+													<th width="10%">랭킹</th>
+													<th width="30%">아이디</th>
+													<th width="30%">현재몸무게</th>
+													<th width="30%">체중변화량</th>
 												</tr>												
 											</thead>
 											<tbody>
@@ -197,6 +216,12 @@
 													<td>hhj</td>																								
 													<td>hhj</td>																								
 												</tr>
+												<tr>
+													<td>4</td>
+													<td>dfg</td>
+													<td>hhj</td>																								
+													<td>hhj</td>																								
+												</tr>
 											</tbody>
 										</table>
 									</div>
@@ -204,6 +229,21 @@
 								
 
 								</section>
+							</c:if>	
+							
+							<!-- 데이터 입력 안했을 시  -->
+							<c:if test="${check == 'false'}">
+								<section>
+									<article id="data">
+										<form action="${pageContext.request.contextPath}/member/bodyInsert.me">
+											<h2 align="center" style="margin-bottom:5%; font-size:2.5rem;">오늘의 몸무게를 입력해주세요</h2>
+											<input type="text" name="bodyWeight" id="weight" placeholder="몸무게 입력후 엔터">
+											<p id="notice">세자리 이하의 숫자만 입력해주세요</p>
+										</form>
+									</article>								
+								</section>
+							</c:if>	
+								
 								
 							<div>
 							<!-- Footer -->
@@ -255,6 +295,18 @@
 		          } )
 		        } );
 			</script>
-
+			<script>
+			$("#weight").keyup(function() {
+				
+				let regExp = /^[0-9]{1,3}$/;
+				
+				if(regExp.test($(this).val())){
+					$("#notice").hide();
+				}else{
+					$("#notice").show();
+				}
+			});
+			</script>
+			
 	</body>
 </html>

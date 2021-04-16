@@ -29,11 +29,28 @@
 	</select>
 	
 	<insert id="join" parameterType="memberVO">
-		INSERT INTO DAVI_MEMBER VALUES ( 
+		INSERT INTO DAVI_MEMBER
+		(MEMBERID, MEMBERPW, MEMBERNAME, MEMBERPHONE, MEMBEREMAIL, MEMBERGENDER, MEMBERHEIGHT, MEMBERWEIGHT, MEMBERGOALWEIGHT, MEMBERRESOLUTION)
+		VALUES ( 
 		#{memberId}, #{memberPw}, #{memberName}, #{memberPhone}, #{memberEmail}, 
 		#{memberGender}, #{memberHeight}, #{memberWeight}, #{memberGoalWeight}, #{memberResolution} 
 		)	
-	</insert>	
+	</insert>
+	
+	<insert id="insertBody" parameterType="bodyVO"> 
+		INSERT INTO DAVI_BODY (MEMBERNUM, MEMBERID, BODYDATE, BODYWEIGHT) 
+		VALUES(BODY_SEQ.NEXTVAL, #{memberId} , SYSDATE , #{bodyWeight})
+	</insert>
+	
+	<select id="getBody" parameterType="string" resultType="map">
+		SELECT TO_CHAR(BODYDATE,'MM-DD') DAVIDATE, BODYWEIGHT WEIGHT FROM 
+		(SELECT * FROM DAVI_BODY ORDER BY BODYDATE DESC) 
+		WHERE MEMBERID = #{memberId} AND ROWNUM = 1
+	</select>	
+	
+	<select id="getBodyListWeek">
+		
+	</select>
 	
 </mapper>
 

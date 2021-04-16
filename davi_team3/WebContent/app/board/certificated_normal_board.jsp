@@ -257,7 +257,7 @@
 							<div id="ajaxFunction">								
 								<input id="reply_${i}" type="hidden" value="${certificatedList[i].getCertificatedNum()}">
 								<div id = "replyAjaxDiv_${certificatedList[i].getCertificatedNum()}">
-								</div> 
+								</div>
 							</div>
 							
 							<!-- 댓글 입력 칸 -->

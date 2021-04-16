@@ -123,7 +123,7 @@
 				<div  style="padding-left:1.5em; display:flex; align-items:center; width:80%;">
 					<ul id="menufont" class="secret" style="width:100%; display:flex; justify-content:flex-start;">
 						<li><a href="#">메인</a></li>
-						<li><a href="#" style="color:rgba(0, 59, 251, 1);">보고서</a></li>
+						<li><a href="${pageContext.request.contextPath}/member/reportView.me" style="color:rgba(0, 59, 251, 1);">보고서</a></li>
 						<li><a href="#" style="color:rgba(0, 59, 251, 1);">식단</a></li>
 						<c:choose>
 							<c:when test="${not empty session_id }">
