@@ -22,10 +22,27 @@ public class MemberBodyInsertOkAction implements Action {
 		HttpSession session = req.getSession();
 		
 		String memberId = (String)session.getAttribute("session_id");
-		String bodyWeight = req.getParameter("bodyWeight");
+		int bodyWeight = Integer.parseInt(req.getParameter("bodyWeight"));
 		
-		b_vo.setBodyWeight(Integer.parseInt(bodyWeight));
+		b_vo.setBodyWeight(bodyWeight);
 		b_vo.setMemberId(memberId);
+		
+		//변수 선언
+		int thisWeek = m_dao.getThisWeek();
+		int thisWeekWeight = m_dao.getBodyWeightThisWeek(memberId, thisWeek);
+		int lastWeekWeight = m_dao.getBodyWeightLastWeek(memberId, thisWeek);
+		int bodyRate = 0;
+		
+		//이번주 있을경우
+		if(thisWeekWeight != 0) {
+			bodyRate = bodyWeight - thisWeekWeight;
+		
+		//이번주 없고 다음주 데이터가 있을 경우 
+		}else if (lastWeekWeight != 0) {
+			bodyRate = bodyWeight - lastWeekWeight;
+		}
+		
+		b_vo.setMemberRate(bodyRate);
 		
 		if(m_dao.insertBody(b_vo)) {
 			System.out.println("성공");

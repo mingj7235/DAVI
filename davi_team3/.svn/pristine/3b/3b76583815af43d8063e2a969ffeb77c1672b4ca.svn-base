@@ -108,61 +108,23 @@ public class MemberDAO {
 	}
 	
 	// 날짜, 몸무게
-//	public HashMap<String, Object> getBodyMap(String memberId){
-//		return session.selectOne("Member.getBody", memberId);
-//	}
-//	
-//	public List<String> getRankingId(String startDate , String endDate){
-//		HashMap<String, String> date = new HashMap<>();
-//		date.put("startDate",startDate);
-//		date.put("endDate",endDate);
-//		return session.selectList("Member.getRankingId",date);
-//	}
-//	
-//	public List<DaviBodyVO> getRanking(String startDate , String endDate, String memberId){
-//		HashMap<String, String> date = new HashMap<>();
-//		date.put("startDate",startDate);
-//		date.put("endDate",endDate);
-//		date.put("memberId",memberId);
-//		return session.selectList("Member.getRanking",date);
-//	}
-	
-	//이번주 주차 가져오기
-	
-	public int getThisWeek () {
-		return session.selectOne("Member.getThisWeek");
+	public HashMap<String, Object> getBodyMap(String memberId){
+		return session.selectOne("Member.getBody", memberId);
 	}
 	
-	//이번주 몸무게 가져오기
-	public int getBodyWeightThisWeek (String memberId, int thisWeek) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("memberId", memberId);
-		map.put("thisWeek", thisWeek);
-		return session.selectOne("Member.getBodyWeightThisWeek", map);
-	}
-		
-	
-	//저번 몸무게 가져오기
-	public int getBodyWeightLastWeek (String memberId, int thisWeek) {
-		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("memberId", memberId);
-		map.put("thisWeek", thisWeek);
-		return session.selectOne("Member.getBodyWeightLastWeek", map);
+	public List<String> getRankingId(String startDate , String endDate){
+		HashMap<String, String> date = new HashMap<>();
+		date.put("startDate",startDate);
+		date.put("endDate",endDate);
+		return session.selectList("Member.getRankingId",date);
 	}
 	
-	//변화량 랭킹 가져오기
-	public List<HashMap<String, Object>> getRanking () {
-		return session.selectList("Member.getRanking");
-	}
-	
-	//오늘 몸무게 입력 체크
-	public boolean getBody(String memberId) {
-		return (Integer)session.selectOne("Member.getBody", memberId) == 1;
-	}
-	
-	//하루 몸무게변화량 
-	public int getDailyRate(String memberId) {
-		return session.selectOne("Member.getDailyRate", memberId);
+	public List<DaviBodyVO> getRanking(String startDate , String endDate, String memberId){
+		HashMap<String, String> date = new HashMap<>();
+		date.put("startDate",startDate);
+		date.put("endDate",endDate);
+		date.put("memberId",memberId);
+		return session.selectList("Member.getRanking",date);
 	}
 }
 

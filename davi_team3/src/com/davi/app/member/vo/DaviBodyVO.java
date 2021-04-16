@@ -1,19 +1,26 @@
 package com.davi.app.member.vo;
 
 public class DaviBodyVO {
-	/*CREATE TABLE DAVI_BODY(
-		    MEMBERNUM NUMBER(10),
-		    MEMBERID VARCHAR2(300),
-		    BODYDATE DATE,
-		    BODYWEIGHT NUMBER(10),
-		    CONSTRAINT DAVI_NUM_PK PRIMARY KEY(MEMBERNUM),
-		    CONSTRAINT DAVI_MEMBERID_FK FOREIGN KEY(MEMBERID) REFERENCES DAVI_MEMBER(MEMBERID)
+	/*
+	 * CREATE TABLE DAVI_BODY(
+    MEMBERNUM NUMBER(10),
+    MEMBERID VARCHAR2(300),
+    BODYDATE DATE,
+    BODYWEIGHT NUMBER(10),
+    BODYWEEK NUMBER(10),
+    MEMBERRATE NUMBER(10),
+    CONSTRAINT DAVI_NUM_PK PRIMARY KEY(MEMBERNUM),
+    CONSTRAINT DAVI_MEMBERID_FK FOREIGN KEY(MEMBERID) REFERENCES DAVI_MEMBER(MEMBERID)
+);
 		)*/
 	
 	private int memberNum;
 	private String memberId;
 	private String bodyDate;
-	private int BodyWeight;
+	private int bodyWeight;
+	private int bodyWeek;
+	private int memberRate;
+	
 	
 	public int getMemberNum() {
 		return memberNum;
@@ -34,11 +41,25 @@ public class DaviBodyVO {
 		this.bodyDate = bodyDate;
 	}
 	public int getBodyWeight() {
-		return BodyWeight;
+		return bodyWeight;
 	}
 	public void setBodyWeight(int bodyWeight) {
-		BodyWeight = bodyWeight;
+		this.bodyWeight = bodyWeight;
 	}
+	public int getBodyWeek() {
+		return bodyWeek;
+	}
+	public void setBodyWeek(int bodyWeek) {
+		this.bodyWeek = bodyWeek;
+	}
+	public int getMemberRate() {
+		return memberRate;
+	}
+	public void setMemberRate(int memberRate) {
+		this.memberRate = memberRate;
+	}
+	
+	
 	
 	
 	

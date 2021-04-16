@@ -38,6 +38,7 @@
 		</style>			
 	</head>
 	<body class="is-preload">
+	<c:set var="rankingList" value="${rankingList}"></c:set>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -66,7 +67,7 @@
 											전일 대비 몸무게 숨기기&nbsp;&nbsp;&nbsp;</button>
 											
 											<div id="compareWeight" align="center"  style="width: calc(100%); margin: 0 0 5% 0;" >
-												<p>전일대비 몸무게가 <strong style="font-size:2.0rem;">3kg</strong> 증가했습니다.<p>							
+												<p>전일대비 몸무게가 <strong style="font-size:2.0rem;">${dailyRate} kg</strong> 달라졌어요 !  <p>							
 											</div>
 										</div>										
 									</article>
@@ -185,43 +186,21 @@
 										<caption style="text-align:left;"><h3>지난주 다이어트 랭킹</h3></caption>
 											<thead>
 												<tr>
-													<th width="10%">랭킹</th>
+													<th width="30%">랭킹</th>
 													<th width="30%">아이디</th>
-													<th width="30%">현재몸무게</th>
-													<th width="30%">체중변화량</th>
+													<th width="40%">체중변화량</th>
 												</tr>												
 											</thead>
+											
 											<tbody>
+											<c:forEach var = "i" begin = "0" end = "4">
 												<tr>
-													<td>1</td>
-													<td>dfg</td>
-													<td>hhj</td>																								
-													<td>hhj</td>																								
+													<td>${i+1}</td>
+													<td>${rankingList[i].get("MEMBERID") }</td>
+													<td>${rankingList[i].get("TOTALRATE")}</td>																								
 												</tr>
-												<tr>
-													<td>2</td>
-													<td>dfg</td>
-													<td>hhj</td>																								
-													<td>hhj</td>																								
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>dfg</td>
-													<td>hhj</td>																								
-													<td>hhj</td>																								
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>dfg</td>
-													<td>hhj</td>																								
-													<td>hhj</td>																								
-												</tr>
-												<tr>
-													<td>4</td>
-													<td>dfg</td>
-													<td>hhj</td>																								
-													<td>hhj</td>																								
-												</tr>
+											</c:forEach>
+												
 											</tbody>
 										</table>
 									</div>
