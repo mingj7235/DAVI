@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.davi.app.member.vo.DaviMemberVO" alias="memberVO"/>
+		<typeAlias type="com.davi.app.member.vo.DaviBodyVO" alias="bodyVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardFreeVO" alias="boardFreeVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardCheatVO" alias="boardCheatVO"/>
+		<typeAlias type="com.davi.app.board.vo.CertificatedBoardVO" alias="certificatedBoardVO"/>
+		<typeAlias type="com.davi.app.board.vo.CertificatedFilesVO" alias="certificatedFilesVO"/>
+		<typeAlias type="com.davi.app.board.vo.CertificatedReplyVO" alias="certificatedReplyVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardFreeReplyVO" alias="freeReplyVO"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.OracleDriver"/>
+				<property name="url"  value="jdbc:oracle:thin:@localhost:1521/XE"/>
+				<property name="username" value="hr"/>
+				<property name="password" value="hr"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="com/davi/mybatis/sql/member.xml"/>		
+		<mapper resource="com/davi/mybatis/sql/freeBoard.xml"/>		
+		<mapper resource="com/davi/mybatis/sql/cheatBoard.xml"/>		
+		<mapper resource="com/davi/mybatis/sql/certificatedBoard.xml"/>		
+	</mappers>
+</configuration>
