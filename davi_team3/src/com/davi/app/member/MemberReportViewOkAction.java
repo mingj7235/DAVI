@@ -25,8 +25,7 @@ public class MemberReportViewOkAction implements Action {
 		req.setCharacterEncoding("UTF-8");	
 		
 		ActionForward forward = new ActionForward();
-		MemberDAO m_dao = new MemberDAO();
-		DaviBodyVO b_vo = new DaviBodyVO();
+		MemberDAO m_dao = new MemberDAO();		
 		HttpSession session = req.getSession();
 		String memberId = (String)session.getAttribute("session_id");
 		
@@ -49,9 +48,14 @@ public class MemberReportViewOkAction implements Action {
 				req.setAttribute("check", "true");
 				req.setAttribute("rankingList", rankingList);
 				req.setAttribute("dailyRate", dailyRate);
-				req.setAttribute("profilMap", profilMap);
-				req.setAttribute("weekRate", m_dao.getWeekRate(memberId));
+				req.setAttribute("profilMap", profilMap);				
 				req.setAttribute("attendRateMap", attendRateMap);
+				int weekRate = 0;
+				try {
+					weekRate = m_dao.getWeekRate(memberId);
+				} catch (NullPointerException e) {;}
+				
+				req.setAttribute("weekRate", weekRate);
 				
 			}else {
 				req.setAttribute("check", "false");

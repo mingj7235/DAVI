@@ -72,6 +72,10 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 		SELECT * FROM DAVI_CERTIFICATED_REPLY WHERE CERTIFICATEDNUM = #{certificatedNum} ORDER BY CERTIFICATEDREPLYNUM DESC
 	</select>
 	
+	<delete id="deleteCertificatedReply" parameterType="_int">
+		DELECT FROM DAVI DAVI_CERTIFICATED_REPLY WHERE CERTIFICATEDNUM = #{certificatedNum}
+	</delete>
+	
 	<update id="certificatedModify" parameterType="certificatedBoardVO">
 		UPDATE DAVI_CERTIFICATED_BOARD
 		SET CERTIFICATEDCONTENT =#{certificatedContent}, CERTIFICATEDTITLE = #{certificatedTitle}

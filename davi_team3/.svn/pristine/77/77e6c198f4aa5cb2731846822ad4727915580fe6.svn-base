@@ -25,29 +25,51 @@ public class MemberReportViewOkAction implements Action {
 		req.setCharacterEncoding("UTF-8");	
 		
 		ActionForward forward = new ActionForward();
-		MemberDAO m_dao = new MemberDAO();
-		DaviBodyVO b_vo = new DaviBodyVO();
+		MemberDAO m_dao = new MemberDAO();		
 		HttpSession session = req.getSession();
-		
-		List<HashMap<String, Object>> rankingList = null;
-		
-		rankingList = m_dao.getRanking();
 		String memberId = (String)session.getAttribute("session_id");
 		
+		List<HashMap<String, Object>> rankingList = null;
+		HashMap<String, Integer> profilMap = m_dao.getProfil(memberId);
+		HashMap<String , Integer> attendRateMap = m_dao.getAttendRate(memberId);
 		
-		req.setAttribute("rankingList", rankingList);
+		rankingList = m_dao.getRanking();
 		
+		Calendar now = Calendar.getInstance();
+		SimpleDateFormat formatMonth = new SimpleDateFormat("MM");
 		
-		if(m_dao.getBody(memberId)) {
-			req.setAttribute("check", "true");
-			int dailyRate = m_dao.getDailyRate(memberId);
-			req.setAttribute("dailyRate", dailyRate);
-		}else {
-			req.setAttribute("check", "false");
+		String nowMonth = formatMonth.format(now.getTime());
+		req.setAttribute("nowMonth", nowMonth);
+		
+		if(memberId != null) {
+			if(m_dao.getBody(memberId)) {
+				int dailyRate = m_dao.getDailyRate(memberId);
+				
+				req.setAttribute("check", "true");
+				req.setAttribute("rankingList", rankingList);
+				req.setAttribute("dailyRate", dailyRate);
+				req.setAttribute("profilMap", profilMap);				
+				req.setAttribute("attendRateMap", attendRateMap);
+				int weekRate = 0;
+				try {
+					weekRate = m_dao.getWeekRate(memberId);
+				} catch (NullPointerException e) {;}
+				
+				req.setAttribute("weekRate", weekRate);
+				
+			}else {
+				req.setAttribute("check", "false");
+			}
+			
+			forward.setRedirect(false);
+			forward.setPath("/app/dietary/memberChart.jsp");
+			
+		} else {
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/member/login.me");
+			
 		}
 		
-		forward.setRedirect(false);
-		forward.setPath("/app/dietary/memberChart.jsp");
 		
 		return forward;
 		

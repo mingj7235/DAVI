@@ -127,13 +127,11 @@ function drawBMI(searchMonth) {
     
     data.addRows(datas.length);
     
-    $.each(datas, function(index, minfo) {	
-      console.log("키: " + height);
-      var weight = minfo.BODYWEIGHT;
-      console.log("몸무게 : " +weight);
+    $.each(datas, function(index, minfo) {	      
+      var weight = minfo.BODYWEIGHT;      
       var bmi = weight/((height * height)/10000);
   	  data.setCell(index,0,minfo.BODYDAY);
-  	  data.setCell(index,1,bmi);  
+  	  data.setCell(index,1,bmi.toFixed(1));  
   	  data.setCell(index,2,21);
 		});
     

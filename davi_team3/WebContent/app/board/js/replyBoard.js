@@ -57,9 +57,7 @@ function replyAnd(num, level) {
 	//document.id.style.marginLeft = WID*level + 'px';
 }
 
-function replyAnswer(num, level) {
-	console.log(num);
-	console.log(level);
+function replyAnswer(num, level) {	
 	var lv = replyLevelLimit(level);
 	$("#reReplyLevelName" + num).addClass("replyLevel-" + (lv + 1));	
 	$("#reReplyLevelText" + num).addClass("replyLevel-" + (lv + 1));	
