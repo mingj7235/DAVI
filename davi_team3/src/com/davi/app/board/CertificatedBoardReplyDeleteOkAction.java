@@ -20,6 +20,7 @@ public class CertificatedBoardReplyDeleteOkAction implements Action{
 		PrintWriter out = resp.getWriter();
 		
 		int certificatedReplyNum = Integer.parseInt(req.getParameter("certificatedReplyNum"));
+		System.out.println(certificatedReplyNum);
 		
 		if(r_dao.deleteCertificatedReply(certificatedReplyNum)) {
 			out.println("ok");

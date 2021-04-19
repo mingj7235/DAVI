@@ -92,8 +92,8 @@ public class CertificatedBoardDAO {
 		return session.selectList("CertificatedBoard.certificatedReply", certificatedNum);
 	}
 	
-	public boolean deleteCertificatedReply (int certificatedNum) {
-		return session.delete("CertificatedBoard.deleteCertificatedReply", certificatedNum) == 1 ;
+	public boolean deleteCertificatedReply (int certificatedReplyNum) {
+		return session.delete("CertificatedBoard.deleteCertificatedReply", certificatedReplyNum) == 1 ;
 	}
 	
 	public boolean certificatedModify(CertificatedBoardVO c_vo) {

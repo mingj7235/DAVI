@@ -73,7 +73,7 @@ CREATE TABLE DAVI_CERTIFICATED_BOARD(
 	</select>
 	
 	<delete id="deleteCertificatedReply" parameterType="_int">
-		DELECT FROM DAVI DAVI_CERTIFICATED_REPLY WHERE CERTIFICATEDNUM = #{certificatedNum}
+		DELETE FROM DAVI_CERTIFICATED_REPLY WHERE CERTIFICATEDREPLYNUM = #{certificatedReplyNum}
 	</delete>
 	
 	<update id="certificatedModify" parameterType="certificatedBoardVO">
