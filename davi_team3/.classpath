@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/Users/joshua/Desktop/JoshuaStudy/jsp/resource/아카이브/cos.jar"/>
-	<classpathentry kind="lib" path="/Users/joshua/Desktop/JoshuaStudy/jsp/resource/아카이브/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/Users/joshua/Desktop/JoshuaStudy/jsp/resource/아카이브/mybatis-3.5.4.jar"/>
-	<classpathentry kind="lib" path="/Users/joshua/Desktop/JoshuaStudy/jsp/resource/아카이브/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/0900_gb_jhp/project_jsp/resource/cos.jar"/>
+	<classpathentry kind="lib" path="C:/0900_gb_jhp/project_jsp/resource/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/0900_gb_jhp/project_jsp/resource/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/0900_gb_jhp/project_jsp/resource/mybatis-3.5.4/mybatis-3.5.4/mybatis-3.5.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
