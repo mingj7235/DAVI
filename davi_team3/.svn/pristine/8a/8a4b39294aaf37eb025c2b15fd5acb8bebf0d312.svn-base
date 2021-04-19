@@ -3,7 +3,7 @@
  */
 
 function getReplyList (certificatedNum) {
-	console.log('겟리스트 실행');
+	console.log(certificatedNum);
 	$.ajax ({
 		url : contextPath + "/board/certificatedBoardReplyList.bo?certificatedNum="+certificatedNum,
 		//data: {'certificatedNum': certificatedNum},
@@ -15,7 +15,6 @@ function getReplyList (certificatedNum) {
 }
 
 function showReplyList (lists) {
-	console.log('쇼리스트 실행')
 	let text = "";
 	let textMini = "";
 	let number;
@@ -85,9 +84,7 @@ function deleteReply (certificatedNum, certificatedReplyNum) {
 		dataType : "text",
 		success : function(result){
 			alert(result);
-			console.log("찐!"+certificatedNum)
 			getReplyList(certificatedNum);
-				
 		}
 	});
 }

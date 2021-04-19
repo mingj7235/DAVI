@@ -278,7 +278,7 @@
 							<input id="replyContents_${certificatedList[i].getCertificatedNum()}"type="text" placeholder="댓글을 작성해주세요" style="width:70%; border:0; border-bottom: none;"/>
 							<input type="button" value="등록" style="width:10%; margin: 0 5px; box-shadow: none; color: rgba(0, 59, 251, 0.3)!important" 
 								onclick="javascript:writeReply(${certificatedList[i].getCertificatedNum()}, '${session_id}')">
-							</div>
+						</div>
 						
 					</c:forEach>
 						<!-- <input type="button" onclick="javascript:getList()" /> -->
@@ -318,8 +318,8 @@
 					toLoginForm.submit();
 				}
 				
-					getReplyList(document.getElementById("reply_0").value);				
-					getReplyList(document.getElementById("reply_1").value);
+				getReplyList(document.getElementById("reply_0").value);		
+				getReplyList(document.getElementById("reply_1").value);
 					
 
 			</script>
