@@ -471,7 +471,7 @@
 							<!-- 본문  -->					
 							<div style="display : flex; justify-content: flex-start; height: auto; padding: 5px;">
 								<div id="" style="width: 20%;">다비</div>
-								<div class="certificated_textarea" style="height: auto; border-bottom: none; width:70%;">지금 바로 여러분의 식단을 인증해주세요!</div>
+								<div class="certificated_textarea" id="mainDetail_${certificatedList[i].getCertificatedNum()}" style="height: auto; border-bottom: none; width:70%;">지금 바로 여러분의 식단을 인증해주세요! 인증방법 : 1. </div>
 								
 								<div style="width: 10%; text-align: right; margin: 0 5px;">
 								</div>
