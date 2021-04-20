@@ -22,7 +22,7 @@ function showReplyList (lists) {
 	$.each(lists, function (index, list){
 			if(lists.length > 3) {
 				if(index < 3) {
-					textMini +='<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
+					textMini +='<div id = "replyContents_'+list.certificatedNum+'" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
 					'<div style="width: 20%;">' + list.memberId +'</div>'+
 					'<div style="width: 70%;">' + list.certificatedReplyContent + '</div>' ;
 					if(sessionId == list.memberId){
@@ -32,7 +32,7 @@ function showReplyList (lists) {
 					}
 					textMini += '</div>';
 				}
-			text += '<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
+			text += '<div id = "replyContents_'+list.certificatedNum+'" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
 			'<div style="width: 20%;">' + list.memberId +'</div>'+
 			'<div style="width: 70%;">' + list.certificatedReplyContent + '</div>' ;
 			
@@ -43,7 +43,7 @@ function showReplyList (lists) {
 			}
 			text += '</div>';			
 			} else {
-				textMini +='<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
+				textMini +='<div id = "replyContents_'+list.certificatedNum+'" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
 				'<div style="width: 20%;">' + list.memberId +'</div>'+
 				'<div style="width: 70%;">' + list.certificatedReplyContent + '</div>' ;
 				if(sessionId == list.memberId){
@@ -53,7 +53,7 @@ function showReplyList (lists) {
 				}
 				textMini += '</div>';
 				
-				text += '<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
+				text += '<div id = "replyContents_'+list.certificatedNum+'" style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">' +
 				'<div style="width: 20%;">' + list.memberId +'</div>'+
 				'<div style="width: 70%;">' + list.certificatedReplyContent + '</div>' ;
 				
@@ -76,9 +76,9 @@ function showReplyList (lists) {
 
 function writeReply (num, id) {
 
+	console.log(document.getElementById("replyContents_" + num).value);
 	
 	var content = document.getElementById("replyContents_" + num).value;
-	console.log(document.getElementById("replyContents_" + num));
 	
 	$.ajax ({
 		url : contextPath + "/board/certificatedBoardReplyWriteOk.bo",
@@ -91,8 +91,6 @@ function writeReply (num, id) {
 		}
 		
 	});
-	
-	console.log(content);
 	
 }
 
