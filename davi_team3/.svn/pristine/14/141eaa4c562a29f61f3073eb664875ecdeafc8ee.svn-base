@@ -8,7 +8,6 @@ var check = true;
                //data: {'certificatedNum': certificatedNum},
                type : "get",
                dataType : "json",
-			   async : false,
                success : showList
             });
          }
@@ -136,9 +135,8 @@ var check = true;
          var id = sessionId;         
          $.ajax({
             url: contextPath + "/board/ceritificatedBoardLikeOk.bo?memberId="+ id +"&certificatedNum=" + num + "&likeCheck=1" ,
-            type : "get",	
+            type : "get",
             dataType : "text",
-			async : false,
             success : function(result){
                $("#diamond_num_" + num ).text(result.trim());
             }   
@@ -158,7 +156,6 @@ var check = true;
             url: contextPath + "/board/ceritificatedBoardLikeOk.bo?memberId="+ id +"&certificatedNum=" + num + "&likeCheck=0",
             type : "get",
             dataType : "text",
-			async : false,
             success : function(result){
                $("#diamond_num_" + num).text(result.trim());
             }      
