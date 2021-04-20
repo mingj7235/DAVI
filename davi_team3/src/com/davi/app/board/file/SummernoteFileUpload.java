@@ -22,7 +22,7 @@ public class SummernoteFileUpload {
 		
 		//SummernoteFilesVO fvo = new SummernoteFilesVO();	
 		
-		String saveFolder = "D:\\3조프로젝트\\workspace\\davi_team3\\WebContent\\app\\board\\temp";
+		String saveFolder = "/Users/joshua/Desktop/JoshuaStudy/projects/DAVI/davi_team3/WebContent/app/board/temp";
 		
 		int fileSize = 5 * 1024 * 1024; //5M
 		

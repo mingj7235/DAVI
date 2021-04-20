@@ -66,7 +66,7 @@
 				<div style="display: flex; justify-content: center; margin:10px 0; padding-top: 5px;">
 					<h1>사진 선택하기</h1>
 				</div>
-				<form method="post" action="${pageContext.request.contextPath}/board/certificatePhotoOk.bo" enctype="multipart/form-data">
+				<form id="photoForm" name="photoForm" method="post" action="${pageContext.request.contextPath}/board/certificatePhotoOk.bo" enctype="multipart/form-data">
 					<div style="display: flex; justify-content: center;">
 						<div style="width: 80%; height: auto; border: 1px solid rgba(164, 167, 170, 0.3);">
 							<!-- 게시글 작성자 프로필, 닉네임, 제목 -->
@@ -87,7 +87,7 @@
  								</div>
 								
 								<div style="width: 45%; text-align: right; display:flex; justify-content: flex-end;">
-									<input type="submit" value="다음" style="box-shadow: none; font-size: 1em; padding-right: 2%; padding-left: 2%;"/>
+									<input type="button" value="다음" style="box-shadow: none; font-size: 1em; padding-right: 2%; padding-left: 2%;" onclick="javascript:nextButton()"/>
 								</div>
 								<!-- <div style="width:80%; text-align: right; padding-top: 10px; padding-right: 10px; color:rgba(0, 59, 251, 0.3);">
 									<i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
@@ -138,7 +138,19 @@
 			    var top = Math.ceil(( window.screen.height - height )/2); 
 			    window.open('${pageContext.request.contextPath}/app/board/certificated_normal_board_preview.jsp', '미리보기', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 				
-			}						
+			}					
+			
+			function nextButton() {
+				var photoPath = $("#real-input").val();
+				var form = document.getElementById("photoForm");
+				if(photoPath == "") {
+					alert('사진을 넣어주세요');
+					console.log('실패')
+				} else {
+					form.submit();
+					console.log('성공')
+				}
+			}
 			
 			function realClick() {
 				document.querySelector('#real-input').click();

@@ -71,7 +71,7 @@
 								<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style="margin:5px; width: 35px; height: 35px;
 									cursor: pointer;" onclick="#"/> <!-- 프로필 사진 클릭시 해당 계정으로 이동 -->
 								</div>
-								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">(#)</div>
+								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">${session_id}</div>
 								<div style="width:80%; text-align: right; padding-top: 10px; padding-right: 10px; color:rgba(0, 59, 251, 0.3);">
 									<i class="fas fa-ellipsis-h" onclick="#" style="cursor: pointer;"></i>
 								
@@ -102,18 +102,14 @@
 							<!-- 좋아요 숫자  -->
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
 								<div>좋아요</div>
-								<div id="diamond_num" style="color: rgba(0, 59, 251, 0.3);">#</div>
+								<div id="diamond_num" style="color: rgba(0, 59, 251, 0.3);"><i class="far fa-question-circle"></i></div>
 								<div>개</div>
 							</div>
 							
 							<!-- 본문  -->					
 							<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-								<div id="" style="width: 20%;">글쓴이 </div>
+								<div id="" style="width: 20%;">${session_id} </div>
 								<div id="" style="width: 70%;">${param.certificatedContent}</div>
-								<textarea rows="" cols="" style="display: none;">${certificatedContent }</textarea>
-								<div id="" style="width: 10%; text-align: right; margin: 0 5px;">
-									<i class="far fa-plus-square" onclick="#" style="cursor: pointer; color: rgba(0, 59, 251, 0.3);"></i>
-								</div>
 							</div>
 							
 							

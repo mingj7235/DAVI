@@ -200,7 +200,7 @@
 								<div style="position:relative; width:100%; height: 0; padding-bottom:100%; ">
 									<img src="${certificatedList[i].getCertificatedPath()}" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; z-index:-1">
 									<!-- 한동석 강사 작업 - likeMark -->
-									<img id="likeMark" src="${pageContext.request.contextPath}/images/logo_blue.png" style="display:none; width:100%; margin-top:10%">
+									<img id="likeMark_${certificatedList[i].getCertificatedNum()}" src="${pageContext.request.contextPath}/images/logo_blue.png" style="display:none; width:100%; margin-top:10%">
 								</div>
 							</div>
 							
@@ -325,7 +325,7 @@
 								<div style="position:relative; width:100%; height: 0; padding-bottom:100%; ">
 									<img src="${certificatedList[i].getCertificatedPath()}" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; z-index:-1">
 									<!-- 한동석 강사 작업 - likeMark -->
-									<img id="likeMark" src="${pageContext.request.contextPath}/images/logo_blue.png" style="display:none; width:100%; margin-top:10%">
+									<img id="likeMark_${certificatedList[i].getCertificatedNum()}" src="${pageContext.request.contextPath}/images/logo_blue.png" style="display:none; width:100%; margin-top:10%">
 								</div>
 							</div>
 							
@@ -428,8 +428,8 @@
 								<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" style="margin:5px; width: 35px; height: 35px;
 									cursor: pointer;" onclick="#"/> 
 								</div>
-								<div id="" style="width:10%; padding-top: 10px; margin-left: 5px;">${certificatedList[i].getMemberId()}</div>
-								<div class="icon_color" style="display: flex; justify-content: flex-end; width:80%; padding-top: 10px; padding-right: 10px;">
+								<div id="" style="width:80%; padding-top: 10px; margin-left: 5px;"><span>여러분의 다이어트 비서 DAVI :)</span> </div>
+								<div class="icon_color" style="display: flex; justify-content: flex-end; width:10%; padding-top: 10px; padding-right: 10px;">
 									
 								
 								</div>
@@ -438,13 +438,13 @@
 							<!-- 게시판 제목 -->
 							
 							<div style="height: 30px; padding-top: 5px; margin:5px;">
-								<h4>기본 게시물 제목 </h4>
+								<h4>다비하자 ! </h4>
 							</div>
 							
 							<!-- 사진 -->
 							<div style="width: 70%; margin: 3% auto;">
 								<div style="position:relative; width:100%; height: 0; padding-bottom:100%; ">
-									<img src="https://cdn.discordapp.com/attachments/821644547493986328/833883459842736128/123.png" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; z-index:-1">
+									<img src="https://cdn.discordapp.com/attachments/821644547493986328/833933002114727936/123.png" style="display:inline-block; width:100%; height:100%; position:absolute; top:0; left:0; z-index:-1">
 									<!-- 한동석 강사 작업 - likeMark -->
 									<img id="likeMark" src="${pageContext.request.contextPath}/images/logo_blue.png" style="display:none; width:100%; margin-top:10%">
 								</div>
@@ -470,8 +470,9 @@
 							
 							<!-- 본문  -->					
 							<div style="display : flex; justify-content: flex-start; height: auto; padding: 5px;">
-								<div id="" style="width: 20%;">다비</div>
-								<div class="certificated_textarea" style="height: auto; border-bottom: none; width:70%;">지금 바로 여러분의 식단을 인증해주세요!</div>
+								<div id="" style="width: 20%;">DAVI</div>
+								<div class="certificated_textarea" style="height: auto; border-bottom: none; width:70%;">
+								게시물이 없습니다 ㅠ^ㅠ 다비의 첫번째 식단 인증 게시판의 주인공이 되어주세요 ! 지금 바로 여러분의 식단을 인증해주세요!</div>
 								
 								<div style="width: 10%; text-align: right; margin: 0 5px;">
 								</div>
@@ -484,7 +485,7 @@
 								
 								<div style="display : none;" style="background-color: aliceblue; padding:0 0.5em;margin: 0 -0.5em;font-size: 0.9em;">
 									<div style="display : flex; justify-content: flex-start; height: 30px; padding: 5px;">
-									<div style="width: 20%;">다비</div>
+									<div style="width: 20%;">DAVI</div>
 									<div style="width: 70%;">다비 화이팅!!</div>
 								</div>
 							</div>
@@ -497,7 +498,7 @@
 						</div>
 							<!-- 댓글 입력 칸 -->
 						<div style="display : flex; justify-content: flex-start; height: auto; padding: 5px; border: 1px solid rgba(164, 167, 170, 0.3); border-top : none;" >
-							<div style="width: 20%; padding-top: 5px; display:flex; align-items:center; padding:5px;">다비</div>
+							<div style="width: 20%; padding-top: 5px; display:flex; align-items:center; padding:5px;">DAVI</div>
 							<input type="text" placeholder="댓글을 작성해주세요" style="width:70%; border:0; border-bottom: none;"/>
 							<input type="button" value="등록" style="width:10%; margin: 0 5px; box-shadow: none; color: rgba(0, 59, 251, 0.3)!important" 
 								readonly="readonly">

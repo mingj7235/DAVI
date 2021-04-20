@@ -42,7 +42,7 @@ var check = true;
                 '<div style="position:relative; width:100%; height: 0; padding-bottom:100%; ">' +
                 '<img src="'+page.certificatedFilePath+'" style="display:inline-block; width:100%;' + 
                 'height:100%; position:absolute; top:0; left:0; z-index:-1">' +
-                '<img id="likeMark_'+page.certificatedNum+'" src="'+contextPath+'/images/logo_blue.png" style="display:none; width:100%; margin-top:10%"></div></div>' ;
+                '<img id="likeMark" src="'+contextPath+'/images/logo_blue.png" style="display:none; width:100%; margin-top:10%"></div></div>' ;
 
                 text += '<div class="icon_color" style="display : flex; justify-content: flex-start; height: 35px; padding: 5px;">';
                 if(page.certificatedlikeCheck == true){
@@ -128,7 +128,7 @@ var check = true;
        function changeDiamond(num) {
           var diamond = $("#diamond_" + num);
           var checkedDiamond = $("#checkedDiamond_" + num);
-          var likeMarkDiamond = $("img#likeMark_"+num);
+          var likeMarkDiamond = $("img#likeMark");
           
          diamond.css('display', 'none');
          checkedDiamond.css('display','');
