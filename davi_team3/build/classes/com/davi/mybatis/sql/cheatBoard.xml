@@ -4,7 +4,7 @@
 <mapper namespace="CheatBoard">
 
 	<insert id="cheatWrite" parameterType="boardCheatVO">
-		INSERT INTO DAVI_CHEAT_BOARD VALUES(CHEAT_SEQ.NEXTVAL, #{cheatHead}, #{memberId}, #{cheatTitle}, #{cheatContent},SYSDATE)
+		INSERT INTO DAVI_CHEAT_BOARD VALUES(CHEAT_SEQ.NEXTVAL, #{memberId},#{cheatHead}, #{cheatTitle}, #{cheatContent},SYSDATE)
 	</insert>
 	
 	<select id="getDetail" parameterType="_int" resultType="boardCheatVO">
@@ -54,6 +54,23 @@
 		SELECT COUNT(*) FROM 
 			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND MEMBERID LIKE #{memberId})		
 	</select>		
+	
+	<insert id="replyInsert" parameterType="cheatReplyVO">
+		INSERT INTO HR.DAVI_CHEAT_REPLY 
+		(CHEATNUM, CHEATREPLYNUM, PARENTREPLYNUM, MEMBERID, CHEATREPLYCONTENT, CHEATREPLYDATE, PARENTREPLYID) 
+		VALUES(#{cheatNum},CHEAT_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{cheatReplyContent}, SYSDATE, #{parentReplyId})
+	</insert>
+	
+	<select id="replyList" parameterType="_int" resultType="cheatReplyVO">
+		SELECT CHEATNUM, CHEATREPLYNUM, PARENTREPLYNUM, MEMBERID, CHEATREPLYCONTENT, CHEATREPLYDATE, PARENTREPLYID 
+		FROM (SELECT * FROM DAVI_CHEAT_REPLY WHERE CHEATNUM = #{cheatNum}) 
+		START WITH PARENTREPLYNUM = 0 
+		CONNECT BY PRIOR CHEATREPLYNUM = PARENTREPLYNUM ORDER SIBLINGS BY CHEATREPLYNUM
+	</select>
+	
+	<select id="parentNumToId" parameterType="string" resultType="string">
+		SELECT MEMBERID FROM DAVI_CHEAT_REPLY WHERE CHEATREPLYNUM = #{parentReplyNum}
+	</select>
 </mapper>
 
 

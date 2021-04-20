@@ -56,7 +56,7 @@
 										<p class="title">비밀번호 변경</p>
 									</div>
 									
-										<form method="post" action="#">
+										<form method="post" name="changePwForm">
 											<div class="row gtr-uniform" style="text-align:center;">
 												<div class="col-12">
 													<input type="password" name="memberPw" id="memberPw" placeholder="기존 비밀번호" style="width:30%; margin:1% auto;"/>
@@ -68,7 +68,7 @@
 													<input type="password" name="memberPw" id="memberPw" placeholder="새 비밀번호 확인" style="width:30%; margin:0 auto 1% auto; "/>
 												</div>
 												<div class="col-12" style="padding-top:0%;">
-													<input type="submit" value="비밀번호 변경" class="primary" style="width:30%; margin:1% auto;">
+													<input type="submit" value="비밀번호 변경" class="primary" style="width:30%; margin:1% auto;" onclick="javascript:changePw()">
 												</div>
 												<div class="col-12" style="padding-top:0%;">
 													<input type="button" value="취소" class="" style="width:30%; margin:1% auto 3% auto;" onclick="winClose()">
@@ -98,6 +98,16 @@
 				function winClose() {
 					 window.open('','_self').close();
 				}
+				
+				function changePw() {
+					window.opener.name = "parentPage";
+					changePwForm.action = contextPath + "/member/.me";
+					changePwForm.target =  "parentPage";
+					changePwForm.submit();
+					self.close();
+				}
+				
+				
 			</script>
 
 	</body>

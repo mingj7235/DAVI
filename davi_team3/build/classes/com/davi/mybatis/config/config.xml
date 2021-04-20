@@ -10,6 +10,7 @@
 		<typeAlias type="com.davi.app.board.vo.CertificatedBoardVO" alias="certificatedBoardVO"/>
 		<typeAlias type="com.davi.app.board.vo.CertificatedFilesVO" alias="certificatedFilesVO"/>
 		<typeAlias type="com.davi.app.board.vo.CertificatedReplyVO" alias="certificatedReplyVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardCheatReplyVO" alias="cheatReplyVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardFreeReplyVO" alias="freeReplyVO"/>
 	</typeAliases>
 	<environments default="development">

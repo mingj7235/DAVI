@@ -21,7 +21,7 @@
 				font-family: 'Sunflower', sans-serif;
 			} 
 			
-			.title{
+			.title_mypage{
 				font-size: 3rem;
 				font-family: 'Cute Font', cursive;
 				color: #ffaec9;
@@ -46,7 +46,7 @@
 							<!-- Content -->
 								<section style="padding-top:3%;">
 										<div style="display: flex; justify-content: center;">
-											<p class="title">마이 페이지 </p>
+											<p class="title_mypage">마이 페이지 </p>
 										</div>
 										<div style="text-align: center;">
 											<hr style="width: 30%; margin: 1% auto;">
@@ -54,19 +54,22 @@
 												<input type="button" value="내 정보 수정" class="primary" style="width:30%; margin:1% auto;" onclick="popupUpdate()">
 											</div>
 											<div>
-												<input type="button" value="비밀번호 변경 " class="primary" style="width:30%; margin:1% auto;" onclick="popupChangePw()">
+												<input type="button" value="비밀번호 변경 " class="primary" style="width:30%; margin:1% auto;" onclick="javascript:changePw()">
 											</div>
 											<hr style="width: 30%; margin: 1% auto;">
 											
 										</div>
 								</section>
+								<form name="changePwForm" method="post" action="${pageContext.request.contextPath}/member/changePw.me">
+								
+								</form>
 
+							<c:import url="/app/footer/footer.jsp" />
 						</div>
 					</div>
 
 				<!-- Sidebar -->
-					<c:import url="/app/footer/footer.jsp" />
-
+			<c:import url="/app/footer/sidebar.jsp" />		
 			</div>
 
 		<!-- Scripts -->
@@ -84,13 +87,10 @@
 			    window.open('${pageContext.request.contextPath}/app/member/mypage_updateStatus.jsp', '게시물 작성', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
 			}
 			
-			function popupChangePw () {
-				var width = '700';
-			    var height = '600';
-			    var left = Math.ceil(( window.screen.width - width )/2);
-			    var top = Math.ceil(( window.screen.height - height )/2); 
-			    window.open('${pageContext.request.contextPath}/app/member/mypage_changePw_popup.jsp', '게시물 작성', 'width='+ width +', height='+ height +', left=' + left + ', top='+ top );
+			function changePw() {
+				changePwForm.submit();
 			}
+			
 			
 			</script>
 

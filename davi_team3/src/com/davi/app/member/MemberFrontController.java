@@ -65,8 +65,6 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {				
 				e.printStackTrace();
 			}
-			
-			
 			break;
 		case "/member/joinOk.me" :		
 			if(req.getParameter("result").equals("true")) {

@@ -12,6 +12,7 @@ import com.davi.action.ActionForward;
 import com.davi.app.board.cheat.BoardCheatDeleteOkAction;
 import com.davi.app.board.cheat.BoardCheatListOkAction;
 import com.davi.app.board.cheat.BoardCheatModifyOkAction;
+import com.davi.app.board.cheat.BoardCheatReplyWriteOkAction;
 import com.davi.app.board.cheat.BoardCheatViewOkAction;
 import com.davi.app.board.cheat.BoardCheatWriteOkAcrion;
 import com.davi.app.board.file.SummernoteFileUpload;
@@ -179,7 +180,9 @@ public class BoardFrontController extends HttpServlet{
 		case "/board/cheatViewOk.bo":
 			try {
 				forward = new BoardCheatViewOkAction().execute(req, resp);
-			} catch (Exception e) {;}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;	
 		
 		case "/board/cheatDeleteOk.bo":
@@ -202,6 +205,15 @@ public class BoardFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			break;	
+			
+//		case "/board/cheatReplyWrite.bo":
+//			try {
+//				forward = new BoardCheatReplyWriteOkAction().execute(req, resp);
+//			} catch (Exception e) {
+//				System.out.println("cheatReplyWrite Action 오류");
+//				e.printStackTrace();
+//			}
+//			break;	
 			
 		case "/board/bestList.bo":
 			try {
