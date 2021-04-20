@@ -78,11 +78,12 @@ var check = true;
                     'cursor: pointer;"onclick="mainDetail('+page.certificatedNum+')">' + 
                           '<i id="" class="far fa-plus-square icon_color"></i></div></div>';
                 
-              text += '<div id="ajaxFunction" style="background-color: aliceblue; padding: 1% 0.5em;margin: 0 -0.5em;font-size: 0.9em;">' +
-               '<input id="reply_'+index+'" type="hidden" value="'+page.certificatedNum+'">'+
-               '<div id ="replyAjaxDiv_'+page.certificatedNum+'_mini" style="background-color: aliceblue;"></div>';
 
-               text += '<div id = "replyAjaxDiv_'+page.certificatedNum+'" style="display : none;" style="background-color: aliceblue;"></div></div>';
+              text += '<div id="ajaxFunction">' +
+               '<input id="reply_'+index+'" type="hidden" value="'+page.certificatedNum+'">'+
+               '<div id ="replyAjaxDiv_'+page.certificatedNum+'_mini" style="background-color: aliceblue; padding:0 0.5em;margin: 0 -0.5em;font-size: 0.9em;"></div>';
+
+               text += '<div id = "replyAjaxDiv_'+page.certificatedNum+'" style="display : none;" style="background-color: aliceblue; padding:0 0.5em;margin: 0 -0.5em;font-size: 0.9em;"></div></div>';
       
                text += '<div style="padding: 5px; margin-top:1%; color: rgba(164, 167, 170, 1);font-size: 0.8em;">';
                text +=  /*${times[i]}*/'</div></div><div style="border-top : 1px solid rgba(164, 167, 170, 0.3);)"></div>';
@@ -102,7 +103,7 @@ var check = true;
           newDIV.innerHTML = text;
           document.getElementById("listAJAX").appendChild(newDIV); 
           check = true;
-          certificatedNum = certificatedNum +2;         
+          certificatedNum = certificatedNum +1;         
        } 
        
        $(window).scroll(function(){
