@@ -49,6 +49,7 @@
 							<!-- Banner -->
 								<section style="padding:9% 0; margin:5% 0;">
 									<div style="display:flex; justify-content:space-between; align-items:center; padding:0 5%;">
+					
 									<div class="content" style="width:50%;">
 										<div style="padding:2%; width:100%; margin:auto;">
 											<img alt="" 

@@ -8,10 +8,13 @@
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 */
-@font-face {
-	font-family: scDream5;
-	src: url(:./assets/wfonts/SCDream5.otf) format("otf");	
+ @font-face {
+	font-family: "scDream5";
+	src: url(".assets/fonts/SCDream5.otf") format("otf");	
 }
+
+ 
+
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
