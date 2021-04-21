@@ -23,6 +23,15 @@
 		UPDATE DAVI_MEMBER SET MEMBERPW = #{pw} WHERE MEMBEREMAIL = #{email}
 	</update>
 	
+	<update id="mypageChangePw" parameterType="map">
+		UPDATE DAVI_MEMBER SET MEMBERPW = #{memberPw} WHERE MEMBERID = #{memberId}
+	</update>
+	
+	<select id="mypageChangePwCheck" parameterType="map" resultType="_int">
+		SELECT COUNT(*) FROM DAVI_MEMBER WHERE MEMBERID = #{memberId} AND MEMBERPW = #{memberPw}
+	</select>
+	
+	
 	<select id="login" parameterType="map" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_MEMBER 
 		WHERE MEMBERID = #{id} AND MEMBERPW = #{pw}

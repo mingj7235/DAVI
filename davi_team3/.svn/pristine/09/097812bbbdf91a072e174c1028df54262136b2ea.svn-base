@@ -21,7 +21,7 @@
 				font-family: 'Sunflower', sans-serif;
 			} 
 			
-			.title_changePW{
+			.title{
 				font-size: 3rem;
 				font-family: 'Cute Font', cursive;
 				color: rgba(0, 59, 251);
@@ -48,12 +48,12 @@
 						<div class="inner">
 
 							<!-- Header -->
-							<c:import url="/app/header/header.jsp" />
+					
 
 							<mypage_changePw.jsp!-- Content -->
 								<section style="padding-top:3%;">
 									<div style="display: flex; justify-content: center;">
-										<p class="title_changePW">비밀번호 변경</p>
+										<p class="title">비밀번호 변경</p>
 									</div>
 									
 										<form method="post" name="changePwForm" action= "${pageContext.request.contextPath}/member/myPageChangePwOk.me">
@@ -71,7 +71,7 @@
 													<input type="submit" value="비밀번호 변경" class="primary" style="width:30%; margin:1% auto;">
 												</div>
 												<div class="col-12" style="padding-top:0%;">
-													<input type="button" value="취소" class="" style="width:30%; margin:1% auto 3% auto;" onclick="backToMypage()">
+													<input type="button" value="취소" class="" style="width:30%; margin:1% auto 3% auto;" onclick="winClose()">
 												</div>
 											</div>
 											<div style="display: flex; justify-content: center;" id="google_recaptha">
@@ -83,13 +83,11 @@
 										</form>
 
 								</section>
-						</div>
-								<c:import url="/app/footer/footer.jsp"/>
 
+						</div>
 					</div>
 
 				<!-- Sidebar -->
-					<c:import url="/app/footer/sidebar.jsp" />
 			</div>
 
 		<!-- Scripts -->
@@ -100,6 +98,17 @@
 			<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 			<script src='https://www.google.com/recaptcha/api.js'></script>
 			<script>
+				function winClose() {
+					 window.open('','_self').close();
+				}
+				
+				function changePw() {
+					window.opener.name = "parentPage";
+					changePwForm.action = contextPath + "/member/.me";
+					changePwForm.target =  "parentPage";
+					changePwForm.submit();
+					self.close();
+				}
 				
 				
 				var check = '${param.check}';
@@ -110,10 +119,6 @@
 					alert ('비밀번호 변경 실패') 
 				} else if (check == "fail") {
 					alert ('기존 비밀번호를 다시 확인해주세요')
-				}
-				
-				function backToMypage() {
-					history.back();
 				}
 				
 			</script>

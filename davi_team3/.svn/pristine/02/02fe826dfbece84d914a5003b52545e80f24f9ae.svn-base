@@ -51,10 +51,10 @@
 										<div style="text-align: center;">
 											<hr style="width: 30%; margin: 1% auto;">
 											<div>
-												<a href ="${pageContext.request.contextPath}/member/.me" class="primary" style="width:30%; margin:1% auto;" >내 정보 수정</a>
+												<input type="button" value="내 정보 수정" class="primary" style="width:30%; margin:1% auto;" onclick="popupUpdate()">
 											</div>
 											<div>
-												<a href ="${pageContext.request.contextPath}/member/myPageChangePw.me" class="primary" style="width:30%; margin:1% auto;" >비밀번호 변경</a>
+												<input type="button" value="비밀번호 변경 " class="primary" style="width:30%; margin:1% auto;" onclick="javascript:changePw()">
 											</div>
 											<hr style="width: 30%; margin: 1% auto;">
 											
@@ -90,17 +90,6 @@
 			function changePw() {
 				changePwForm.submit();
 			}
-			
-			var check = '${param.check}';
-			
-			if(check == "true") {
-				alert ('비밀번호 변경 완료');
-			} else if (check == "false") {
-				alert ('비밀번호 변경 실패') 
-			} else if (check == "fail") {
-				alert ('기존 비밀번호를 다시 확인해주세요')
-			}
-		
 			
 			
 			</script>
