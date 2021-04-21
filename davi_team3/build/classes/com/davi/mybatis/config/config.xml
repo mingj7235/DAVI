@@ -4,6 +4,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.davi.app.member.vo.DaviMemberVO" alias="memberVO"/>
+		<typeAlias type="com.davi.app.member.vo.DaviPayVO" alias="DaviPayVO"/>
 		<typeAlias type="com.davi.app.member.vo.DaviBodyVO" alias="bodyVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardFreeVO" alias="boardFreeVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardCheatVO" alias="boardCheatVO"/>

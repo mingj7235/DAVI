@@ -134,6 +134,13 @@
 	<select id="countRecipe" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_RECIPE 
 	</select>
+	
+	<insert id="payInsert" parameterType="DaviPayVO">
+	INSERT INTO DAVI_PAY 
+	(PAYNUM, MEMBERID, MEMBERNAME, MEMBERPHONE, MEMBEREMAIL, MEMBERZIPCODE, MEMBERADDRESS, MEMBERADDRESSDETAIL, PAYDATE, PRODUCT, PRICE) 
+	VALUES(DAVI_PAY_SEQ.NEXTVAL, #{memberId}, #{memberName}, #{memberPhone}, #{memberEmail}, #{memberZipcode}, #{memberAddress},#{memberAddressDetail},SYSDATE, #{product}, #{price})
+	</insert>
+
 </mapper>
 
 
