@@ -147,8 +147,8 @@
 								</form>
 							</div>		
 
-						<c:import url="/app/footer/footer.jsp"/>
 						</div>
+						<c:import url="/app/footer/footer.jsp"/>
 					</div>
 
 				<!-- Sidebar -->
