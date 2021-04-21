@@ -36,9 +36,14 @@
 				opacity: 0;
 			}
 			.showme {
-				-webkit-animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				-webkit-animation: fade-in 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: fade-in 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			
+			}
+			
+			.rehideme {
+				-webkit-animation: fade-out 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+				animation: fade-in 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 			}
 			
 			@keyframes fade-in {
@@ -52,6 +57,20 @@
 			            transform: translateZ(0);
 			    opacity: 1;
 			  }
+			}
+			
+			@keyframes fade-out {
+			  0% {
+			   -webkit-transform: translateZ(0);
+			            transform: translateZ(0);
+			    opacity: 1;
+			  }
+			    
+			  }
+			  100% {
+			   -webkit-transform: translateZ(-80px);
+			            transform: translateZ(-80px);
+			    opacity: 0;
 			}
 
 
@@ -145,7 +164,7 @@
 											src="https://cdn.discordapp.com/attachments/821644547493986328/829590045923999775/123.png"
 											style="width:140%;">
 											
-											<div style="margin-top:8%; width:140%;">
+											<div class = "hideme" style="margin-top:8%; width:140%;">
 												<p style="font-size:1.1rem; color:#7f888f; font-weight:bold; text-align:right;">
 													혼자하는 다이어트는 이제 그만!<br>
 													다비의 관리를 받으면서 같이 한번 해보세요.<br>
@@ -155,7 +174,7 @@
 												</p>
 											</div>
 											
-											<div style="margin-top:10%; width:140%;">
+											<div class="hideme" style="margin-top:10%; width:140%;">
 												<ul class="actions" style="display:flex; justify-content:flex-end;">
 													<li><a href="#" class="button" style="font-size:1rem">다비의 보고 받기</a></li>
 												</ul>
@@ -174,11 +193,11 @@
 								<section style="padding:9% 0; margin:0;">
 									<div style="display:flex; justify-content:space-between; align-items:center;">
 									<div class="content" style="width:50%;">
-										<div style="padding:2%; width:100%; margin:auto;">
+										<div class = "hideme" style="padding:2%; width:100%; margin:auto;">
 											<img alt="" 
 											src="https://cdn.discordapp.com/attachments/821644547493986328/829212235372953610/1245.png"
 											style="width:105%;">
-											<div style="margin-top:8%;">
+											<div class="hideme" style="margin-top:8%;">
 												<p style="font-size:1.1rem; color:#7f888f; font-weight:bold;">
 													매일 식단짜기 귀찮지 않으셨나요?<br>
 													다비는 일주일치 식단을 <br>
@@ -188,7 +207,7 @@
 												</p>
 											</div>
 											
-											<div style="margin-top:10%;">
+											<div class="hideme" style="margin-top:10%;">
 												<ul class="actions" style="margin-bottom:0;">
 													<li><a href="#" class="button" style="font-size:1rem">다비의 식단 받기</a></li>
 												</ul>
@@ -197,7 +216,7 @@
 										<div style="display:flex; justify-content:space-between; width:80%; margin:auto; padding:3% 3%;">
 										</div>
 									</div>
-									<div style="width:40%; padding:2%; border:1px solid rgba(0, 59, 251, 1);">
+									<div class="hideme" style="width:40%; padding:2%; border:1px solid rgba(0, 59, 251, 1);">
 										<img alt="" 
 										src="https://cdn.discordapp.com/attachments/821644547493986328/829734798318239794/unknown.png"
 										style="width:100%; margin-bottom:5%; height:600px;">
@@ -252,14 +271,14 @@
 					});
 					$(window).scroll( function(){
 						$('.hideme').each( function(i){
-				            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
-							var bottom_of_window = $(window).scrollTop() + $(window).height();
+				            var bottom_of_object = $(this).offset().top + 110;
+ 							var bottom_of_window = $(window).scrollTop() + $(window).height();
 							if( bottom_of_window > bottom_of_object ){
 								$(this).addClass('showme');
 							}
-							/* if( bottom_of_window < bottom_of_object ){
+							 if( bottom_of_window < bottom_of_object ){
 								$(this).removeClass('showme');
-							} */
+							}
 						});
 					});
 				});
