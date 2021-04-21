@@ -45,6 +45,12 @@
 		#{memberGender}, #{memberHeight}, #{memberWeight}, #{memberGoalWeight}, #{memberResolution} 
 		)	
 	</insert>
+	<update id="mypageUpdateStatus" parameterType="memberVO">
+		UPDATE DAVI_MEMBER 
+		SET MEMBERPHONE=#{memberPhone}, MEMBEREMAIL=#{memberEmail}, MEMBERHEIGHT=#{memberHeight}, MEMBERWEIGHT=#{memberWeight}, 
+		MEMBERGOALWEIGHT=#{memberGoalWeight}, MEMBERRESOLUTION=#{memberResolution} 
+		WHERE MEMBERID=#{memberId}
+	</update>
 	
 	<insert id="insertBody" parameterType="bodyVO"> 
 		INSERT INTO DAVI_BODY (MEMBERNUM, MEMBERID, BODYDATE, BODYWEIGHT, BODYWEEK, MEMBERRATE) 

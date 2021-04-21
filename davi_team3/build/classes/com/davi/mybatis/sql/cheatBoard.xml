@@ -42,7 +42,7 @@
 	
 	<select id="getBoardCntCheatHead" parameterType="String" resultType="_int">
 		SELECT COUNT(*) FROM 
-			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead})		
+		(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead})
 	</select>
 			
 	<select id="getBoardCntSelectTitle" parameterType="map" resultType="_int">
