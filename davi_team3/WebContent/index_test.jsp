@@ -41,10 +41,6 @@
 			
 			}
 			
-			.rehideme {
-				-webkit-animation: fade-out 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-				animation: fade-in 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-			}
 			
 			@keyframes fade-in {
 			  0% {
@@ -59,19 +55,6 @@
 			  }
 			}
 			
-			@keyframes fade-out {
-			  0% {
-			   -webkit-transform: translateZ(0);
-			            transform: translateZ(0);
-			    opacity: 1;
-			  }
-			    
-			  }
-			  100% {
-			   -webkit-transform: translateZ(-80px);
-			            transform: translateZ(-80px);
-			    opacity: 0;
-			}
 
 
 
