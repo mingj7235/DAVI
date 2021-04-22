@@ -73,7 +73,7 @@
 											style=" margin:5px; width: 30px; height: 30px; "/> 
 											<div style ="margin-top: 6px;">
 												<span>비밀번호를 찾으세요? > </span>
-												<a href="${pageContext.request.contextPath}/member/findPw.me">비밀번호 찾기</a>
+												<a href="${pageContext.request.contextPath}/member/findPwBefore.me">비밀번호 찾기</a>
 											</div>
 											
 										</div>

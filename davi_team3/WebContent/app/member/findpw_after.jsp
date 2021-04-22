@@ -66,7 +66,7 @@
 									<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:0 auto;">
 									<h2 align="center" style="padding-top: 3%;">이메일을 확인하세요</h2>	
 									<div class="row gtr-uniform" style="text-align:center; margin-top:5%;">
-										<div class="box" style="background: rgba(210, 215, 217, 0.75); width:40%; margin:auto;">
+										<div class="box" style="background: rgba(210, 215, 217, 0.75); width:auto; margin:auto;">
 											<p style="font-size:1.7rem; font-weight:bold; color:black;">${param.email}</p>
 										</div>
 										<div class="col-12" style="padding-top:0%;">
@@ -76,7 +76,7 @@
 											style=" margin:5px; width: 30px; height: 30px; "/> 
 											<div style ="margin-top: 6px;">
 												<span>아이디를 찾으세요? > </span>
-												<a href="join.jsp">아이디 찾기</a>
+												<a href="${pageContext.request.contextPath}/member/findId.me">아이디 찾기</a>
 											</div>
 											
 										</div>

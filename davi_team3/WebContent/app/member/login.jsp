@@ -68,7 +68,7 @@
 										<div style="display : flex; justify-content: center; margin : 10px auto;">
 											<img id="" name="" class="profile" src="${pageContext.request.contextPath}/images/logo_blue.png" alt="" 
 											style=" margin:5px; width: 30px; height: 30px; "/>
-											<a href="findId.jsp" style="margin-top : 8px;"> 아이디/비밀번호 찾기</a>
+											<a href="${pageContext.request.contextPath}/member/findId.me" style="margin-top : 8px;"> 아이디/비밀번호 찾기</a>
 										</div>
 										<hr style="background-color: rgba(0, 59, 251, 0.3); height: 3px; width:70%; margin:5% auto;">
 										<div style="display: flex; justify-content: center; ">

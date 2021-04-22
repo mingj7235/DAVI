@@ -74,7 +74,7 @@
 											style=" margin:5px; width: 30px; height: 30px; "/> 
 											<div style ="margin-top: 6px;">
 												<span>아이디를 찾으세요? > </span>
-												<a href="join.jsp">아이디 찾기</a>
+												<a href="${pageContext.request.contextPath}/member/findId.me">아이디 찾기</a>
 											</div>
 										</div>
 										</div>
