@@ -1,7 +1,6 @@
 package com.davi.app.member;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,28 +20,19 @@ public class MemberPayListOkAction implements Action{
 		
 		ActionForward forward = new ActionForward();
 		MemberDAO m_dao = new MemberDAO();
-		DaviPayVO p_vo = new DaviPayVO();
 		
 		HttpSession session = req.getSession();
 				
 		String memberId = (String)session.getAttribute("session_id"); 
 		
 		List<DaviPayVO> payList = new ArrayList<DaviPayVO>();
+		
 		payList = m_dao.getPaymentList(memberId);
-		
-		for (int i = 0; i < payList.size(); i++) {
-			String setDate = payList.get(i).getPayDate().substring(0,11);
-			payList.get(i).setPayDate(setDate);
-		}
-		
-		
-		
 		
 		req.setAttribute("payList", payList);
 		System.out.println(payList.get(0).getMemberId());
 		System.out.println(payList.get(0).getProduct());
 		System.out.println(payList.get(0).getPrice());
-		System.out.println(payList.get(0).getPayDate());
 		
 		forward.setRedirect(false);
 		forward.setPath("/member/memberPayList.me");
