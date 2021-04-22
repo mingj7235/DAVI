@@ -225,14 +225,6 @@ public class MemberFrontController extends HttpServlet{
 			forward.setPath("/app/dietary/payList.jsp");
 			
 			break;
-
-		case "/member/memberPayDetail.me" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/app/dietary/payDetail.jsp");
-			
-			break;
-
 		
 		case "/member/payInput.me" :
 			try {
@@ -249,7 +241,6 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			break;
-
 			
 			
 		default:
