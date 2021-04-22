@@ -140,6 +140,10 @@
 	(PAYNUM, MEMBERID, MEMBERNAME, MEMBERPHONE, MEMBEREMAIL, MEMBERZIPCODE, MEMBERADDRESS, MEMBERADDRESSDETAIL, PAYDATE, PRODUCT, PRICE) 
 	VALUES(DAVI_PAY_SEQ.NEXTVAL, #{memberId}, #{memberName}, #{memberPhone}, #{memberEmail}, #{memberZipcode}, #{memberAddress},#{memberAddressDetail},SYSDATE, #{product}, #{price})
 	</insert>
+	
+	<select id="getPaymentList" parameterType="string" resultType="DaviPayVO">
+	SELECT * FROM DAVI_PAY WHERE MEMBERID = #{memberId}	
+	</select>
 
 </mapper>
 
