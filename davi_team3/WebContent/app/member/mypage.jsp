@@ -109,6 +109,12 @@
 			}else if(result == "false"){
 				alert ('내정보 수정 실패');
 			}
+			
+			var listCheck = '${param.listCheck}'
+			
+			if(listCheck == "fail") {
+				alert ('조회된 결제내역이 없습니다. ')
+			}
 		
 			
 			

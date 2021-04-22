@@ -30,27 +30,25 @@ public class MemberPayListOkAction implements Action{
 		List<DaviPayVO> payList = new ArrayList<DaviPayVO>();
 		
 		if(m_dao.getPaymentList(memberId).size() == 0) {
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/app/member/mypage.jsp?listCheck=fail");
+		} else {
+			payList = m_dao.getPaymentList(memberId);
+			
+			for (int i = 0; i < payList.size(); i++) {
+				String setDate = payList.get(i).getPayDate().substring(0,11);
+				payList.get(i).setPayDate(setDate);
+			}
+			
+			req.setAttribute("payList", payList);
+			System.out.println(payList.get(0).getMemberId());
+			System.out.println(payList.get(0).getProduct());
+			System.out.println(payList.get(0).getPrice());
+			System.out.println(payList.get(0).getPayDate());
+			
 			forward.setRedirect(false);
 			forward.setPath("/member/memberPayList.me");
 		}
-		
-		payList = m_dao.getPaymentList(memberId);
-		
-		for (int i = 0; i < payList.size(); i++) {
-			String setDate = payList.get(i).getPayDate().substring(0,11);
-			payList.get(i).setPayDate(setDate);
-		}
-		
-		req.setAttribute("payList", payList);
-		System.out.println(payList.get(0).getMemberId());
-		System.out.println(payList.get(0).getProduct());
-		System.out.println(payList.get(0).getPrice());
-		System.out.println(payList.get(0).getPayDate());
-		
-		forward.setRedirect(false);
-		forward.setPath("/member/memberPayList.me");
-		
-		
 		
 		return forward;
 	}
