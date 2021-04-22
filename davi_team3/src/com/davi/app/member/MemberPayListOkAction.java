@@ -28,15 +28,18 @@ public class MemberPayListOkAction implements Action{
 		String memberId = (String)session.getAttribute("session_id"); 
 		
 		List<DaviPayVO> payList = new ArrayList<DaviPayVO>();
+		
+		if(m_dao.getPaymentList(memberId).size() == 0) {
+			forward.setRedirect(false);
+			forward.setPath("/member/memberPayList.me");
+		}
+		
 		payList = m_dao.getPaymentList(memberId);
 		
 		for (int i = 0; i < payList.size(); i++) {
 			String setDate = payList.get(i).getPayDate().substring(0,11);
 			payList.get(i).setPayDate(setDate);
 		}
-		
-		
-		
 		
 		req.setAttribute("payList", payList);
 		System.out.println(payList.get(0).getMemberId());

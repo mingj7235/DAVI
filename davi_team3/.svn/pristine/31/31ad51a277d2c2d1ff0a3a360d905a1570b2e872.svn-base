@@ -175,7 +175,7 @@
 								</p>
 							</article>
 							<article>
-								<span class="image"><img src="${pageContext.request.contextPath}/app/footer/img/kko.png" alt=""></span>
+								<span class="image"><img src="${pageContext.request.contextPath}/app/footer/img/kko.jpeg" alt=""></span>
 								<p class="makerProfile" > 
 									<strong class="name">강경오</strong>
 									<span class="title">Etiam feugiat adipiscing veroeros</span>
