@@ -219,7 +219,7 @@
 										<div style="display:flex; justify-content:space-between; width:80%; margin:auto; padding:3% 3%;">
 										</div>
 									</div>
-									<div class="hideme_right" style="width:40%; padding:2%; border:1px solid rgba(0, 59, 251, 1);">
+									<div class="hideme_right" style="width:40%; padding:2%; border:1px solid #1290ff;">
 										<img alt="" 
 										src="https://cdn.discordapp.com/attachments/821644547493986328/829734798318239794/unknown.png"
 										style="width:100%; margin-bottom:5%; height:600px;">

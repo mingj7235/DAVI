@@ -45,7 +45,7 @@ public class MailSend {
 			} catch (UnsupportedEncodingException e) {;}
 			// 메일 내용 
 			message.setContent( 
-				"<a href=\"http://localhost:8085/davi_team3/member/changePw.me?docking="+docking+"&email="+email+"\">비밀번호 변경 페이지</a>",
+				"<a href=\"http://localhost:8084/davi_team3/member/changePw.me?docking="+docking+"&email="+email+"\">비밀번호 변경 페이지</a>",
 				"text/html; charset=utf-8");
 			
 			Transport.send(message); 
@@ -92,7 +92,7 @@ public class MailSend {
 		} catch (UnsupportedEncodingException e) {;}
 		
 		// 메일 내용
-		msg.setContent("<a href=\"http://localhost:8085/davi_team3/member/changePw.me?docking="+docking+"&email="+email+"\">비밀번호 변경 페이지</a>",
+		msg.setContent("<a href=\"http://localhost:8084/davi_team3/member/changePw.me?docking="+docking+"&email="+email+"\">비밀번호 변경 페이지</a>",
 				"text/html; charset=utf-8");
 		msg.setSentDate(new Date());
 		Transport.send(msg);

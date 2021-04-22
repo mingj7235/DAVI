@@ -12,7 +12,34 @@
 		<title>기본 프레임</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />				
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />		
+		<style>
+		
+		.textTitle {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom:5%; 
+			margin-top:5%;
+			font-size: 1.1em;			
+		
+		}
+		
+		.textMain {
+			display: flex;
+			justify-content: space-between;
+			color: #7F888F;
+			font-size: 0.9em;
+		}
+		
+		.textMainBox {
+			margin: 0 4%;
+		}
+		
+		
+		</style>
+		
+		
+				
 	</head>
 	<body class="is-preload">
 	
@@ -40,31 +67,45 @@
 					
 
 							<!-- Content -->
-								<section>
+								<section style="margin-top: -4%;">
 								<form>
-								<div style="width:80%;margin: auto; margin-bottom:15%;">
+								<div style="width:80%; margin:0 auto; margin-bottom:4%;">
 									<h3>주문/결제 금액 정보</h3>
 									<hr style="margin:0 auto;">
 									<div style="display:flex; justify-content:space-between;">
 										<div style="width:25%; height:250px; border-right:solid 1px rgba(210, 215, 217, 0.75);">
-											<div style="margin-bottom:5%; margin-top:5%;">주문금액</div>
-											<div>상품금액 ${price}</div>
-											<div>상품금액 </div>
-											<div>배송비</div>
-											<div>주문금액</div>
+											<div class="textTitle">
+												<span>주문금액</span>
+											</div>
+											<div class="textMainBox">
+												<div class="textMain">
+													<span>상품금액</span> 
+													<span>${price}원</span> 
+												</div>
+												<div class="textMain">
+													<span>쿠폰할인</span> 
+													<span>0원</span> 
+												</div>
+												<div class="textMain">
+													<span>배송비</span> 
+													<span>0원</span> 
+												</div>
+												<div class="textMain">
+													<span>주문금액</span> 
+													<span>${price}원</span> 
+												</div>
+											</div>
 										</div>
 										<div style="width:25%; height:250px; ">
 											<div style="margin-bottom:5%; margin-top:5%;">결제상세</div>
-											<div>상품금액</div>
-											<div>배송비</div>
 										</div>
 										<div style="width:40%; height:250px; background-color: #1290ff " >
-											<div style="margin-bottom:5%; margin-top:5%;color:white">결제상세</div>
+											<div class="textTitle" style="margin-bottom:5%; margin-top:5%;color:white">결제상세</div>
 											<div style="color:white">상품금액</div>
 											<div style="color:white">배송비</div>
 										</div>
 									</div>
-									<div style="display:flex; justify-content:space-between;">
+									<!-- <div style="display:flex; justify-content:space-between;">
 										<div style="width:25%; height:500px; border-right:solid 1px rgba(210, 215, 217, 0.75);">
 											<div style="margin-bottom:5%; margin-top:5%;">주문금액</div>
 											<div>상품금액</div>
@@ -79,7 +120,7 @@
 										<div style="width:40%; height:500px; background-color: #1290ff " >											
 										</div>
 									</div>
-								</div>
+ -->								</div>
 								<div style="width:80%;margin: auto; ">
 									<h3>배송지 정보</h3>
 									<hr>
