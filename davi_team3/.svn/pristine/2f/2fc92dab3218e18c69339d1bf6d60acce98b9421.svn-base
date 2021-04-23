@@ -121,15 +121,6 @@
 				color:white !important;
 			}
 			
-			.myPageBtn {
-				box-shadow: inset 0 0 0 2px #1290ff !important;
-				background-color:#1290ff !important;
-				color:white !important;
-				width:30%; 
-				margin:1% auto; 
-				font-size: 1em;
-			}
-			
 			
 			
 			
@@ -160,17 +151,17 @@
 										<div style="text-align: center;">
 											<hr style="width: 30%; margin: 1% auto;">
 											<div>
-												<a href ="${pageContext.request.contextPath}/member/myPageUpdate.me" class="button myPageBtn" style="color:white !important" >내 정보 수정</a>
+												<a href ="${pageContext.request.contextPath}/member/myPageUpdate.me" class="button" style="width:30%; margin:1% auto; font-size: 1em;" >내 정보 수정</a>
 											</div>
 											<div>
-												<a href ="${pageContext.request.contextPath}/member/myPageChangePw.me" class="button myPageBtn" style="color:white !important" >비밀번호 변경</a>
+												<a href ="${pageContext.request.contextPath}/member/myPageChangePw.me" class="button" style="width:30%; margin:1% auto; font-size: 1em;" >비밀번호 변경</a>
 											</div>
 											<div>
 											<c:if test="${listCheck eq 'fail'}">
-												<button type="button" id = "alert" class="button payListBtn myPageBtn" style="color:white !important">결제 내역 조회</button>
+												<button type="button" id = "alert" class="button payListBtn" style="width:30%; margin:1% auto; font-size: 1em;">결제 내역 조회</button>
 											</c:if>
 											<c:if test="${listCheck eq 'success'}">
-												<a href ="${pageContext.request.contextPath}/member/memberPayListOk.me" class="button myPageBtn" style="color:white !important" >결제 내역 조회</a>
+												<a href ="${pageContext.request.contextPath}/member/memberPayListOk.me" class="button" style="width:30%; margin:1% auto; font-size: 1em;" >결제 내역 조회</a>
 											</c:if>
 												<!-- <button type ="button" id = "alert" class="button payListBtn" style="display:none; width:30%; margin:1% auto; font-size: 1em;" >결제 내역 조회</button> -->
 											</div>
