@@ -63,29 +63,26 @@
 	</update>
 	
 	<insert id="replyInsert" parameterType="freeReplyVO">
-		INSERT INTO DAVI_FREE_REPLY
-		(FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE, PARENTREPLYID)
+		INSERT INTO DAVI_FREE_REPLY 
+		(FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE, PARENTREPLYID) 
 		VALUES(#{freeNum}, FREE_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{freeReplyContent}, SYSDATE, #{parentReplyId})
 	</insert>
 	
 	<select id="replyList" parameterType="_int" resultType="freeReplyVO">
-		SELECT FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE , PARENTREPLYID 		
+		SELECT FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE , PARENTREPLYID 
 		FROM (SELECT * FROM DAVI_FREE_REPLY WHERE FREENUM = #{freeNum}) 
 		START WITH PARENTREPLYNUM = 0 
 		CONNECT BY PRIOR FREEREPLYNUM = PARENTREPLYNUM ORDER SIBLINGS BY FREEREPLYNUM
 	</select>
 	
 	<delete id="replyDelete" parameterType="_int">
-		DELETE DAVI_FREE_REPLY WHERE FREEREPLYNUM = #{freeReplyNum}
+		DELETE DAVI_FREE_REPLY WHERE FREEREPLYNUM = #{freeReplyNum} OR PARENTREPLYNUM = #{freeReplyNum}
 	</delete>
 	
 	<update id="replyUpdate" parameterType="freeReplyVO">
 		UPDATE DAVI_FREE_REPLY SET FREEREPLYCONTENT = #{freeReplyContent} WHERE FREEREPLYNUM = #{freeReplyNum}
-	</update>
+	</update>	
 	
-	<delete id="reReplyDelete" parameterType="_int">
-		DELETE DAVI_FREE_REPLY WHERE PARENTREPLYNUM = #{freeReplyNum}
-	</delete>
 	<select id="parentNumToId" parameterType="string" resultType="string">
 		SELECT MEMBERID FROM DAVI_FREE_REPLY WHERE FREEREPLYNUM = #{parentReplyNum}
 	</select>	

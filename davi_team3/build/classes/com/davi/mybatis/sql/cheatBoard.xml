@@ -47,12 +47,12 @@
 			
 	<select id="getBoardCntSelectTitle" parameterType="map" resultType="_int">
 		SELECT COUNT(*) FROM 
-			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND CHEATTITLE LIKE #{cheatTitle} )		
+			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND CHEATTITLE LIKE #{cheatTitle} )
 	</select>	
 		
 	<select id="getBoardCntSelectId" parameterType="map" resultType="_int">
 		SELECT COUNT(*) FROM 
-			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND MEMBERID LIKE #{memberId})		
+			(SELECT * FROM DAVI_CHEAT_BOARD WHERE CHEATHEAD LIKE #{cheatHead} AND MEMBERID LIKE #{memberId})
 	</select>		
 	
 	<insert id="replyInsert" parameterType="cheatReplyVO">
@@ -67,6 +67,14 @@
 		START WITH PARENTREPLYNUM = 0 
 		CONNECT BY PRIOR CHEATREPLYNUM = PARENTREPLYNUM ORDER SIBLINGS BY CHEATREPLYNUM
 	</select>
+	
+	<delete id="replyDelete" parameterType="_int">
+		DELETE DAVI_CHEAT_REPLY WHERE CHEATREPLYNUM = #{cheatReplyNum} OR PARENTREPLYNUM = #{cheatReplyNum}
+	</delete>
+	
+	<update id="replyUpdate" parameterType="cheatReplyVO">
+		UPDATE DAVI_CHEAT_REPLY SET CHEATREPLYCONTENT = #{cheatReplyContent} WHERE CHEATREPLYNUM = #{cheatReplyNum}
+	</update>	
 	
 	<select id="parentNumToId" parameterType="string" resultType="string">
 		SELECT MEMBERID FROM DAVI_CHEAT_REPLY WHERE CHEATREPLYNUM = #{parentReplyNum}
