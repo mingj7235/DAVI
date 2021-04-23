@@ -78,11 +78,9 @@ public class MemberFrontController extends HttpServlet{
 			break;
 			//화원정보 페이지 이동
 		case "/member/myPage.me" :
-			String listCheck = req.getParameter("listCheck");
-			System.out.println(listCheck);
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/app/member/mypage.jsp?" + (listCheck.equals("fail") ? "listCheck=fail" : "listCheck=success"));
+			forward.setPath("/app/member/mypage.jsp");
 			
 			break;
 		case "/member/myPageUpdate.me" :

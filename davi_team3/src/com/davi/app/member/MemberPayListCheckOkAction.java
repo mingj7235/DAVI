@@ -13,7 +13,7 @@ import com.davi.action.ActionForward;
 import com.davi.app.member.dao.MemberDAO;
 import com.davi.app.member.vo.DaviPayVO;
 
-public class MemberPayListOkAction implements Action{
+public class MemberPayListCheckOkAction implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
 		req.setCharacterEncoding("UTF-8");
@@ -26,29 +26,16 @@ public class MemberPayListOkAction implements Action{
 		HttpSession session = req.getSession();
 				
 		String memberId = (String)session.getAttribute("session_id"); 
-		
 		List<DaviPayVO> payList = new ArrayList<DaviPayVO>();
 		
-//		if(m_dao.getPaymentList(memberId).size() == 0) {
-//			forward.setRedirect(true);
-//			forward.setPath(req.getContextPath() + "/app/member/mypage.jsp?listCheck=fail");
-//		} else {
-			payList = m_dao.getPaymentList(memberId);
-			
-			for (int i = 0; i < payList.size(); i++) {
-				String setDate = payList.get(i).getPayDate().substring(0,11);
-				payList.get(i).setPayDate(setDate);
-			}
-			
-			req.setAttribute("payList", payList);
-			System.out.println(payList.get(0).getMemberId());
-			System.out.println(payList.get(0).getProduct());
-			System.out.println(payList.get(0).getPrice());
-			System.out.println(payList.get(0).getPayDate());
-			
+		if(m_dao.getPaymentList(memberId).size() == 0) {
 			forward.setRedirect(false);
-			forward.setPath("/member/memberPayList.me");
-//		}
+			forward.setPath("/member/myPage.me?listCheck=fail");
+		} else {
+			forward.setRedirect(false);
+			forward.setPath("/member/myPage.me?listCheck=success");
+		}
+		
 		
 		return forward;
 	}

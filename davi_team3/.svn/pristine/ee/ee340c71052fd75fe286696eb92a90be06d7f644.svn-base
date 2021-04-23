@@ -157,12 +157,7 @@
 												<a href ="${pageContext.request.contextPath}/member/myPageChangePw.me" class="button" style="width:30%; margin:1% auto; font-size: 1em;" >비밀번호 변경</a>
 											</div>
 											<div>
-											<c:if test="${listCheck eq 'fail'}">
-												<button type="button" id = "alert" class="button payListBtn" style="width:30%; margin:1% auto; font-size: 1em;">결제 내역 조회</button>
-											</c:if>
-											<c:if test="${listCheck eq 'success'}">
-												<a href ="${pageContext.request.contextPath}/member/memberPayListOk.me" class="button" style="width:30%; margin:1% auto; font-size: 1em;" >결제 내역 조회</a>
-											</c:if>
+												<button type="button" id = "alert" class="button payListBtn" style="width:30%; margin:1% auto; font-size: 1em;" onclick ="payListCheck()">결제 내역 조회</button>
 												<!-- <button type ="button" id = "alert" class="button payListBtn" style="display:none; width:30%; margin:1% auto; font-size: 1em;" >결제 내역 조회</button> -->
 											</div>
 											<hr style="width: 30%; margin: 1% auto;">
