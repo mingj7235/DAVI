@@ -92,9 +92,14 @@
 				visibility: visible;
 			}
 			
+			.animation-init{
+				opacity: 0;
+			}
 			
-			
-			
+			.animation-fade {
+				opacity: 1;
+				transition: all 1s;
+			}			
 			
 		</style>
 		

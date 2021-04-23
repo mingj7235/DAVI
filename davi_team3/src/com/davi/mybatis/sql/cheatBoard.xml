@@ -4,7 +4,7 @@
 <mapper namespace="CheatBoard">
 
 	<insert id="cheatWrite" parameterType="boardCheatVO">
-		INSERT INTO DAVI_CHEAT_BOARD VALUES(CHEAT_SEQ.NEXTVAL, #{memberId},#{cheatHead}, #{cheatTitle}, #{cheatContent},SYSDATE)
+		INSERT INTO DAVI_CHEAT_BOARD VALUES(CHEAT_SEQ.NEXTVAL, #{cheatHead}, #{memberId}, #{cheatTitle}, #{cheatContent},SYSDATE)
 	</insert>
 	
 	<select id="getDetail" parameterType="_int" resultType="boardCheatVO">
@@ -56,7 +56,7 @@
 	</select>		
 	
 	<insert id="replyInsert" parameterType="cheatReplyVO">
-		INSERT INTO HR.DAVI_CHEAT_REPLY 
+		INSERT INTO DAVI_CHEAT_REPLY 
 		(CHEATNUM, CHEATREPLYNUM, PARENTREPLYNUM, MEMBERID, CHEATREPLYCONTENT, CHEATREPLYDATE, PARENTREPLYID) 
 		VALUES(#{cheatNum},CHEAT_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{cheatReplyContent}, SYSDATE, #{parentReplyId})
 	</insert>

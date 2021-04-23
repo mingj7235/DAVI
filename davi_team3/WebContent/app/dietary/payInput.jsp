@@ -245,6 +245,11 @@
 					alert("동의를 하셔야 결제가 진행됩니다.");
 				}
 			})	
+			
+			$("#btnCancel").click(function() {
+				alert('결제를 취소하셨습니다 😰');
+				location.href=contextPath + "/member/weekMenu.me";
+			});
 				
 			</script>
 	</body>

@@ -63,9 +63,9 @@
 	</update>
 	
 	<insert id="replyInsert" parameterType="freeReplyVO">
-		INSERT INTO HR.DAVI_FREE_REPLY
+		INSERT INTO DAVI_FREE_REPLY
 		(FREENUM, FREEREPLYNUM, PARENTREPLYNUM, MEMBERID, FREEREPLYCONTENT, FREEREPLYDATE, PARENTREPLYID)
-		VALUES(#{freeNum}, FREE_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{freeReplyContent}, SYSDATE, #{parentReplyId})		
+		VALUES(#{freeNum}, FREE_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{freeReplyContent}, SYSDATE, #{parentReplyId})
 	</insert>
 	
 	<select id="replyList" parameterType="_int" resultType="freeReplyVO">

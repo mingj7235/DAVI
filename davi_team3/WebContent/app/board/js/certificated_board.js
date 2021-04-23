@@ -104,6 +104,10 @@ var check = true;
           var newDIV = document.createElement("div");
           newDIV.innerHTML = text;
           document.getElementById("listAJAX").appendChild(newDIV); 
+          newDIV.classList.add("animation-init");
+          setTimeout(function(){
+        	  newDIV.classList.add("animation-fade");
+          },30);
           check = true;
           certificatedNum = certificatedNum +2;         
        } 
@@ -115,9 +119,10 @@ var check = true;
           if(winH > postFromBottom){
              if(check){
                 check = false;
-                setTimeout(function(){
+               /* setTimeout(function(){
                    getList();
-                },500);
+                },500);*/
+                getList();
              }
           }
        });
