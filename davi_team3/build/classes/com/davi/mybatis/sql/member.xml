@@ -65,14 +65,14 @@
 		SELECT (CONCAT(TO_CHAR(SYSDATE, 'YYYY'), TO_CHAR(SYSDATE,'IW'))) FROM DUAL
 	</select>
 	
-	<select id="getBodyWeightThisWeek" parameterType="map" resultType="_int">
+	<select id="getBodyWeightThisWeek" parameterType="map" resultType="_double">
 		SELECT BODYWEIGHT FROM 
 		(SELECT * FROM DAVI_BODY WHERE MEMBERID = 
 		#{memberId} AND BODYWEEK = #{thisWeek} ORDER BY MEMBERNUM DESC) 
 		WHERE ROWNUM =1
 	</select>
 	
-	<select id="getBodyWeightLastWeek" parameterType="map" resultType="_int">
+	<select id="getBodyWeightLastWeek" parameterType="map" resultType="_double">
 		SELECT BODYWEIGHT FROM 
 		(SELECT * FROM DAVI_BODY WHERE MEMBERID = 
 		#{memberId} AND BODYWEEK = #{lastWeek} ORDER BY MEMBERNUM DESC) 
@@ -93,7 +93,7 @@
 		WHERE MEMBERID = #{memberId} AND TO_CHAR(BODYDATE,'MM-DD') = TO_CHAR(SYSDATE, 'MM-DD')
  	</select>
  	
- 	<select id="getDailyRate" parameterType="string" resultType="_int">
+ 	<select id="getDailyRate" parameterType="string" resultType="_double">
  		SELECT MEMBERRATE FROM 
 		(SELECT * FROM DAVI_BODY ORDER BY BODYDATE DESC) 
 		WHERE MEMBERID = #{memberId} AND TO_CHAR(BODYDATE,'MM-DD') = TO_CHAR(SYSDATE, 'MM-DD')

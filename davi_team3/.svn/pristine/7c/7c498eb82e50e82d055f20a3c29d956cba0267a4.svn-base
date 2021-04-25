@@ -71,7 +71,7 @@ public class BoardFreeViewOkAction implements Action {
 				
 			}
 			
-			for (int i = 0; i <= lists.size(); i++) {
+			for (int i = 0; i < lists.size() + 1; i++) {
 				
 				if(i == lists.size()) {
 					reReplyCntList.add(reReplyCount);
