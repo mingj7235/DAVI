@@ -12,13 +12,31 @@
 		<title>기본 프레임</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />				
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />	
+		<style>
+			.main_box {
+				width: 200px;
+				height : 200px;
+				background-color: #1290FF;
+				color : white !important
+			}
+		
+		</style>			
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-		<div>
-		로그인
+		<div class="main_box">
+			<div>
+				<div>
+					식단 관리 받으러가기
+				</div>
+				<div>
+					내 보고서 받아보기
+				</div>
+				
+				
+			</div>
 		
 		</div>
 		<!-- Scripts -->

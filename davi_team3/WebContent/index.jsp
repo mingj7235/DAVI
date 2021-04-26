@@ -80,6 +80,7 @@
 				top: 0;
 				right:0;
 				margin-top: 20px;
+				margin-right: 20px;
 			}
 			
 
