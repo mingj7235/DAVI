@@ -12,7 +12,7 @@
 		<title>기본 프레임</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />	
 		<style>
 			.main_box {
 				width: 200px;
@@ -62,7 +62,7 @@
 			}
 			
 				
-		</style>		
+		</style>			
 	</head>
 	<body class="is-preload">
 
@@ -73,28 +73,37 @@
 					<i class="fas fa-id-card-alt"></i>
 				</div>
 				<div class = "main_menus">
-					<a href="${pageContext.request.contextPath}/app/member/join_before.jsp" class = "main_menu_a">
+					<a href="${pageContext.request.contextPath}/member/weekMenu.me" class = "main_menu_a">
 						<div class = "main_menu">
 							<div>
-								회원가입
+								식단 관리
 							</div>
 							<div class = "menu_icons">
-								<i class="fas fa-user-edit"></i>
+								<i class="fas fa-utensils"></i>
 							</div>
 						</div>
 					</a>
-					<a href="${pageContext.request.contextPath}/app/member/login.jsp" class = "main_menu_a">
+					<a href="${pageContext.request.contextPath}/member/reportView.me" class = "main_menu_a">
 						<div class = "main_menu">
 							<div>
-								로그인
+								보고서
 							</div>
 							<div class = "menu_icons">
-								<i class="fas fa-sign-in-alt"></i>
+								<i class="fas fa-calendar-week"></i>
 							</div>
 						</div>
 					</a>
 					
-					
+					<a href="${pageContext.request.contextPath}/member/logoutOk.me" class = "main_menu_a">
+						<div class = "main_menu">
+							<div>
+								로그아웃 
+							</div>
+							<div class = "menu_icons">
+								<i class="fas fa-sign-out-alt"></i>
+							</div>
+						</div>
+					</a>
 				</div>
 				
 				<div class="bottom_menus">
