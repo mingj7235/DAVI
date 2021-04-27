@@ -14,6 +14,8 @@
 		<typeAlias type="com.davi.app.board.vo.CertificatedReplyVO" alias="certificatedReplyVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardCheatReplyVO" alias="cheatReplyVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardFreeReplyVO" alias="freeReplyVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardQnaReplyVO" alias="qnaReplyVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardQnaVO" alias="qnaVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -32,5 +34,6 @@
 		<mapper resource="com/davi/mybatis/sql/freeBoard.xml"/>		
 		<mapper resource="com/davi/mybatis/sql/cheatBoard.xml"/>		
 		<mapper resource="com/davi/mybatis/sql/certificatedBoard.xml"/>		
+		<mapper resource="com/davi/mybatis/sql/qnaBoard.xml"/>		
 	</mappers>
 </configuration>
