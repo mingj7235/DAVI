@@ -57,4 +57,17 @@
 	<select id="selectTitle" parameterType="string" resultType="string">
 		SELECT QNATITLE FROM DAVI_QNA_BOARD WHERE QNANUM = #{qnaNum}
 	</select>
+	
+	<insert id="insertWarning" parameterType="warningVO">
+		INSERT INTO HR.DAVI_WARNING 
+		(WARNINGNUM, MEMBERID, WARNINGCONTENT, WARNINGDATE) 
+		VALUES(WARNING_SEQ.NEXTVAL, #{memberId}, #{warningContent}, SYSDATE)
+	</insert>
+	
+	<select id="listWarning" parameterType="map" resultType="warningVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM 
+				(SELECT * FROM DAVI_WARNING ORDER BY MEMBERID, WARNINGNUM DESC) D) F
+		WHERE F.R BETWEEN #{startRow} AND #{endRow} 
+	</select>
 </mapper>

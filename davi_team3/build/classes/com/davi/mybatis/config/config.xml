@@ -16,6 +16,7 @@
 		<typeAlias type="com.davi.app.board.vo.BoardFreeReplyVO" alias="freeReplyVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardQnaReplyVO" alias="qnaReplyVO"/>
 		<typeAlias type="com.davi.app.board.vo.BoardQnaVO" alias="qnaVO"/>
+		<typeAlias type="com.davi.app.board.vo.BoardWarningVO" alias="warningVO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
