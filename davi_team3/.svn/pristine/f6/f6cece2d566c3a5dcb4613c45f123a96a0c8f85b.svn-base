@@ -23,12 +23,12 @@ public class BoardQnaWriteOkAction implements Action {
 		qvo.setQnaHead(req.getParameter("qnaHead"));
 		qvo.setMemberId(req.getParameter("memberId"));
 		qvo.setQnaTitle(req.getParameter("qnaTitle"));
-		qvo.setQnaContent(req.getParameter("qnaContent"));		
+		qvo.setQnaContent(req.getParameter("qnaContent"));
 		
-		if(req.getParameter("qnaPassword") != null) {			
-			qvo.setQnaPassword(req.getParameter("qnaPassword"));
-		}else {			
-			qvo.setQnaPassword("");
+		if(req.getParameter("password") != null) {			
+			qvo.setPassword(req.getParameter("password"));
+		}else {
+			qvo.setPassword(null);
 		}
 		
 		if(req.getParameter("qnaHead").equals("공지")) {

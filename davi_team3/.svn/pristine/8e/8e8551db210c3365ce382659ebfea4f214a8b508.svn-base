@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QnaBoard">
+	<insert id="qnaWrite" parameterType="qnaVO">
+		INSERT INTO DAVI_QNA_BOARD VALUES(DAVI_QNA_SEQ.NEXTVAL, #{qnaHead}, #{memberId}, #{qnaTitle}, 
+		#{qnaContent}, SYSDATE, #{qnaNotice}, #{qnaPassword})
+	</insert>	
+	<select id="listAll" parameterType="map" resultType="qnaVO">
+		SELECT * FROM 
+			(SELECT ROWNUM R, D.* FROM 
+				(SELECT * FROM DAVI_QNA_BOARD ORDER BY QNANOTICE, QNANUM DESC) D) F 
+		WHERE F.R BETWEEN #{startRow} AND #{endRow} 
+	</select>
+	<delete id="deleteQna" parameterType="_int">
+		DELETE FROM DAVI_QNA_BOARD WHERE QNANUM = #{QNANUM}
+	</delete>	
+	<select id="checkReply" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM DAVI_QNA_REPLY WHERE QNANUM = #{qnaNum}
+	</select>
+</mapper>
