@@ -9,7 +9,7 @@
 	<select id="listAll" parameterType="map" resultType="qnaVO">
 		SELECT * FROM 
 			(SELECT ROWNUM R, D.* FROM 
-				(SELECT * FROM DAVI_QNA_BOARD ORDER BY QNANOTICE, QNANUM DESC) D) F 
+				(SELECT * FROM DAVI_QNA_BOARD WHERE QNAHEAD LIKE #{qnaHead} ORDER BY QNANOTICE, QNANUM DESC) D) F 
 		WHERE F.R BETWEEN #{startRow} AND #{endRow} 
 	</select>
 	<delete id="deleteQna" parameterType="_int">
@@ -17,5 +17,44 @@
 	</delete>	
 	<select id="checkReply" parameterType="_int" resultType="_int">
 		SELECT COUNT(*) FROM DAVI_QNA_REPLY WHERE QNANUM = #{qnaNum}
+	</select>
+	
+	<select id="getTotalCnt" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM 
+		(SELECT * FROM DAVI_QNA_BOARD WHERE QNAHEAD LIKE #{qnaHead})
+	</select>
+	<select id="qnaView" parameterType="string" resultType="qnaVO">
+		SELECT * FROM DAVI_QNA_BOARD WHERE QNANUM = #{qnaNum}
+	</select>
+	<select id="replyList" parameterType="string" resultType="qnaReplyVO">
+		SELECT QNANUM, QNAREPLYNUM, PARENTREPLYNUM, MEMBERID, QNAREPLYCONTENT, QNAREPLYDATE , PARENTREPLYID 
+		FROM (SELECT * FROM DAVI_QNA_REPLY WHERE QNANUM = #{qnaNum}) 
+		START WITH PARENTREPLYNUM = 0 
+		CONNECT BY PRIOR QNAREPLYNUM = PARENTREPLYNUM ORDER SIBLINGS BY QNAREPLYNUM
+	</select>
+	
+	<insert id="replyInsert" parameterType="qnaReplyVO">
+		INSERT INTO DAVI_QNA_REPLY
+		VALUES(#{qnaNum}, QNA_REPLY_SEQ.NEXTVAL, #{parentReplyNum}, #{memberId}, #{qnaReplyContent}, SYSDATE, #{parentReplyId})
+	</insert>
+	
+	<select id="parentNumToId" parameterType="string" resultType="string">
+		SELECT MEMBERID FROM DAVI_QNA_REPLY WHERE QNAREPLYNUM = #{parentReplyNum}
+	</select>	
+	
+	<delete id="replyDelete" parameterType="_int">
+		DELETE DAVI_QNA_REPLY WHERE QNAREPLYNUM = #{qnaReplyNum} OR PARENTREPLYNUM = #{qnaReplyNum}
+	</delete>
+	
+	<update id="replyUpdate" parameterType="freeReplyVO">
+		UPDATE DAVI_QNA_REPLY SET QNAREPLYCONTENT = #{qnaReplyContent} WHERE QNAREPLYNUM = #{qnaReplyNum}
+	</update>	
+	
+	<update id="updateTitle" parameterType="map">
+		UPDATE DAVI_QNA_BOARD SET QNATITLE = #{title} WHERE QNANUM = #{qnaNum}
+	</update>
+	
+	<select id="selectTitle" parameterType="string" resultType="string">
+		SELECT QNATITLE FROM DAVI_QNA_BOARD WHERE QNANUM = #{qnaNum}
 	</select>
 </mapper>
