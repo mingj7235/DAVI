@@ -144,6 +144,10 @@
 	<select id="getPaymentList" parameterType="string" resultType="DaviPayVO">
 	SELECT * FROM DAVI_PAY WHERE MEMBERID = #{memberId}	
 	</select>
+	
+	<select id="getComment" resultType="commentVO">
+		SELECT * FROM DAVI_COMMENT
+	</select>
 
 </mapper>
 
