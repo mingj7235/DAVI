@@ -3,13 +3,13 @@
 
 <mapper namespace="FreeBoard">
 	<insert id="freeWrite" parameterType="boardFreeVO">
-		INSERT INTO DAVI_FREE_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent}, SYSDATE)
+		INSERT INTO DAVI_FREE_BOARD VALUES(FREE_SEQ.NEXTVAL, #{freeHead}, #{memberId}, #{freeTitle}, #{freeContent}, SYSDATE, #{freeNotice})
 	</insert>
 	
 	<select id="listAll" parameterType="map" resultType="boardFreeVO">
 		SELECT * FROM 
 			(SELECT ROWNUM R, D.* FROM 
-				(SELECT * FROM DAVI_FREE_BOARD ORDER BY FREENUM DESC) D) F 
+				(SELECT * FROM DAVI_FREE_BOARD ORDER BY FREENOTICE, FREENUM DESC) D) F 
 		WHERE F.R BETWEEN #{startRow} AND #{endRow} 
 	</select>
 	<select id="listSearchHead" parameterType="map" resultType="boardFreeVO">
