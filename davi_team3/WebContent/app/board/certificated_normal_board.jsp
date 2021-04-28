@@ -250,7 +250,7 @@
 							
 							<!-- 본문  -->					
 							<div style="display : flex; justify-content: flex-start; height: auto; padding: 5px;">
-								<div id="" style="width: 20%;">${certificatedList[i].getMemberId()} </div>
+								<div id="" style="width: auto;">${certificatedList[i].getMemberId()} </div>
 								<div id="mainPreview_${certificatedList[i].getCertificatedNum()}" style="width: 70%;">${ContentSubStringList[i]}</div>
 								<div class="certificated_textarea" id="mainDetail_${certificatedList[i].getCertificatedNum()}" style="display: none; height: auto; border-bottom: none; width:70%;">${certificatedList[i].getCertificatedContent()}</div>
 								
@@ -282,7 +282,7 @@
 						</div>
 							<!-- 댓글 입력 칸 -->
 						<div style="display : flex; justify-content: flex-start; height: auto; padding: 5px; border: 1px solid rgba(164, 167, 170, 0.3); border-top : none;" >
-							<div style="width: 20%; padding-top: 5px; display:flex; align-items:center; padding:5px;">${session_id}</div>
+							<div style="width: auto; padding-top: 5px; display:flex; align-items:center; padding:5px;">${session_id}</div>
 							<input id="replyContents_${certificatedList[i].getCertificatedNum()}"type="text" placeholder="댓글을 작성해주세요" style="width:70%; border:0; border-bottom: none;"/>
 							<input type="button" value="등록" style="width:10%; margin: 0 5px; box-shadow: none; color: rgba(0, 59, 251, 0.3)!important" 
 								onclick="javascript:writeReply(${certificatedList[i].getCertificatedNum()}, '${session_id}')">
