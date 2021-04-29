@@ -59,7 +59,7 @@
 	</select>
 	
 	<insert id="insertWarning" parameterType="warningVO">
-		INSERT INTO HR.DAVI_WARNING 
+		INSERT INTO DAVI_WARNING 
 		(WARNINGNUM, MEMBERID, WARNINGCONTENT, WARNINGDATE) 
 		VALUES(WARNING_SEQ.NEXTVAL, #{memberId}, #{warningContent}, SYSDATE)
 	</insert>
@@ -70,4 +70,24 @@
 				(SELECT * FROM DAVI_WARNING ORDER BY MEMBERID, WARNINGNUM DESC) D) F
 		WHERE F.R BETWEEN #{startRow} AND #{endRow} 
 	</select>
+	
+	<delete id="deleteIdFree">
+		DELETE FROM DAVI_FREE_BOARD WHERE MEMBERID = #{memberId}
+	</delete>
+	
+	<delete id="deleteIdCheat">
+		DELETE FROM DAVI_CHEAT_BOARD WHERE MEMBERID = #{memberId}
+	</delete>
+	
+	<delete id="deleteIdCertificated">
+		DELETE FROM DAVI_CERTIFICATED_BOARD WHERE MEMBERID = #{memberId}
+	</delete>
+	
+	<delete id="deleteIdMember">
+		DELETE FROM DAVI_MEMBER WHERE MEMBERID = #{memberId}
+	</delete>
+	
+	<delete id="deleteIdQna">
+		DELETE FROM DAVI_QNA_BOARD WHERE MEMBERID = #{memberId}
+	</delete>
 </mapper>
